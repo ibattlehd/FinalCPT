@@ -1,3 +1,1 @@
-### Final CPT
-
-Game of the Generals - Marvel Edition
+# Game of the Generals - Marvel Edition
