@@ -32,6 +32,9 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	
 	theframe.setVisible(true);
 	
+	// Disable resizing for frame 
+	theframe.setResizable(false);
+	
 	thetimer.start();
 	
 	}
