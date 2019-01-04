@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class MarvelGameOfTheGenerals implements ActionListener{
 	// Properties
 	JFrame theframe = new JFrame("Game Of The Generals Marvel Edition");
-	JPanel thepanel = new JPanel();
+	MarvelGOTGPanel thepanel = new MarvelGOTGPanel();
 	Timer thetimer = new Timer(1000/60, this);
 	
 	
