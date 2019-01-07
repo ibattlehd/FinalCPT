@@ -13,7 +13,7 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	// Methods
 	public void actionPerformed(ActionEvent evt){
 		if(evt.getSource() == thetimer){
-			thepanel.repaint();
+			this.thepanel.repaint();
 		}	
 	}
 	
@@ -22,9 +22,13 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
+		////////////////////////////////////////////////////////////////
+		
 		this.thepanel = new MarvelGOTGPanel();
 		this.thepanel.setLayout(null);
 		this.thepanel.setPreferredSize(new Dimension(1280, 720));
+		
+		////////////////////////////////////////////////////////////////
 		
 		this.thetimer = new Timer(1000/60, this);
 		this.thetimer.start();
@@ -32,7 +36,6 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 		////////////////////////////////////////////////////////////////
 		
 		this.theframe = new JFrame("Game Of The Generals Marvel Edition");
-		
 		// Puts the panel inside the frame.
 		this.theframe.setContentPane(thepanel);
 		
@@ -46,7 +49,10 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 		this.theframe.setResizable(false);
 		
 		// Shows the frame.
-		this.theframe.setVisible(true);	
+		this.theframe.setVisible(true
+		
+		////////////////////////////////////////////////////////////////
+		
 	}
 	
 	
