@@ -49,7 +49,7 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 		this.theframe.setResizable(false);
 		
 		// Shows the frame.
-		this.theframe.setVisible(true
+		this.theframe.setVisible(true);
 		
 		////////////////////////////////////////////////////////////////
 		
