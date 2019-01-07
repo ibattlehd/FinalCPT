@@ -5,21 +5,23 @@ import javax.imageio.*;
 import java.io.*;
 
 public class MarvelGOTGPanel extends JPanel{
-
+	
 	// Properties
+	
 	
 	
 	// Methods
 	public void paintComponent(Graphics g){
-	
-	
 	}
+	
+	
 	
 	// Constructor
 	public MarvelGOTGPanel(){
 		super();
 	}
+	
+	
+	
 }
-	
-	
 	
