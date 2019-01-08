@@ -13,7 +13,7 @@ import java.io.*;
 * @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
 * @version 1.0
 */
-public class MarvelGameOfTheGenerals implements ActionListener{
+public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame theframe;
 	MarvelGOTGPanel thepanel;
@@ -23,8 +23,40 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	// Methods
 	public void actionPerformed(ActionEvent evt){ // Action listener
 		if(evt.getSource() == this.thetimer){
-			this.thepanel.repaint(); // Repaint the panel based on timer (60 fps)
+			this.thepanel.repaint(); // Repaint the panel based on timer (60 fps).
 		}	
+	}
+	
+	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
+		
+	}
+	
+	public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
+		
+	}
+	
+	public void keyReleased(KeyEvent evt){ // Called when a key is released.
+		
+	}
+	
+	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
+		
+	}
+	
+	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
+		
+	}
+	
+	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
+	
+	}
+	
+	public void mousePressed(MouseEvent evt){ // Called after the user presses a mouse button while the cursor is over the listened-to component.
+	
+	}
+	
+	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
+	
 	}
 	
 	
