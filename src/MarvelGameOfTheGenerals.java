@@ -13,7 +13,6 @@ import java.io.*;
 * @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
 * @version 1.0
 */
-
 public class MarvelGameOfTheGenerals implements ActionListener{
 	// Properties
 	JFrame theframe;
@@ -21,20 +20,16 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	Timer thetimer;
 	
 	
-	
 	// Methods
-	public void actionPerformed(ActionEvent evt){
-		if(evt.getSource() == thetimer){
-			this.thepanel.repaint();
+	public void actionPerformed(ActionEvent evt){ // Action listener
+		if(evt.getSource() == this.thetimer){
+			this.thepanel.repaint(); // Repaint the panel based on timer (60 fps)
 		}	
 	}
 	
 	
-	
 	// Constructor
 	public MarvelGameOfTheGenerals(){
-		
-		////////////////////////////////////////////////////////////////
 		
 		this.thepanel = new MarvelGOTGPanel();
 		this.thepanel.setLayout(null);
@@ -68,12 +63,10 @@ public class MarvelGameOfTheGenerals implements ActionListener{
 	}
 	
 	
-	
 	// Main Method
 	public static void main(String[] args){
 		new MarvelGameOfTheGenerals();
 	}
-	
 	
 	
 }

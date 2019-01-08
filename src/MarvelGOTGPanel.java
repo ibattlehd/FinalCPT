@@ -10,11 +10,9 @@ public class MarvelGOTGPanel extends JPanel{
 	// Properties
 	
 	
-	
 	// Methods
-	public void paintComponent(Graphics g){
+	public void paintComponent(Graphics g){ // Overriding JPanel paintComponent method
 	}
-	
 	
 	
 	// Constructor
@@ -22,7 +20,5 @@ public class MarvelGOTGPanel extends JPanel{
 		super();
 	}
 	
-	
-	
+		
 }
-	
