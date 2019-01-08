@@ -5,6 +5,15 @@ import java.awt.image.*;
 import javax.imageio.*;
 import java.io.*;
 
+/**
+* <h1>Game of the Generals - Marvel Edition</h1>
+* The Marvel edition of Game of the Generals in Java.
+* <p>
+* For more information visit https://ibattlehd.github.io/FinalCPT/
+* @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
+* @version 1.0
+*/
+
 public class MarvelGameOfTheGenerals implements ActionListener{
 	// Properties
 	JFrame theframe;
