@@ -25,6 +25,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	
 	// Methods
+	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
 		if(evt.getSource() == this.timer){
 			this.panel.repaint(); // Repaint the panel based on timer (60 fps).
@@ -44,22 +45,27 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 	}
 	
+	@Override
 	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
 		
 	}
 	
+	@Override
 	public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
 		
 	}
 	
+	@Override
 	public void keyReleased(KeyEvent evt){ // Called when a key is released.
 		
 	}
 	
+	@Override
 	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
 		
 	}
 	
+	@Override
 	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
 		if(evt.getSource() == this.buttonPlay){
 			this.buttonPlay.setBackground(Color.RED);
@@ -83,6 +89,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 	}
 	
+	@Override
 	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
 		if(evt.getSource() == this.buttonPlay){
 			this.buttonPlay.setBackground(Color.BLACK);
@@ -106,10 +113,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 	}
 	
+	@Override
 	public void mousePressed(MouseEvent evt){ // Called after the user presses a mouse button while the cursor is over the listened-to component.
 	
 	}
 	
+	@Override
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	
 	}
