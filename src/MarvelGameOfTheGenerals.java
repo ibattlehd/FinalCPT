@@ -136,7 +136,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.setBackground(Color.BLACK); // Set background to black
 		this.buttonPlay.setOpaque(true);
 		this.buttonPlay.setBorderPainted(false);
-		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
 		this.buttonPlay.setForeground(Color.WHITE); // Make text white
 		this.buttonPlay.addActionListener(this); // Add action listener to play button
 		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
@@ -149,7 +149,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonScores.setBackground(Color.BLACK); // Set background to black
 		this.buttonScores.setOpaque(true);
 		this.buttonScores.setBorderPainted(false);
-		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
 		this.buttonScores.setForeground(Color.WHITE); // Make text white
 		this.buttonScores.addActionListener(this); // Add action listener to high scores button
 		this.buttonScores.addMouseListener(this); // Add mouse listener to high scores button
@@ -162,7 +162,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonHelp.setBackground(Color.BLACK); // Set background to black
 		this.buttonHelp.setOpaque(true);
 		this.buttonHelp.setBorderPainted(false);
-		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
 		this.buttonHelp.setForeground(Color.WHITE); // Make text white
 		this.buttonHelp.addActionListener(this); // Add action listener to help button
 		this.buttonHelp.addMouseListener(this); // Add mouse listener to help button
@@ -175,7 +175,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonQuit.setBackground(Color.BLACK); // Set background to black
 		this.buttonQuit.setOpaque(true);
 		this.buttonQuit.setBorderPainted(false);
-		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
 		this.buttonQuit.setForeground(Color.WHITE); // Make text white
 		this.buttonQuit.addActionListener(this); // Add action listener to quit button
 		this.buttonQuit.addMouseListener(this); // Add mouse listener to quit button
