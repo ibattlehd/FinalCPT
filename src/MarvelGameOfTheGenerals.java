@@ -61,11 +61,33 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
-		
+		if(evt.getSource() == this.buttonPlay){
+			this.buttonPlay.setBackground(Color.RED);
+		}
+		if(evt.getSource() == this.buttonScores){
+			this.buttonScores.setBackground(Color.RED);
+		}
+		if(evt.getSource() == this.buttonHelp){
+			this.buttonHelp.setBackground(Color.RED);
+		}
+		if(evt.getSource() == this.buttonQuit){
+			this.buttonQuit.setBackground(Color.RED);
+		}
 	}
 	
 	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
-	
+		if(evt.getSource() == this.buttonPlay){
+			this.buttonPlay.setBackground(Color.BLACK);
+		}
+		if(evt.getSource() == this.buttonScores){
+			this.buttonScores.setBackground(Color.BLACK);
+		}
+		if(evt.getSource() == this.buttonHelp){
+			this.buttonHelp.setBackground(Color.BLACK);
+		}
+		if(evt.getSource() == this.buttonQuit){
+			this.buttonQuit.setBackground(Color.BLACK);
+		}
 	}
 	
 	public void mousePressed(MouseEvent evt){ // Called after the user presses a mouse button while the cursor is over the listened-to component.
@@ -95,40 +117,44 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
 		this.buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
 		this.buttonPlay.setFocusPainted(false); // Remove focus ring
-		this.buttonPlay.setBackground(Color.RED);
+		this.buttonPlay.setBackground(Color.BLACK); // Set background to black
 		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonPlay.setForeground(Color.WHITE); // Make text white
 		this.buttonPlay.addActionListener(this); // Add action listener to play button
+		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
 		this.panel.add(this.buttonPlay); // Add play button to the panel
 		
 		this.buttonScores = new JButton("High Scores"); // High scores button
 		this.buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
 		this.buttonScores.setLocation(540, 300); // x and y coordinates (540, 300)
 		this.buttonScores.setFocusPainted(false); // Remove focus ring
-		this.buttonScores.setBackground(Color.RED);
+		this.buttonScores.setBackground(Color.BLACK); // Set background to black
 		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonScores.setForeground(Color.WHITE); // Make text white
 		this.buttonScores.addActionListener(this); // Add action listener to high scores button
+		this.buttonScores.addMouseListener(this); // Add mouse listener to high scores button
 		this.panel.add(this.buttonScores); // Add high scores button to the panel
 		
 		this.buttonHelp = new JButton("Help"); // Help button
 		this.buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
 		this.buttonHelp.setLocation(540, 370); // x and y coordinates (540, 370)
 		this.buttonHelp.setFocusPainted(false); // Remove focus ring
-		this.buttonHelp.setBackground(Color.RED);
+		this.buttonHelp.setBackground(Color.BLACK); // Set background to black
 		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonHelp.setForeground(Color.WHITE); // Make text white
 		this.buttonHelp.addActionListener(this); // Add action listener to help button
+		this.buttonHelp.addMouseListener(this); // Add mouse listener to help button
 		this.panel.add(this.buttonHelp); // Add help button to the panel
 		
 		this.buttonQuit = new JButton("Quit"); // Quit button
 		this.buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
 		this.buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
 		this.buttonQuit.setFocusPainted(false); // Remove focus ring
-		this.buttonQuit.setBackground(Color.RED);
+		this.buttonQuit.setBackground(Color.BLACK); // Set background to black
 		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonQuit.setForeground(Color.WHITE); // Make text white
-		this.buttonQuit.addActionListener(this); // Add action listener to help button
+		this.buttonQuit.addActionListener(this); // Add action listener to quit button
+		this.buttonQuit.addActionListener(this); // Add mouse listener to quit button
 		this.panel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
