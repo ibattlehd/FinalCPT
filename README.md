@@ -5,6 +5,28 @@
 The Objective of the game is to eliminate the nexus of your opponent.
 
 ### THE PIECES
+### Heroes
+** -  indicates special piece
+
+*** -  indicates character has special ability
+
+Pieces |Power| No. of Pieces | Functions
+------ |-----| ------------- | ---------
+Thor*** |12|(x1)| Once Thor reaches other side of board, it can move twice everytime after
+Iron Man|11 |(x1)|
+Hulk|10 |(x1)|
+Dr Strange|9|(x1)|
+Captain America|8|(x1)|
+Black Panther*** |7 |(x1)|
+Spiderman*** |6|(x1)|
+Wanda|5 |(x1)|
+Star Lord|4 |(x1)|
+Hawkeye|3 |(x1)|
+Ant Man|2 |(x1)|
+Vision|1 |(x1)|
+Loki**|Special |(x2)| Can eliminate all pieces except for Hydra Soldiers 
+Shield Agents**|Special|(x6)| Can only eliminate Hela 
+Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 
 
 ### Movement
