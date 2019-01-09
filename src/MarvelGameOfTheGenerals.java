@@ -63,12 +63,18 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
 		if(evt.getSource() == this.buttonPlay){
 			this.buttonPlay.setBackground(Color.RED);
+			this.buttonPlay.setOpaque(true);
+			this.buttonPlay.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonScores){
 			this.buttonScores.setBackground(Color.RED);
+			this.buttonScores.setOpaque(true);
+			this.buttonScores.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonHelp){
 			this.buttonHelp.setBackground(Color.RED);
+			this.buttonHelp.setOpaque(true);
+			this.buttonHelp.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonQuit){
 			this.buttonQuit.setBackground(Color.RED);
@@ -80,15 +86,23 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
 		if(evt.getSource() == this.buttonPlay){
 			this.buttonPlay.setBackground(Color.BLACK);
+			this.buttonPlay.setOpaque(true);
+			this.buttonPlay.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonScores){
 			this.buttonScores.setBackground(Color.BLACK);
+			this.buttonScores.setOpaque(true);
+			this.buttonScores.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonHelp){
 			this.buttonHelp.setBackground(Color.BLACK);
+			this.buttonHelp.setOpaque(true);
+			this.buttonHelp.setBorderPainted(false);
 		}
 		if(evt.getSource() == this.buttonQuit){
 			this.buttonQuit.setBackground(Color.BLACK);
+			this.buttonQuit.setOpaque(true);
+			this.buttonQuit.setBorderPainted(false);
 		}
 	}
 	
@@ -120,6 +134,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
 		this.buttonPlay.setFocusPainted(false); // Remove focus ring
 		this.buttonPlay.setBackground(Color.BLACK); // Set background to black
+		this.buttonPlay.setOpaque(true);
+		this.buttonPlay.setBorderPainted(false);
 		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonPlay.setForeground(Color.WHITE); // Make text white
 		this.buttonPlay.addActionListener(this); // Add action listener to play button
@@ -131,6 +147,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonScores.setLocation(540, 300); // x and y coordinates (540, 300)
 		this.buttonScores.setFocusPainted(false); // Remove focus ring
 		this.buttonScores.setBackground(Color.BLACK); // Set background to black
+		this.buttonScores.setOpaque(true);
+		this.buttonScores.setBorderPainted(false);
 		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonScores.setForeground(Color.WHITE); // Make text white
 		this.buttonScores.addActionListener(this); // Add action listener to high scores button
@@ -142,6 +160,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonHelp.setLocation(540, 370); // x and y coordinates (540, 370)
 		this.buttonHelp.setFocusPainted(false); // Remove focus ring
 		this.buttonHelp.setBackground(Color.BLACK); // Set background to black
+		this.buttonHelp.setOpaque(true);
+		this.buttonHelp.setBorderPainted(false);
 		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonHelp.setForeground(Color.WHITE); // Make text white
 		this.buttonHelp.addActionListener(this); // Add action listener to help button
@@ -153,12 +173,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
 		this.buttonQuit.setFocusPainted(false); // Remove focus ring
 		this.buttonQuit.setBackground(Color.BLACK); // Set background to black
+		this.buttonQuit.setOpaque(true);
+		this.buttonQuit.setBorderPainted(false);
 		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonQuit.setForeground(Color.WHITE); // Make text white
 		this.buttonQuit.addActionListener(this); // Add action listener to quit button
 		this.buttonQuit.addMouseListener(this); // Add mouse listener to quit button
-		this.buttonQuit.setOpaque(true);
-		this.buttonQuit.setBorderPainted(false);
 		this.panel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
