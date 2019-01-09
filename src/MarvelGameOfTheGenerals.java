@@ -15,16 +15,33 @@ import java.io.*;
 */
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
-	JFrame theframe;
-	MarvelGOTGPanel thepanel;
-	Timer thetimer;
+	JFrame frame;
+	MarvelGOTGPanel panel;
+	Timer timer;
+	JButton buttonPlay;
+	JButton buttonScores;
+	JButton buttonHelp;
+	JButton buttonQuit;
 	
 	
 	// Methods
 	public void actionPerformed(ActionEvent evt){ // Action listener
-		if(evt.getSource() == this.thetimer){
-			this.thepanel.repaint(); // Repaint the panel based on timer (60 fps).
-		}	
+		if(evt.getSource() == this.timer){
+			this.panel.repaint(); // Repaint the panel based on timer (60 fps).
+		}
+		else if(evt.getSource() == this.buttonPlay){
+			System.out.println("Play");
+		}
+		else if(evt.getSource() == this.buttonScores){
+			System.out.println("High scores");
+		}
+		else if(evt.getSource() == this.buttonHelp){
+			System.out.println("Help");
+		}
+		else if(evt.getSource() == this.buttonQuit){
+			System.out.println("Quit");
+			System.exit(0);
+		}
 	}
 	
 	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
@@ -63,32 +80,74 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		this.thepanel = new MarvelGOTGPanel();
-		this.thepanel.setLayout(null);
-		this.thepanel.setPreferredSize(new Dimension(1280, 720));
+		this.panel = new MarvelGOTGPanel();
+		this.panel.setLayout(null);
+		this.panel.setPreferredSize(new Dimension(1280, 720));
 		
 		////////////////////////////////////////////////////////////////
 		
-		this.thetimer = new Timer(1000/60, this);
-		this.thetimer.start();
+		this.timer = new Timer(1000/60, this);
+		this.timer.start();
+		
+		////////////////////////////////////////////////////////////////
+		// JButtons
+		this.buttonPlay = new JButton("Play"); // Play button
+		this.buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
+		this.buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
+		this.buttonPlay.setFocusPainted(false); // Remove focus ring
+		this.buttonPlay.setContentAreaFilled(false); // Set transparent button background
+		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonPlay.setForeground(Color.WHITE); // Make text white
+		this.buttonPlay.addActionListener(this); // Add action listener to play button
+		this.panel.add(this.buttonPlay); // Add play button to the panel
+		
+		this.buttonScores = new JButton("High Scores"); // High scores button
+		this.buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
+		this.buttonScores.setLocation(540, 300); // x and y coordinates (540, 300)
+		this.buttonScores.setFocusPainted(false); // Remove focus ring
+		this.buttonScores.setContentAreaFilled(false); // Set transparent button background
+		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonScores.setForeground(Color.WHITE); // Make text white
+		this.buttonScores.addActionListener(this); // Add action listener to high scores button
+		this.panel.add(this.buttonScores); // Add high scores button to the panel
+		
+		this.buttonHelp = new JButton("Help"); // Help button
+		this.buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
+		this.buttonHelp.setLocation(540, 370); // x and y coordinates (540, 370)
+		this.buttonHelp.setFocusPainted(false); // Remove focus ring
+		this.buttonHelp.setContentAreaFilled(false); // Set transparent button background
+		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonHelp.setForeground(Color.WHITE); // Make text white
+		this.buttonHelp.addActionListener(this); // Add action listener to help button
+		this.panel.add(this.buttonHelp); // Add help button to the panel
+		
+		this.buttonQuit = new JButton("Quit"); // Quit button
+		this.buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
+		this.buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
+		this.buttonQuit.setFocusPainted(false); // Remove focus ring
+		this.buttonQuit.setContentAreaFilled(false); // Set transparent button background
+		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
+		this.buttonQuit.setForeground(Color.WHITE); // Make text white
+		this.buttonQuit.addActionListener(this); // Add action listener to help button
+		this.panel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
 		
-		this.theframe = new JFrame("Game Of The Generals Marvel Edition");
+		this.frame = new JFrame("Game Of The Generals Marvel Edition");
 		// Puts the panel inside the frame.
-		this.theframe.setContentPane(thepanel);
+		this.frame.setContentPane(panel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-		this.theframe.pack();
+		this.frame.pack();
 		
 		// Exit Java program when the frame is closed.
-		this.theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		this.theframe.setResizable(false);
+		this.frame.setResizable(false);
 		
 		// Shows the frame.
-		this.theframe.setVisible(true);
+		this.frame.setVisible(true);
 		
 		////////////////////////////////////////////////////////////////
 		
