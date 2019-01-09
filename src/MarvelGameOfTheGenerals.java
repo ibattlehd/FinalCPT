@@ -72,6 +72,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		if(evt.getSource() == this.buttonQuit){
 			this.buttonQuit.setBackground(Color.RED);
+			this.buttonQuit.setOpaque(true);
+			this.buttonQuit.setBorderPainted(false);
 		}
 	}
 	
@@ -154,7 +156,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 30
 		this.buttonQuit.setForeground(Color.WHITE); // Make text white
 		this.buttonQuit.addActionListener(this); // Add action listener to quit button
-		this.buttonQuit.addActionListener(this); // Add mouse listener to quit button
+		this.buttonQuit.addMouseListener(this); // Add mouse listener to quit button
+		this.buttonQuit.setOpaque(true);
+		this.buttonQuit.setBorderPainted(false);
 		this.panel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
