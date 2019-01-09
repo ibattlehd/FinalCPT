@@ -20,9 +20,42 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	Timer timer;
 	JButton buttonPlay;
 	JButton buttonScores;
-	JButton buttonHelp;
+	JButton buttonHelp; 
+	JButton buttonMainMenu;
+	JButton buttonNext;
+	JButton buttonPrevious;
+	JTextArea RulesOfGame;
 	JButton buttonQuit;
 	
+	////////////////////////////////////////////////////////////////////
+	
+	// *** Help Menu - Instructions (String) ***
+	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
+	
+	// Objective Instruction
+	String strObjective = "OBJECTIVE";
+	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
+	
+	// Pieces Information
+	// Still need to include heroes and villians (pieces info)
+	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
+	
+	// Movement Rules
+	String strMovementTitle = "MOVEMENT";
+	String strMovementDescription = "1. Heroes always make the first move. Players move alternately"+"\n"+"2. A player is allowed to move only one piece at a time."+"\n"+"3. A move consists of moving a piece to a square, either forward, backward or sideward. A diagonal move or a move of more than one square is illegal";
+
+	// Battling between players Rules
+	String strBattleTitle = "BATTLE";
+	String strBattleDescription = "As the game progresses, battles are made resulting in the elimination of marvel characters. A battle is made when a character moves into the same square occupied by an opposing character. When a battle occurs the following rules of elimation apply:";
+	String strBattleDescriptionCont = "1. A higher powered character eliminates a lower powered character from the board"+"\n"+"2. If both characters power level are of equal, both are eliminated."+"\n"+"3. Loki(Heroes)/Hela(Villian) eliminates any character with a power level of 12 down to a character with a power level of 1"+"\n"+"4. The Nexus can be eliminated by any piece"+"\n"+"5. Only Shield Agents(Heroes) and Hydra Soldiers(Villians) can eliminate the infiltrator(Loki/Hela)";
+	
+	// How the game ends
+	String strEndGameTitle = "HOW THE GAME ENDS";
+	String strEndGameDescription = "The game ends:";
+	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
+
+	
+	////////////////////////////////////////////////////////////////////
 	
 	// Methods
 	@Override
@@ -36,14 +69,80 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == this.buttonScores){
 			System.out.println("High scores");
 		}
-		else if(evt.getSource() == this.buttonHelp){
+		else if(evt.getSource() == this.buttonHelp){  //User selects Help Button
 			System.out.println("Help");
+			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
+			buttonPlay.setVisible(false);
+			buttonScores.setVisible(false);
+			buttonHelp.setVisible(false);
+			buttonQuit.setVisible(false);
+			RulesOfGame.setVisible(true);
+			buttonMainMenu.setVisible(true);
+			buttonNext.setVisible(true);	
 		}
-		else if(evt.getSource() == this.buttonQuit){
-			System.out.println("Quit");
-			System.exit(0);
+		else if(evt.getSource() == this.buttonMainMenu){ // User selects Main Menu Button in Help menu
+			intHelpPage = 0; // Return back to main menu
+			buttonPlay.setVisible(true);
+			buttonScores.setVisible(true);
+			buttonHelp.setVisible(true);
+			buttonQuit.setVisible(true);
+			RulesOfGame.setVisible(false);
+			buttonMainMenu.setVisible(false);
+			buttonNext.setVisible(false);
+			buttonPrevious.setVisible(false);
+		}
+		else if(evt.getSource() == this.buttonNext){ // User selects next button
+			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
+			RulesOfGame.setText("");
+
+			// 1st page of Help Menu
+			if(intHelpPage == 1){
+				buttonPrevious.setVisible(false); // set to false because there is no previous pages to go back to
+				buttonNext.setVisible(true); // Allow user to go next page
+				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote); // All the instructions(String) for the first page
+				
+				
+			// 2nd Page of Help Menu
+			}else if(intHelpPage == 2){
+				buttonPrevious.setVisible(true); // allows user to go back to 1st page
+				buttonNext.setVisible(true); // allow user to go to next page
+				RulesOfGame.setText(strMovementTitle+"\n"+"\n"+strMovementDescription+"\n"+"\n"+strBattleTitle+"\n"+"\n"+strBattleDescription+"\n"+"\n"+strBattleDescriptionCont); // Instructions on the 2nd page
+
+			// 3rd Page of Help Menu
+			}else if(intHelpPage == 3){
+				RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont); // Instructions on the third page (last page)
+				buttonNext.setVisible(false); // no more pages 
+				buttonPrevious.setVisible(true); // go back to previous pages
+
+			}else{
+		}			
+	}
+	// Button to go back to previous pages
+	else if(evt.getSource() == this.buttonPrevious){
+		intHelpPage = intHelpPage - 1;				
+			if(intHelpPage == 1){
+				buttonPrevious.setVisible(false);
+				buttonNext.setVisible(true);
+				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);					
+				
+			}else if(intHelpPage == 2){
+				buttonPrevious.setVisible(true);
+				buttonNext.setVisible(true);
+				RulesOfGame.setText(strMovementTitle+"\n"+"\n"+strMovementDescription+"\n"+"\n"+strBattleTitle+"\n"+"\n"+strBattleDescription+"\n"+"\n"+strBattleDescriptionCont);
+				
+			}else if(intHelpPage == 3){
+				buttonPrevious.setVisible(true);
+				buttonNext.setVisible(false);	
+				RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont);	
+				
+			}else{
 		}
 	}
+	else if(evt.getSource() == this.buttonQuit){
+			System.out.println("Quit");
+			System.exit(0);
+	}
+}
 	
 	@Override
 	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
@@ -177,6 +276,50 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonHelp.addMouseListener(this); // Add mouse listener to help button
 		this.panel.add(this.buttonHelp); // Add help button to the panel
 		
+		
+		////////////////////////////////////////////////////////////////
+		// ***HELP MENU JBUTTONS***
+		// Main Menu button
+		this.buttonMainMenu = new JButton("Main Menu"); // Button to return to main menu
+		this.buttonMainMenu.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		this.buttonMainMenu.addActionListener(this); // Add action listener to button main menu
+		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
+		this.buttonMainMenu.setLocation(420,615); // x and y coordinates (420, 615)
+		this.buttonMainMenu.setVisible(false);
+		this.panel.add(buttonMainMenu); // Add main menu button to the panel
+		
+		// Next button 
+		this.buttonNext = new JButton("Next"); // Button to go to next page
+		this.buttonNext.setFont(new Font("Times New Roman", Font.BOLD, 15));  // Times New Roman text font size 15, bolded
+		this.buttonNext.addActionListener(this); // Add action listener to next button
+		this.buttonNext.setSize(130,30); // 130 x 30 pixels
+		this.buttonNext.setLocation(580,615); // x and y coordinates (580, 615)
+		this.buttonNext.setVisible(false);
+		this.panel.add(buttonNext); // Add next button to the panel
+		
+		// Previous button
+		this.buttonPrevious = new JButton("Previous"); // Button to go back to previous page
+		this.buttonPrevious.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		this.buttonPrevious.addActionListener(this); // Add action listener to previous button
+		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
+		this.buttonPrevious.setLocation(727,615); // x and y coordinates (727, 615)
+		this.buttonPrevious.setVisible(false);	
+		this.panel.add(buttonPrevious); // Add previous button to the panel
+		
+		// RulesOfGame - Text Area
+		this.RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
+		this.RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman text font size 15
+		this.RulesOfGame.setForeground(Color.WHITE); // Change text colour to white
+		this.RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
+		this.RulesOfGame.setSize(438,470); // 438 x 470 pixels
+		this.RulesOfGame.setLocation(420,137); // x and y coordinates (420, 137)
+		this.RulesOfGame.setEditable(false); // Prevent user from editing the text area
+		this.RulesOfGame.setVisible(false);
+		this.RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
+		this.panel.add(RulesOfGame); // Add textarea to the panel
+		
+		////////////////////////////////////////////////////////////////
+		
 		this.buttonQuit = new JButton("Quit"); // Quit button
 		this.buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
 		this.buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
@@ -217,6 +360,4 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public static void main(String[] args){
 		new MarvelGameOfTheGenerals();
 	}
-	
-	
 }
