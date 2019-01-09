@@ -24,8 +24,8 @@ Star Lord|4 |(x1)|
 Hawkeye|3 |(x1)|
 Ant Man|2 |(x1)|
 Vision|1 |(x1)|
-Loki**|Special |(x2)| Can eliminate all pieces except for Hydra Soldiers 
-Shield Agents**|Special|(x6)| Can only eliminate Hela 
+Loki***|Special |(x2)| Can eliminate all pieces except for Hydra Soldiers 
+Shield Agents***|Special|(x6)| Can only eliminate Hela 
 Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 
 | Pieces     | Power | No. of Pieces | Functions |
@@ -44,7 +44,7 @@ Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 |Punisher    | 1     | (x1)            |           |
 |Hela***       |Special| (x2)            |Can eliminate all pieces except for Shield Agents           |
 |Hydra Soldiers***|Special| (x6)         |Can only eliminate Loki           |
-|Red Nexus***   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
+|Red Nexus**   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
 
 
 ### Movement
