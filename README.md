@@ -17,8 +17,8 @@ Iron Man|11 |(x1)|
 Hulk|10 |(x1)|
 Dr Strange|9|(x1)|
 Captain America|8|(x1)|
-Black Panther*** |7 |(x1)|
-Spiderman*** |6|(x1)|
+Black Panther*** |7 |(x1)| Click “button” , take out enemies surrounding it
+Spiderman*** |6|(x1)| Disable character from moving 3 turns
 Wanda|5 |(x1)|
 Star Lord|4 |(x1)|
 Hawkeye|3 |(x1)|
@@ -27,6 +27,24 @@ Vision|1 |(x1)|
 Loki**|Special |(x2)| Can eliminate all pieces except for Hydra Soldiers 
 Shield Agents**|Special|(x6)| Can only eliminate Hela 
 Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
+
+| Pieces     | Power | No. of Pieces | Functions |
+|------------|-------|---------------|-----------|
+|Thanos***      | 12    | (x1)            | Reach other side of board, clear half the board, if odd round          |
+|Ultron      | 11    | (x1)            |           |
+|Dormammu    | 10    | (x1)            |           |
+|Dr. Doom    | 9     | (x1)            |           |
+|Red Skull   | 8     | (x1)            |           |
+|KillMonger***  | 7     | (x1)            | Click “button” , take out enemies surrounding it          |
+|Venom***       | 6     | (x1)            | Disable character from moving 3 turns          |
+|Doc Ock     | 5     | (x1)            |           |
+|Ronan       | 4     | (x1)            |           |
+|Modok       | 3     | (x1)            |           |
+|Yellowjacket| 2     | (x1)            |           |
+|Punisher    | 1     | (x1)            |           |
+|Hela***       |Special| (x2)            |Can eliminate all pieces except for Shield Agents           |
+|Hydra Soldiers***|Special| (x6)         |Can only eliminate Loki           |
+|Red Nexus***   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
 
 
 ### Movement
