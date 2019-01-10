@@ -28,6 +28,7 @@ Loki***|Special |(x2)| Can eliminate all pieces except for Hydra Soldiers
 Shield Agents***|Special|(x6)| Can only eliminate Hela 
 Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 
+### Villains
 | Pieces     | Power | No. of Pieces | Functions 
 |------------|-------|---------------|-----------|
 |Thanos***      | 12    | (x1)            | Reach other side of board, clear half the board, if odd round          |
@@ -46,6 +47,7 @@ Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 |Hydra Soldiers***|Special| (x6)         |Can only eliminate Loki           |
 |Red Nexus**   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
 
+NOTE: If both characters are both equal power, BOTH are eliminated. 
 
 ### Movement
 1. Heroes always make the first move. Players move alternately. 
