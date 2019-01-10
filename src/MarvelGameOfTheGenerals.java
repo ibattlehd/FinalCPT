@@ -282,6 +282,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Main Menu button
 		this.buttonMainMenu = new JButton("Main Menu"); // Button to return to main menu
 		this.buttonMainMenu.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		this.buttonMainMenu.setForeground(Color.WHITE); // Make text white
+		this.buttonMainMenu.setBackground(Color.BLACK); // Set background to black
+		this.buttonMainMenu.setOpaque(true);
+		this.buttonMainMenu.setFocusPainted(false); // Remove focus ring
+		this.buttonMainMenu.setBorderPainted(false);
 		this.buttonMainMenu.addActionListener(this); // Add action listener to button main menu
 		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
 		this.buttonMainMenu.setLocation(420,615); // x and y coordinates (420, 615)
@@ -291,6 +296,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Next button 
 		this.buttonNext = new JButton("Next"); // Button to go to next page
 		this.buttonNext.setFont(new Font("Times New Roman", Font.BOLD, 15));  // Times New Roman text font size 15, bolded
+		this.buttonNext.setForeground(Color.WHITE); // make text white
+		this.buttonNext.setBackground(Color.BLACK); // set background to black
+		this.buttonNext.setOpaque(true);
+		this.buttonNext.setFocusPainted(false);  // remove focus ring
+		this.buttonNext.setBorderPainted(false);
 		this.buttonNext.addActionListener(this); // Add action listener to next button
 		this.buttonNext.setSize(130,30); // 130 x 30 pixels
 		this.buttonNext.setLocation(580,615); // x and y coordinates (580, 615)
@@ -300,16 +310,22 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Previous button
 		this.buttonPrevious = new JButton("Previous"); // Button to go back to previous page
 		this.buttonPrevious.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		this.buttonPrevious.setForeground(Color.WHITE); // make text white
+		this.buttonPrevious.setBackground(Color.BLACK); // set background to black
+		this.buttonPrevious.setOpaque(true);
+		this.buttonPrevious.setFocusPainted(false);  // remove focus ring
+		this.buttonPrevious.setBorderPainted(false);
 		this.buttonPrevious.addActionListener(this); // Add action listener to previous button
 		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
 		this.buttonPrevious.setLocation(727,615); // x and y coordinates (727, 615)
 		this.buttonPrevious.setVisible(false);	
 		this.panel.add(buttonPrevious); // Add previous button to the panel
 		
+		
 		// RulesOfGame - Text Area
 		this.RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
 		this.RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman text font size 15
-		this.RulesOfGame.setForeground(Color.WHITE); // Change text colour to white
+		this.RulesOfGame.setForeground(Color.WHITE); // Change text colour to black
 		this.RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
 		this.RulesOfGame.setSize(438,470); // 438 x 470 pixels
 		this.RulesOfGame.setLocation(420,137); // x and y coordinates (420, 137)
