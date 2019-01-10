@@ -5,7 +5,7 @@ import java.awt.image.*;
 import javax.imageio.*;
 import java.io.*;
 
-public class MarvelGOTGPanel extends JPanel{
+public class menupanel extends JPanel{
 	
 	// Properties
 	BufferedImage mainmenu;
@@ -18,7 +18,7 @@ public class MarvelGOTGPanel extends JPanel{
 	
 	
 	// Constructor
-	public MarvelGOTGPanel(){
+	public menupanel(){
 		super();
 		// Images
 		try{

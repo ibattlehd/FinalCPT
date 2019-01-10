@@ -16,7 +16,7 @@ import java.io.*;
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame frame;
-	MarvelGOTGPanel panel;
+	menupanel panel;
 	Timer timer;
 	JButton buttonPlay;
 	JButton buttonScores;
@@ -226,7 +226,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		this.panel = new MarvelGOTGPanel();
+		this.panel = new menupanel();
 		this.panel.setLayout(null);
 		this.panel.setPreferredSize(new Dimension(1280, 720));
 		
