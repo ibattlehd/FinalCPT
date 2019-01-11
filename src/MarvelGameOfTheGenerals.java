@@ -26,6 +26,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonPrevious;
 	JTextArea RulesOfGame;
 	JButton buttonQuit;
+	JLabel labelIP;
+	SuperSocketMaster ssm;
 	
 	////////////////////////////////////////////////////////////////////
 	
@@ -350,7 +352,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.panel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
-		
+		ssm = new SuperSocketMaster(1337, this);
+		System.out.println("My server ip is: "+ssm.getMyAddress());
+		ssm.connect();
+		this.labelIP = new JLabel(ssm.getMyAddress());
+		this.labelIP.setLocation(1150, 670);
+		this.labelIP.setSize(200,50);
+		this.labelIP.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
+		this.labelIP.setForeground(Color.WHITE); // Make text white
+		this.panel.add(this.labelIP);
+		////////////////////////////////////////////////////////////////
 		this.frame = new JFrame("Game Of The Generals Marvel Edition");
 		// Puts the panel inside the frame.
 		this.frame.setContentPane(panel);
