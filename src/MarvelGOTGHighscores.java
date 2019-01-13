@@ -11,7 +11,7 @@ public class MarvelGOTGHighscores{
 			System.out.println("Unable to read from the file");
 			blnFileFail = true;
 		}
-		if(blnFileFail == false){		
+		if(blnFileFail == false){
 			thefiledata = new BufferedReader(thefile);
 			
 			String strLine = "";
@@ -20,16 +20,16 @@ public class MarvelGOTGHighscores{
 			}catch(IOException e){
 				strLine = "testing";
 			}
-		while(strLine != null){
-			System.out.println(strLine);
-			try{
-				strLine = thefiledata.readLine();
-			}catch(IOException e){
-				strLine = "testing";
+			while(strLine != null){
+				System.out.println(strLine);
+				try{
+					strLine = thefiledata.readLine();
+				}catch(IOException e){
+					strLine = "testing";
+				}
 			}
-
+			
 		}
+		
 	}
-
-}
 }
