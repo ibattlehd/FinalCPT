@@ -31,6 +31,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonHost;
 	JButton buttonClient;
 	
+	JTextField EnterIP;
+	
 	////////////////////////////////////////////////////////////////////
 	
 	// *** Help Menu - Instructions (String) ***
@@ -74,12 +76,21 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
 			buttonHost.setVisible(true);
-			buttonClient.setVisible(true);
-			
-			
-			
+			buttonClient.setVisible(true);	
+		}
+		else if(evt.getSource() == this.buttonHost){
+			labelIP.setVisible(true);
+			buttonHost.setVisible(false);
+			buttonClient.setVisible(false);
 			
 		}
+		else if(evt.getSource() == this.buttonClient){
+			buttonHost.setVisible(false);
+			buttonClient.setVisible(false);
+			this.EnterIP.setVisible(true);
+			
+		}
+
 		else if(evt.getSource() == this.buttonScores){
 			System.out.println("High scores");
 		}
@@ -121,114 +132,112 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				buttonPrevious.setVisible(true); // allows user to go back to 1st page
 				buttonNext.setVisible(true); // allow user to go to next page
 				RulesOfGame.setText(strMovementTitle+"\n"+"\n"+strMovementDescription+"\n"+"\n"+strBattleTitle+"\n"+"\n"+strBattleDescription+"\n"+"\n"+strBattleDescriptionCont); // Instructions on the 2nd page
-
 			// 3rd Page of Help Menu
 			}else if(intHelpPage == 3){
 				RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont); // Instructions on the third page (last page)
 				buttonNext.setVisible(false); // no more pages 
 				buttonPrevious.setVisible(true); // go back to previous pages
-
-			}else{
-		}			
-	}
-	// Button to go back to previous pages
-	else if(evt.getSource() == this.buttonPrevious){
-		intHelpPage = intHelpPage - 1;				
-			if(intHelpPage == 1){
-				buttonPrevious.setVisible(false);
-				buttonNext.setVisible(true);
-				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);					
-				
-			}else if(intHelpPage == 2){
-				buttonPrevious.setVisible(true);
-				buttonNext.setVisible(true);
-				RulesOfGame.setText(strMovementTitle+"\n"+"\n"+strMovementDescription+"\n"+"\n"+strBattleTitle+"\n"+"\n"+strBattleDescription+"\n"+"\n"+strBattleDescriptionCont);
-				
-			}else if(intHelpPage == 3){
-				buttonPrevious.setVisible(true);
-				buttonNext.setVisible(false);	
-				RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont);	
-				
-			}else{
+			}
+		}
+		// Button to go back to previous pages
+		else if(evt.getSource() == this.buttonPrevious){
+			intHelpPage = intHelpPage - 1;
+				if(intHelpPage == 1){
+					buttonPrevious.setVisible(false);
+					buttonNext.setVisible(true);
+					RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);					
+					
+				}else if(intHelpPage == 2){
+					buttonPrevious.setVisible(true);
+					buttonNext.setVisible(true);
+					RulesOfGame.setText(strMovementTitle+"\n"+"\n"+strMovementDescription+"\n"+"\n"+strBattleTitle+"\n"+"\n"+strBattleDescription+"\n"+"\n"+strBattleDescriptionCont);
+					
+				}else if(intHelpPage == 3){
+					buttonPrevious.setVisible(true);
+					buttonNext.setVisible(false);	
+					RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont);	
+				}
+		}
+		
+		else if(evt.getSource() == this.buttonQuit){
+				System.out.println("Quit");
+				System.exit(0);
 		}
 	}
-	else if(evt.getSource() == this.buttonQuit){
-			System.out.println("Quit");
-			System.exit(0);
-	}
-}
-	
+		
 	@Override
 	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
+		if(evt.getSource() == this.EnterIP){
+			String strAddress = EnterIP.getText();
+			if(strAddress.equalsIgnoreCase(labelIP.getText())){
+				System.out.println("Testing");
+			}
+		}
+	}
+
+		@Override
+		public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
+		}
 		
-	}
-	
-	@Override
-	public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
+		@Override
+		public void keyReleased(KeyEvent evt){ // Called when a key is released.
+		}
 		
-	}
-	
-	@Override
-	public void keyReleased(KeyEvent evt){ // Called when a key is released.
+		@Override
+		public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
+		}
 		
-	}
-	
-	@Override
-	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
+		@Override
+		public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
+			if(evt.getSource() == this.buttonPlay){
+				this.buttonPlay.setBackground(Color.RED);
+				this.buttonPlay.setOpaque(true);
+				this.buttonPlay.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonScores){
+				this.buttonScores.setBackground(Color.RED);
+				this.buttonScores.setOpaque(true);
+				this.buttonScores.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonHelp){
+				this.buttonHelp.setBackground(Color.RED);
+				this.buttonHelp.setOpaque(true);
+				this.buttonHelp.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonQuit){
+				this.buttonQuit.setBackground(Color.RED);
+				this.buttonQuit.setOpaque(true);
+				this.buttonQuit.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonHost){
+				this.buttonHost.setBackground(Color.RED);
+				this.buttonHost.setOpaque(true);
+				this.buttonHost.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonClient){
+				this.buttonClient.setBackground(Color.RED);
+				this.buttonClient.setOpaque(true);
+				this.buttonClient.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonMainMenu){
+				this.buttonMainMenu.setBackground(Color.RED);
+				this.buttonMainMenu.setOpaque(true);
+				this.buttonMainMenu.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonNext){
+				this.buttonNext.setBackground(Color.RED);
+				this.buttonNext.setOpaque(true);
+				this.buttonNext.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonPrevious){
+				this.buttonPrevious.setBackground(Color.RED);
+				this.buttonPrevious.setOpaque(true);
+				this.buttonPrevious.setBorderPainted(false);
+			}
+		}
 		
-	}
-	
-	@Override
-	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
-		if(evt.getSource() == this.buttonPlay){
-			this.buttonPlay.setBackground(Color.RED);
-			this.buttonPlay.setOpaque(true);
-			this.buttonPlay.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonScores){
-			this.buttonScores.setBackground(Color.RED);
-			this.buttonScores.setOpaque(true);
-			this.buttonScores.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonHelp){
-			this.buttonHelp.setBackground(Color.RED);
-			this.buttonHelp.setOpaque(true);
-			this.buttonHelp.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonQuit){
-			this.buttonQuit.setBackground(Color.RED);
-			this.buttonQuit.setOpaque(true);
-			this.buttonQuit.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonHost){
-			this.buttonHost.setBackground(Color.RED);
-			this.buttonHost.setOpaque(true);
-			this.buttonHost.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonClient){
-			this.buttonClient.setBackground(Color.RED);
-			this.buttonClient.setOpaque(true);
-			this.buttonClient.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonMainMenu){
-			this.buttonMainMenu.setBackground(Color.RED);
-			this.buttonMainMenu.setOpaque(true);
-			this.buttonMainMenu.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonNext){
-			this.buttonNext.setBackground(Color.RED);
-			this.buttonNext.setOpaque(true);
-			this.buttonNext.setBorderPainted(false);
-		}
-		if(evt.getSource() == this.buttonPrevious){
-			this.buttonPrevious.setBackground(Color.RED);
-			this.buttonPrevious.setOpaque(true);
-			this.buttonPrevious.setBorderPainted(false);
-		}
-	}
-	
-	@Override
-	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
+		@Override
+		public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
 		if(evt.getSource() == this.buttonPlay){
 			this.buttonPlay.setBackground(Color.BLACK);
 			this.buttonPlay.setOpaque(true);
@@ -275,17 +284,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonPrevious.setBorderPainted(false);
 		}
 	}
-	
+			
 	@Override
 	public void mousePressed(MouseEvent evt){ // Called after the user presses a mouse button while the cursor is over the listened-to component.
-	
 	}
-	
+			
 	@Override
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
-	
 	}
-	
 	
 	// Constructor
 	public MarvelGameOfTheGenerals(){
@@ -343,6 +349,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonClient.addMouseListener(this); // Add mouse listener to play button
 		this.buttonClient.setVisible(false);
 		this.gamepanel.add(this.buttonClient); // Add play button to the panel
+		
+		this.EnterIP = new JTextField();
+		this.EnterIP.setSize(200, 100);
+		this.EnterIP.setLocation(550, 300);
+		this.EnterIP.addKeyListener(this);
+		this.EnterIP.setVisible(false);
+		this.gamepanel.add(this.EnterIP);
+		
+		
+		
 		////////////////////////////////////////////////////////////////
 		
 		
@@ -453,11 +469,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		System.out.println("My server ip is: "+ssm.getMyAddress());
 		ssm.connect();
 		this.labelIP = new JLabel(ssm.getMyAddress());
-		this.labelIP.setLocation(1150, 670);
+		this.labelIP.setLocation(550, 300);
 		this.labelIP.setSize(200,50);
-		this.labelIP.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
+		this.labelIP.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 20
 		this.labelIP.setForeground(Color.WHITE); // Make text white
 		this.gamepanel.add(this.labelIP);
+		this.labelIP.setVisible(false);
+		
 		////////////////////////////////////////////////////////////////
 		this.frame = new JFrame("Game Of The Generals Marvel Edition");
 		// Puts the panel inside the frame.
