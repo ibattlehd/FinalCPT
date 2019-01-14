@@ -210,6 +210,21 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonClient.setOpaque(true);
 			this.buttonClient.setBorderPainted(false);
 		}
+		if(evt.getSource() == this.buttonMainMenu){
+			this.buttonMainMenu.setBackground(Color.RED);
+			this.buttonMainMenu.setOpaque(true);
+			this.buttonMainMenu.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonNext){
+			this.buttonNext.setBackground(Color.RED);
+			this.buttonNext.setOpaque(true);
+			this.buttonNext.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonPrevious){
+			this.buttonPrevious.setBackground(Color.RED);
+			this.buttonPrevious.setOpaque(true);
+			this.buttonPrevious.setBorderPainted(false);
+		}
 	}
 	
 	@Override
@@ -243,6 +258,21 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonClient.setBackground(Color.BLACK);
 			this.buttonClient.setOpaque(true);
 			this.buttonClient.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonMainMenu){
+			this.buttonMainMenu.setBackground(Color.BLACK);
+			this.buttonMainMenu.setOpaque(true);
+			this.buttonMainMenu.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonNext){
+			this.buttonNext.setBackground(Color.BLACK);
+			this.buttonNext.setOpaque(true);
+			this.buttonNext.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonPrevious){
+			this.buttonPrevious.setBackground(Color.BLACK);
+			this.buttonPrevious.setOpaque(true);
+			this.buttonPrevious.setBorderPainted(false);
 		}
 	}
 	
@@ -284,9 +314,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
 		this.gamepanel.add(this.buttonPlay); // Add play button to the panel
 		
+		// *** Networking ***
+		////////////////////////////////////////////////////////////////
 		this.buttonHost = new JButton("Host");
-		this.buttonHost.setSize(200, 50);
-		this.buttonHost.setLocation(150, 200);
+		this.buttonHost.setSize(250, 100);
+		this.buttonHost.setLocation(300, 300);
 		this.buttonHost.setFocusPainted(false);
 		this.buttonHost.setBackground(Color.BLACK);
 		this.buttonHost.setOpaque(true);
@@ -299,8 +331,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.gamepanel.add(this.buttonHost); // Add play button to the panel
 		
 		this.buttonClient = new JButton("Client");
-		this.buttonClient.setSize(200, 50);
-		this.buttonClient.setLocation(500, 200);
+		this.buttonClient.setSize(250, 100);
+		this.buttonClient.setLocation(750, 300);
 		this.buttonClient.setFocusPainted(false);
 		this.buttonClient.setBackground(Color.BLACK);
 		this.buttonClient.setOpaque(true);
@@ -311,8 +343,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonClient.addMouseListener(this); // Add mouse listener to play button
 		this.buttonClient.setVisible(false);
 		this.gamepanel.add(this.buttonClient); // Add play button to the panel
-		
-		
+		////////////////////////////////////////////////////////////////
 		
 		
 		this.buttonScores = new JButton("High Scores"); // High scores button
@@ -356,6 +387,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
 		this.buttonMainMenu.setLocation(420,615); // x and y coordinates (420, 615)
 		this.buttonMainMenu.setVisible(false);
+		this.buttonMainMenu.addMouseListener(this);
 		this.gamepanel.add(buttonMainMenu); // Add main menu button to the panel
 		
 		// Next button 
@@ -370,6 +402,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonNext.setSize(130,30); // 130 x 30 pixels
 		this.buttonNext.setLocation(580,615); // x and y coordinates (580, 615)
 		this.buttonNext.setVisible(false);
+		this.buttonNext.addMouseListener(this);
 		this.gamepanel.add(buttonNext); // Add next button to the panel
 		
 		// Previous button
@@ -384,6 +417,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
 		this.buttonPrevious.setLocation(727,615); // x and y coordinates (727, 615)
 		this.buttonPrevious.setVisible(false);	
+		this.buttonPrevious.addMouseListener(this);
 		this.gamepanel.add(buttonPrevious); // Add previous button to the panel
 		
 		
