@@ -28,6 +28,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonQuit;
 	JLabel labelIP;
 	SuperSocketMaster ssm;
+	JButton buttonHost;
+	JButton buttonClient;
 	
 	////////////////////////////////////////////////////////////////////
 	
@@ -67,6 +69,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		else if(evt.getSource() == this.buttonPlay){
 			System.out.println("Play");
+			buttonPlay.setVisible(false);
+			buttonScores.setVisible(false);
+			buttonHelp.setVisible(false);
+			buttonQuit.setVisible(false);
+			buttonHost.setVisible(true);
+			buttonClient.setVisible(true);
+			
+			
+			
+			
 		}
 		else if(evt.getSource() == this.buttonScores){
 			System.out.println("High scores");
@@ -188,6 +200,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonQuit.setOpaque(true);
 			this.buttonQuit.setBorderPainted(false);
 		}
+		if(evt.getSource() == this.buttonHost){
+			this.buttonHost.setBackground(Color.RED);
+			this.buttonHost.setOpaque(true);
+			this.buttonHost.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonClient){
+			this.buttonClient.setBackground(Color.RED);
+			this.buttonClient.setOpaque(true);
+			this.buttonClient.setBorderPainted(false);
+		}
 	}
 	
 	@Override
@@ -211,6 +233,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonQuit.setBackground(Color.BLACK);
 			this.buttonQuit.setOpaque(true);
 			this.buttonQuit.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonHost){
+			this.buttonHost.setBackground(Color.BLACK);
+			this.buttonHost.setOpaque(true);
+			this.buttonHost.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonClient){
+			this.buttonClient.setBackground(Color.BLACK);
+			this.buttonClient.setOpaque(true);
+			this.buttonClient.setBorderPainted(false);
 		}
 	}
 	
@@ -251,6 +283,37 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.addActionListener(this); // Add action listener to play button
 		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
 		this.gamepanel.add(this.buttonPlay); // Add play button to the panel
+		
+		this.buttonHost = new JButton("Host");
+		this.buttonHost.setSize(200, 50);
+		this.buttonHost.setLocation(150, 200);
+		this.buttonHost.setFocusPainted(false);
+		this.buttonHost.setBackground(Color.BLACK);
+		this.buttonHost.setOpaque(true);
+		this.buttonHost.setBorderPainted(false);
+		this.buttonHost.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
+		this.buttonHost.setForeground(Color.WHITE); // Make text white
+		this.buttonHost.addActionListener(this); // Add action listener to play button
+		this.buttonHost.addMouseListener(this); // Add mouse listener to play button
+		this.buttonHost.setVisible(false);
+		this.gamepanel.add(this.buttonHost); // Add play button to the panel
+		
+		this.buttonClient = new JButton("Client");
+		this.buttonClient.setSize(200, 50);
+		this.buttonClient.setLocation(500, 200);
+		this.buttonClient.setFocusPainted(false);
+		this.buttonClient.setBackground(Color.BLACK);
+		this.buttonClient.setOpaque(true);
+		this.buttonClient.setBorderPainted(false);
+		this.buttonClient.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
+		this.buttonClient.setForeground(Color.WHITE); // Make text white
+		this.buttonClient.addActionListener(this); // Add action listener to play button
+		this.buttonClient.addMouseListener(this); // Add mouse listener to play button
+		this.buttonClient.setVisible(false);
+		this.gamepanel.add(this.buttonClient); // Add play button to the panel
+		
+		
+		
 		
 		this.buttonScores = new JButton("High Scores"); // High scores button
 		this.buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
