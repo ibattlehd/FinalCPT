@@ -16,7 +16,7 @@ import java.io.*;
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame frame;
-	menupanel panel;
+	GamePanel gamepanel;
 	Timer timer;
 	JButton buttonPlay;
 	JButton buttonScores;
@@ -63,7 +63,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
 		if(evt.getSource() == this.timer){
-			this.panel.repaint(); // Repaint the panel based on timer (60 fps).
+			this.gamepanel.repaint(); // Repaint the panel based on timer (60 fps).
 		}
 		else if(evt.getSource() == this.buttonPlay){
 			System.out.println("Play");
@@ -228,9 +228,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		this.panel = new menupanel();
-		this.panel.setLayout(null);
-		this.panel.setPreferredSize(new Dimension(1280, 720));
+		this.gamepanel = new GamePanel();
+		this.gamepanel.setLayout(null);
+		this.gamepanel.setPreferredSize(new Dimension(1280, 720));
 		
 		////////////////////////////////////////////////////////////////
 		
@@ -250,7 +250,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPlay.setForeground(Color.WHITE); // Make text white
 		this.buttonPlay.addActionListener(this); // Add action listener to play button
 		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
-		this.panel.add(this.buttonPlay); // Add play button to the panel
+		this.gamepanel.add(this.buttonPlay); // Add play button to the panel
 		
 		this.buttonScores = new JButton("High Scores"); // High scores button
 		this.buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
@@ -263,7 +263,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonScores.setForeground(Color.WHITE); // Make text white
 		this.buttonScores.addActionListener(this); // Add action listener to high scores button
 		this.buttonScores.addMouseListener(this); // Add mouse listener to high scores button
-		this.panel.add(this.buttonScores); // Add high scores button to the panel
+		this.gamepanel.add(this.buttonScores); // Add high scores button to the panel
 		
 		this.buttonHelp = new JButton("Help"); // Help button
 		this.buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
@@ -276,7 +276,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonHelp.setForeground(Color.WHITE); // Make text white
 		this.buttonHelp.addActionListener(this); // Add action listener to help button
 		this.buttonHelp.addMouseListener(this); // Add mouse listener to help button
-		this.panel.add(this.buttonHelp); // Add help button to the panel
+		this.gamepanel.add(this.buttonHelp); // Add help button to the panel
 		
 		
 		////////////////////////////////////////////////////////////////
@@ -293,7 +293,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
 		this.buttonMainMenu.setLocation(420,615); // x and y coordinates (420, 615)
 		this.buttonMainMenu.setVisible(false);
-		this.panel.add(buttonMainMenu); // Add main menu button to the panel
+		this.gamepanel.add(buttonMainMenu); // Add main menu button to the panel
 		
 		// Next button 
 		this.buttonNext = new JButton("Next"); // Button to go to next page
@@ -307,7 +307,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonNext.setSize(130,30); // 130 x 30 pixels
 		this.buttonNext.setLocation(580,615); // x and y coordinates (580, 615)
 		this.buttonNext.setVisible(false);
-		this.panel.add(buttonNext); // Add next button to the panel
+		this.gamepanel.add(buttonNext); // Add next button to the panel
 		
 		// Previous button
 		this.buttonPrevious = new JButton("Previous"); // Button to go back to previous page
@@ -321,7 +321,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
 		this.buttonPrevious.setLocation(727,615); // x and y coordinates (727, 615)
 		this.buttonPrevious.setVisible(false);	
-		this.panel.add(buttonPrevious); // Add previous button to the panel
+		this.gamepanel.add(buttonPrevious); // Add previous button to the panel
 		
 		
 		// RulesOfGame - Text Area
@@ -334,7 +334,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.RulesOfGame.setEditable(false); // Prevent user from editing the text area
 		this.RulesOfGame.setVisible(false);
 		this.RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
-		this.panel.add(RulesOfGame); // Add textarea to the panel
+		this.gamepanel.add(RulesOfGame); // Add textarea to the panel
 		
 		////////////////////////////////////////////////////////////////
 		
@@ -349,7 +349,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonQuit.setForeground(Color.WHITE); // Make text white
 		this.buttonQuit.addActionListener(this); // Add action listener to quit button
 		this.buttonQuit.addMouseListener(this); // Add mouse listener to quit button
-		this.panel.add(this.buttonQuit); // Add help button to the panel
+		this.gamepanel.add(this.buttonQuit); // Add help button to the panel
 		
 		////////////////////////////////////////////////////////////////
 		ssm = new SuperSocketMaster(1337, this);
@@ -360,11 +360,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.labelIP.setSize(200,50);
 		this.labelIP.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
 		this.labelIP.setForeground(Color.WHITE); // Make text white
-		this.panel.add(this.labelIP);
+		this.gamepanel.add(this.labelIP);
 		////////////////////////////////////////////////////////////////
 		this.frame = new JFrame("Game Of The Generals Marvel Edition");
 		// Puts the panel inside the frame.
-		this.frame.setContentPane(panel);
+		this.frame.setContentPane(gamepanel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
 		this.frame.pack();

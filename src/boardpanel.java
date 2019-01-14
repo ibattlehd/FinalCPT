@@ -5,7 +5,7 @@ import java.awt.image.*;
 import javax.imageio.*;
 import java.io.*;
 
-public class boardpanel extends JPanel{
+public class BoardPanel extends JPanel{
 	
 	// Properties
 	BufferedImage mainmenu;
@@ -18,7 +18,7 @@ public class boardpanel extends JPanel{
 	
 	
 	// Constructor
-	public boardpanel(){
+	public BoardPanel(){
 	}
 	
 		
