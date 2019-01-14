@@ -82,13 +82,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			labelIP.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
-			
 		}
 		else if(evt.getSource() == this.buttonClient){
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			this.EnterIP.setVisible(true);
-			
 		}
 
 		else if(evt.getSource() == this.buttonScores){
