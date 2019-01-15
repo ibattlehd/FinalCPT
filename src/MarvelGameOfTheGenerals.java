@@ -30,6 +30,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	SuperSocketMaster ssm;
 	JButton buttonHost;
 	JButton buttonClient;
+	JButton buttonBack;
+	JButton buttonBack2;
 	
 	JTextField EnterIP;
 	
@@ -77,16 +79,36 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonQuit.setVisible(false);
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);	
+			buttonBack2.setVisible(true);
 		}
 		else if(evt.getSource() == this.buttonHost){
 			labelIP.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
+			buttonBack.setVisible(true);
 		}
 		else if(evt.getSource() == this.buttonClient){
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
+			buttonBack.setVisible(true);
 			this.EnterIP.setVisible(true);
+		}
+		else if(evt.getSource() == this.buttonBack){
+			buttonBack.setVisible(false);
+			buttonHost.setVisible(true);
+			buttonClient.setVisible(true);
+			labelIP.setVisible(false);
+			EnterIP.setVisible(false);
+		}
+		else if(evt.getSource() == this.buttonBack2){
+			buttonBack2.setVisible(false);
+			buttonPlay.setVisible(true);
+			buttonScores.setVisible(true);
+			buttonHelp.setVisible(true);
+			buttonQuit.setVisible(true);
+			buttonHost.setVisible(false);
+			buttonClient.setVisible(false);
+			buttonBack.setVisible(false);
 		}
 
 		else if(evt.getSource() == this.buttonScores){
@@ -217,6 +239,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				this.buttonClient.setOpaque(true);
 				this.buttonClient.setBorderPainted(false);
 			}
+			if(evt.getSource() == this.buttonBack){
+				this.buttonBack.setBackground(Color.RED);
+				this.buttonBack.setOpaque(true);
+				this.buttonBack.setBorderPainted(false);
+			}
+			if(evt.getSource() == this.buttonBack2){
+				this.buttonBack2.setBackground(Color.RED);
+				this.buttonBack2.setOpaque(true);
+				this.buttonBack2.setBorderPainted(false);
+			}
 			if(evt.getSource() == this.buttonMainMenu){
 				this.buttonMainMenu.setBackground(Color.RED);
 				this.buttonMainMenu.setOpaque(true);
@@ -280,6 +312,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			this.buttonPrevious.setBackground(Color.BLACK);
 			this.buttonPrevious.setOpaque(true);
 			this.buttonPrevious.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonBack){
+			this.buttonBack.setBackground(Color.BLACK);
+			this.buttonBack.setOpaque(true);
+			this.buttonBack.setBorderPainted(false);
+		}
+		if(evt.getSource() == this.buttonBack2){
+			this.buttonBack2.setBackground(Color.BLACK);
+			this.buttonBack2.setOpaque(true);
+			this.buttonBack2.setBorderPainted(false);
 		}
 	}
 			
@@ -434,6 +476,35 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPrevious.addMouseListener(this);
 		this.gamepanel.add(buttonPrevious); // Add previous button to the panel
 		
+		// Back button
+		this.buttonBack = new JButton("Back");
+		this.buttonBack.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		this.buttonBack.setForeground(Color.WHITE); // make text white
+		this.buttonBack.setBackground(Color.BLACK); // set background to black
+		this.buttonBack.setOpaque(true);
+		this.buttonBack.setFocusPainted(false);  // remove focus ring
+		this.buttonBack.setBorderPainted(false);
+		this.buttonBack.addActionListener(this); // Add action listener to previous button
+		this.buttonBack.setSize(130,30); // 130 x 30 pixels
+		this.buttonBack.setLocation(420,615); // x and y coordinates (420, 615)
+		this.buttonBack.setVisible(false);	
+		this.buttonBack.addMouseListener(this);
+		this.gamepanel.add(buttonBack);
+		
+		// Back button 2
+		this.buttonBack2 = new JButton("Back");
+		this.buttonBack2.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		this.buttonBack2.setForeground(Color.WHITE); // make text white
+		this.buttonBack2.setBackground(Color.BLACK); // set background to black
+		this.buttonBack2.setOpaque(true);
+		this.buttonBack2.setFocusPainted(false);  // remove focus ring
+		this.buttonBack2.setBorderPainted(false);
+		this.buttonBack2.addActionListener(this); // Add action listener to previous button
+		this.buttonBack2.setSize(130,30); // 130 x 30 pixels
+		this.buttonBack2.setLocation(420,615); // x and y coordinates (420, 615)
+		this.buttonBack2.setVisible(false);	
+		this.buttonBack2.addMouseListener(this);
+		this.gamepanel.add(buttonBack2);
 		
 		// RulesOfGame - Text Area
 		this.RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
