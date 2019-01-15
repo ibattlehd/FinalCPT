@@ -343,7 +343,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
-		//boardpanel.setPreferredSize(new Dimension(1280, 720));
+		//boardpanel.setLayout(null);
+		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
@@ -565,8 +566,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		frame = new JFrame("Game Of The Generals Marvel Edition");
 		
 		// Puts the panel inside the frame.
-		//frame.setContentPane(gamepanel);
-		frame.setContentPane(boardpanel);
+		frame.add(boardpanel, BorderLayout.WEST);
+		frame.add(gamepanel, BorderLayout.EAST);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
 		frame.pack();
