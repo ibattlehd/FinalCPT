@@ -52,7 +52,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
 	
 	// Pieces Information
-	// Still need to include heroes and villians (pieces info)
 	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
 	
 	// Movement Rules
@@ -113,7 +112,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
 		}
-
 		else if(evt.getSource() == buttonScores){
 			System.out.println("Pressed high scores");
 		}
@@ -180,9 +178,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont);	
 				}
 		}
-		
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
+		}
+		if(evt.getSource() == button[0][1]){
+			System.out.println("Pressed button 2 on board");
+			button[0][0].setIcon(null);
+			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
 		}
 	}
 		
@@ -357,9 +359,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			for(intCol = 0; intCol < 9; intCol++){
 				button[intRow][intCol] = new JButton();
 				button[intRow][intCol].setSize(90, 90);
-				button[intRow][intCol].setBackground(new Color(20 + intRow * 2, 2 * 40 + intCol, 255 - intRow * 10));
 				button[intRow][intCol].addActionListener(this);
 				
+				button[intRow][intCol].setBackground(Color.BLACK);
 				button[intRow][intCol].setFocusPainted(false);
 				button[intRow][intCol].setOpaque(true);
 				
