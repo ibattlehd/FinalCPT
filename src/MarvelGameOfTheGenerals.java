@@ -17,6 +17,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Properties
 	JFrame frame;
 	GamePanel gamepanel;
+	BoardPanel boardpanel;
 	Timer timer;
 	
 	// Main Menu Buttons
@@ -38,6 +39,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
+
+	JButton button[][] = new JButton[9][8];
+	int intRow;
+	int intCol;
+	int intSize = 9;
 
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
@@ -336,12 +342,27 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		gamepanel.setLayout(null);
 		gamepanel.setPreferredSize(new Dimension(1280, 720));
 		
+		boardpanel = new BoardPanel();
+		boardpanel.setLayout(new GridLayout(intSize,intSize));
+		boardpanel.setPreferredSize(new Dimension(1280, 720));
+		
 		timer = new Timer(1000/60, this);
 		timer.start();
 		
 		////////////////////
 		// JButtons
 		////////////////////
+		
+		for(intRow = 0; intRow < intSize; intRow++){
+			for(intCol = 0; intCol < intSize-1; intCol++){
+				button[intRow][intCol] = new JButton();
+				button[intRow][intCol].addActionListener(this);
+				button[intRow][intCol].setSize(90, 90);
+				boardpanel.add(button[intRow][intCol]);
+			}
+		}
+		
+		button[0][0].setIcon(new ImageIcon(boardpanel.antman));
 		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
@@ -540,7 +561,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		frame = new JFrame("Game Of The Generals Marvel Edition");
 		
 		// Puts the panel inside the frame.
-		frame.setContentPane(gamepanel);
+		//frame.setContentPane(gamepanel);
+		frame.setContentPane(boardpanel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
 		frame.pack();
@@ -562,6 +584,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Properties
 		int intPage = 1;
 		BufferedImage mainmenu;
+		BufferedImage antman;
 		
 		// Methods
 		public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
@@ -576,6 +599,31 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			// Images
 			try{
 				mainmenu = ImageIO.read(new File("../img/mainmenu.png"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}
+			try{
+				antman = ImageIO.read(new File("../characterimg/Resized Images/antman.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}
+		}
+	}
+	
+	public class BoardPanel extends JPanel{
+		// Properties
+		BufferedImage antman;
+		
+		// Methods
+		public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
+		}
+		
+		// Constructor
+		public BoardPanel(){
+			super();
+			// Images
+			try{
+				antman = ImageIO.read(new File("../characterimg/Resized Images/antman.jpg"));
 			}catch(IOException e){
 				System.out.println("Unable to load image");
 			}
