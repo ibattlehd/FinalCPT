@@ -399,7 +399,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonMainMenu.setBorderPainted(false);
 		this.buttonMainMenu.addActionListener(this); // Add action listener to button main menu
 		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
-		this.buttonMainMenu.setLocation(420,615); // x and y coordinates (420, 615)
+		this.buttonMainMenu.setLocation(580,615); // x and y coordinates (580, 615)
 		this.buttonMainMenu.setVisible(false);
 		this.buttonMainMenu.addMouseListener(this);
 		this.gamepanel.add(buttonMainMenu); // Add main menu button to the panel
@@ -414,7 +414,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonNext.setBorderPainted(false);
 		this.buttonNext.addActionListener(this); // Add action listener to next button
 		this.buttonNext.setSize(130,30); // 130 x 30 pixels
-		this.buttonNext.setLocation(580,615); // x and y coordinates (580, 615)
+		this.buttonNext.setLocation(727,615); // x and y coordinates (727, 615)
 		this.buttonNext.setVisible(false);
 		this.buttonNext.addMouseListener(this);
 		this.gamepanel.add(buttonNext); // Add next button to the panel
@@ -429,7 +429,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		this.buttonPrevious.setBorderPainted(false);
 		this.buttonPrevious.addActionListener(this); // Add action listener to previous button
 		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
-		this.buttonPrevious.setLocation(727,615); // x and y coordinates (727, 615)
+		this.buttonPrevious.setLocation(420,615); // x and y coordinates (420, 615)
 		this.buttonPrevious.setVisible(false);	
 		this.buttonPrevious.addMouseListener(this);
 		this.gamepanel.add(buttonPrevious); // Add previous button to the panel
