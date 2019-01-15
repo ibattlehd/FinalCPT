@@ -18,26 +18,28 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JFrame frame;
 	GamePanel gamepanel;
 	Timer timer;
+	
+	// Main Menu Buttons
 	JButton buttonPlay;
 	JButton buttonScores;
-	JButton buttonHelp; 
+	JButton buttonHelp;
+	JButton buttonQuit;
+	
+	// Help Menu
 	JButton buttonMainMenu;
 	JButton buttonNext;
 	JButton buttonPrevious;
 	JTextArea RulesOfGame;
-	JButton buttonQuit;
+	
 	JLabel labelIP;
 	SuperSocketMaster ssm;
 	JButton buttonHost;
 	JButton buttonClient;
+	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
-	
-	JTextField EnterIP;
-	
-	////////////////////////////////////////////////////////////////////
-	
-	// *** Help Menu - Instructions (String) ***
+
+	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
 	
 	// Objective Instruction
@@ -61,18 +63,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameTitle = "HOW THE GAME ENDS";
 	String strEndGameDescription = "The game ends:";
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
-
-	
-	////////////////////////////////////////////////////////////////////
 	
 	// Methods
 	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
-		if(evt.getSource() == this.timer){
-			this.gamepanel.repaint(); // Repaint the panel based on timer (60 fps).
+		if(evt.getSource() == timer){
+			gamepanel.repaint(); // Repaint the panel based on timer (60 fps).
 		}
-		else if(evt.getSource() == this.buttonPlay){
-			System.out.println("Play");
+		else if(evt.getSource() == buttonPlay){
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
@@ -81,26 +79,26 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonClient.setVisible(true);	
 			buttonBack2.setVisible(true);
 		}
-		else if(evt.getSource() == this.buttonHost){
+		else if(evt.getSource() == buttonHost){
 			labelIP.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(true);
 		}
-		else if(evt.getSource() == this.buttonClient){
+		else if(evt.getSource() == buttonClient){
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(true);
-			this.EnterIP.setVisible(true);
+			EnterIP.setVisible(true);
 		}
-		else if(evt.getSource() == this.buttonBack){
+		else if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);
 			labelIP.setVisible(false);
 			EnterIP.setVisible(false);
 		}
-		else if(evt.getSource() == this.buttonBack2){
+		else if(evt.getSource() == buttonBack2){
 			buttonBack2.setVisible(false);
 			buttonPlay.setVisible(true);
 			buttonScores.setVisible(true);
@@ -111,11 +109,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonBack.setVisible(false);
 		}
 
-		else if(evt.getSource() == this.buttonScores){
-			System.out.println("High scores");
+		else if(evt.getSource() == buttonScores){
+			System.out.println("Pressed high scores");
 		}
-		else if(evt.getSource() == this.buttonHelp){  //User selects Help Button
-			System.out.println("Help");
+		else if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
@@ -125,7 +122,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonMainMenu.setVisible(true);
 			buttonNext.setVisible(true);	
 		}
-		else if(evt.getSource() == this.buttonMainMenu){ // User selects Main Menu Button in Help menu
+		else if(evt.getSource() == buttonMainMenu){ // User selects Main Menu Button in Help menu
 			intHelpPage = 0; // Return back to main menu
 			buttonPlay.setVisible(true);
 			buttonScores.setVisible(true);
@@ -136,7 +133,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonNext.setVisible(false);
 			buttonPrevious.setVisible(false);
 		}
-		else if(evt.getSource() == this.buttonNext){ // User selects next button
+		else if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
 			RulesOfGame.setText("");
 
@@ -160,7 +157,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		// Button to go back to previous pages
-		else if(evt.getSource() == this.buttonPrevious){
+		else if(evt.getSource() == buttonPrevious){
 			intHelpPage = intHelpPage - 1;
 				if(intHelpPage == 1){
 					buttonPrevious.setVisible(false);
@@ -179,149 +176,148 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				}
 		}
 		
-		else if(evt.getSource() == this.buttonQuit){
-				System.out.println("Quit");
+		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
 	}
 		
 	@Override
 	public void keyTyped(KeyEvent evt){ // Called when a key is typed.
-		if(evt.getSource() == this.EnterIP){
+		if(evt.getSource() == EnterIP){
 			String strAddress = EnterIP.getText();
 			if(strAddress.equalsIgnoreCase(labelIP.getText())){
-				System.out.println("Testing");
+				System.out.println("Entered correct host IP");
 			}
 		}
 	}
 
-		@Override
-		public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
-		}
+	@Override
+	public void keyPressed(KeyEvent evt){ // Called when a key is pressed.
+	}
 		
-		@Override
-		public void keyReleased(KeyEvent evt){ // Called when a key is released.
-		}
+	@Override
+	public void keyReleased(KeyEvent evt){ // Called when a key is released.
+	}
 		
-		@Override
-		public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
-		}
+	@Override
+	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
+	}
 		
-		@Override
-		public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
-			if(evt.getSource() == this.buttonPlay){
-				this.buttonPlay.setBackground(Color.RED);
-				this.buttonPlay.setOpaque(true);
-				this.buttonPlay.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonScores){
-				this.buttonScores.setBackground(Color.RED);
-				this.buttonScores.setOpaque(true);
-				this.buttonScores.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonHelp){
-				this.buttonHelp.setBackground(Color.RED);
-				this.buttonHelp.setOpaque(true);
-				this.buttonHelp.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonQuit){
-				this.buttonQuit.setBackground(Color.RED);
-				this.buttonQuit.setOpaque(true);
-				this.buttonQuit.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonHost){
-				this.buttonHost.setBackground(Color.RED);
-				this.buttonHost.setOpaque(true);
-				this.buttonHost.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonClient){
-				this.buttonClient.setBackground(Color.RED);
-				this.buttonClient.setOpaque(true);
-				this.buttonClient.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonBack){
-				this.buttonBack.setBackground(Color.RED);
-				this.buttonBack.setOpaque(true);
-				this.buttonBack.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonBack2){
-				this.buttonBack2.setBackground(Color.RED);
-				this.buttonBack2.setOpaque(true);
-				this.buttonBack2.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonMainMenu){
-				this.buttonMainMenu.setBackground(Color.RED);
-				this.buttonMainMenu.setOpaque(true);
-				this.buttonMainMenu.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonNext){
-				this.buttonNext.setBackground(Color.RED);
-				this.buttonNext.setOpaque(true);
-				this.buttonNext.setBorderPainted(false);
-			}
-			if(evt.getSource() == this.buttonPrevious){
-				this.buttonPrevious.setBackground(Color.RED);
-				this.buttonPrevious.setOpaque(true);
-				this.buttonPrevious.setBorderPainted(false);
-			}
+	@Override
+	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
+		if(evt.getSource() == buttonPlay){
+			buttonPlay.setBackground(Color.RED);
+			buttonPlay.setOpaque(true);
+			buttonPlay.setBorderPainted(false);
 		}
+		if(evt.getSource() == buttonScores){
+			buttonScores.setBackground(Color.RED);
+			buttonScores.setOpaque(true);
+			buttonScores.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonHelp){
+			buttonHelp.setBackground(Color.RED);
+			buttonHelp.setOpaque(true);
+			buttonHelp.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonQuit){
+			buttonQuit.setBackground(Color.RED);
+			buttonQuit.setOpaque(true);
+			buttonQuit.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonHost){
+			buttonHost.setBackground(Color.RED);
+			buttonHost.setOpaque(true);
+			buttonHost.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonClient){
+			buttonClient.setBackground(Color.RED);
+			buttonClient.setOpaque(true);
+			buttonClient.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonBack){
+			buttonBack.setBackground(Color.RED);
+			buttonBack.setOpaque(true);
+			buttonBack.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonBack2){
+			buttonBack2.setBackground(Color.RED);
+			buttonBack2.setOpaque(true);
+			buttonBack2.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonMainMenu){
+			buttonMainMenu.setBackground(Color.RED);
+			buttonMainMenu.setOpaque(true);
+			buttonMainMenu.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonNext){
+			buttonNext.setBackground(Color.RED);
+			buttonNext.setOpaque(true);
+			buttonNext.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonPrevious){
+			buttonPrevious.setBackground(Color.RED);
+			buttonPrevious.setOpaque(true);
+			buttonPrevious.setBorderPainted(false);
+		}
+	}
 		
-		@Override
-		public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
-		if(evt.getSource() == this.buttonPlay){
-			this.buttonPlay.setBackground(Color.BLACK);
-			this.buttonPlay.setOpaque(true);
-			this.buttonPlay.setBorderPainted(false);
+	@Override
+	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
+		if(evt.getSource() == buttonPlay){
+			buttonPlay.setBackground(Color.BLACK);
+			buttonPlay.setOpaque(true);
+			buttonPlay.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonScores){
-			this.buttonScores.setBackground(Color.BLACK);
-			this.buttonScores.setOpaque(true);
-			this.buttonScores.setBorderPainted(false);
+		if(evt.getSource() == buttonScores){
+			buttonScores.setBackground(Color.BLACK);
+			buttonScores.setOpaque(true);
+			buttonScores.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonHelp){
-			this.buttonHelp.setBackground(Color.BLACK);
-			this.buttonHelp.setOpaque(true);
-			this.buttonHelp.setBorderPainted(false);
+		if(evt.getSource() == buttonHelp){
+			buttonHelp.setBackground(Color.BLACK);
+			buttonHelp.setOpaque(true);
+			buttonHelp.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonQuit){
-			this.buttonQuit.setBackground(Color.BLACK);
-			this.buttonQuit.setOpaque(true);
-			this.buttonQuit.setBorderPainted(false);
+		if(evt.getSource() == buttonQuit){
+			buttonQuit.setBackground(Color.BLACK);
+			buttonQuit.setOpaque(true);
+			buttonQuit.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonHost){
-			this.buttonHost.setBackground(Color.BLACK);
-			this.buttonHost.setOpaque(true);
-			this.buttonHost.setBorderPainted(false);
+		if(evt.getSource() == buttonHost){
+			buttonHost.setBackground(Color.BLACK);
+			buttonHost.setOpaque(true);
+			buttonHost.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonClient){
-			this.buttonClient.setBackground(Color.BLACK);
-			this.buttonClient.setOpaque(true);
-			this.buttonClient.setBorderPainted(false);
+		if(evt.getSource() == buttonClient){
+			buttonClient.setBackground(Color.BLACK);
+			buttonClient.setOpaque(true);
+			buttonClient.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonMainMenu){
-			this.buttonMainMenu.setBackground(Color.BLACK);
-			this.buttonMainMenu.setOpaque(true);
-			this.buttonMainMenu.setBorderPainted(false);
+		if(evt.getSource() == buttonMainMenu){
+			buttonMainMenu.setBackground(Color.BLACK);
+			buttonMainMenu.setOpaque(true);
+			buttonMainMenu.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonNext){
-			this.buttonNext.setBackground(Color.BLACK);
-			this.buttonNext.setOpaque(true);
-			this.buttonNext.setBorderPainted(false);
+		if(evt.getSource() == buttonNext){
+			buttonNext.setBackground(Color.BLACK);
+			buttonNext.setOpaque(true);
+			buttonNext.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonPrevious){
-			this.buttonPrevious.setBackground(Color.BLACK);
-			this.buttonPrevious.setOpaque(true);
-			this.buttonPrevious.setBorderPainted(false);
+		if(evt.getSource() == buttonPrevious){
+			buttonPrevious.setBackground(Color.BLACK);
+			buttonPrevious.setOpaque(true);
+			buttonPrevious.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonBack){
-			this.buttonBack.setBackground(Color.BLACK);
-			this.buttonBack.setOpaque(true);
-			this.buttonBack.setBorderPainted(false);
+		if(evt.getSource() == buttonBack){
+			buttonBack.setBackground(Color.BLACK);
+			buttonBack.setOpaque(true);
+			buttonBack.setBorderPainted(false);
 		}
-		if(evt.getSource() == this.buttonBack2){
-			this.buttonBack2.setBackground(Color.BLACK);
-			this.buttonBack2.setOpaque(true);
-			this.buttonBack2.setBorderPainted(false);
+		if(evt.getSource() == buttonBack2){
+			buttonBack2.setBackground(Color.BLACK);
+			buttonBack2.setOpaque(true);
+			buttonBack2.setBorderPainted(false);
 		}
 	}
 			
@@ -336,234 +332,227 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		this.gamepanel = new GamePanel();
-		this.gamepanel.setLayout(null);
-		this.gamepanel.setPreferredSize(new Dimension(1280, 720));
+		gamepanel = new GamePanel();
+		gamepanel.setLayout(null);
+		gamepanel.setPreferredSize(new Dimension(1280, 720));
 		
-		////////////////////////////////////////////////////////////////
+		timer = new Timer(1000/60, this);
+		timer.start();
 		
-		this.timer = new Timer(1000/60, this);
-		this.timer.start();
-		
-		////////////////////////////////////////////////////////////////
+		////////////////////
 		// JButtons
-		this.buttonPlay = new JButton("Play"); // Play button
-		this.buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
-		this.buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
-		this.buttonPlay.setFocusPainted(false); // Remove focus ring
-		this.buttonPlay.setBackground(Color.BLACK); // Set background to black
-		this.buttonPlay.setOpaque(true);
-		this.buttonPlay.setBorderPainted(false);
-		this.buttonPlay.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonPlay.setForeground(Color.WHITE); // Make text white
-		this.buttonPlay.addActionListener(this); // Add action listener to play button
-		this.buttonPlay.addMouseListener(this); // Add mouse listener to play button
-		this.gamepanel.add(this.buttonPlay); // Add play button to the panel
+		////////////////////
 		
-		// *** Networking ***
-		////////////////////////////////////////////////////////////////
-		this.buttonHost = new JButton("Host");
-		this.buttonHost.setSize(250, 100);
-		this.buttonHost.setLocation(300, 300);
-		this.buttonHost.setFocusPainted(false);
-		this.buttonHost.setBackground(Color.BLACK);
-		this.buttonHost.setOpaque(true);
-		this.buttonHost.setBorderPainted(false);
-		this.buttonHost.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonHost.setForeground(Color.WHITE); // Make text white
-		this.buttonHost.addActionListener(this); // Add action listener to play button
-		this.buttonHost.addMouseListener(this); // Add mouse listener to play button
-		this.buttonHost.setVisible(false);
-		this.gamepanel.add(this.buttonHost); // Add play button to the panel
+		buttonPlay = new JButton("Play"); // Play button
+		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
+		buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
+		buttonPlay.setFocusPainted(false); // Remove focus ring
+		buttonPlay.setBackground(Color.BLACK); // Set background to black
+		buttonPlay.setOpaque(true);
+		buttonPlay.setBorderPainted(false);
+		buttonPlay.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonPlay.setForeground(Color.WHITE); // Make text white
+		buttonPlay.addActionListener(this); // Add action listener to play button
+		buttonPlay.addMouseListener(this); // Add mouse listener to play button
+		gamepanel.add(buttonPlay); // Add play button to the panel
 		
-		this.buttonClient = new JButton("Client");
-		this.buttonClient.setSize(250, 100);
-		this.buttonClient.setLocation(750, 300);
-		this.buttonClient.setFocusPainted(false);
-		this.buttonClient.setBackground(Color.BLACK);
-		this.buttonClient.setOpaque(true);
-		this.buttonClient.setBorderPainted(false);
-		this.buttonClient.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonClient.setForeground(Color.WHITE); // Make text white
-		this.buttonClient.addActionListener(this); // Add action listener to play button
-		this.buttonClient.addMouseListener(this); // Add mouse listener to play button
-		this.buttonClient.setVisible(false);
-		this.gamepanel.add(this.buttonClient); // Add play button to the panel
+		buttonScores = new JButton("High Scores"); // High scores button
+		buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
+		buttonScores.setLocation(540, 300); // x and y coordinates (540, 300)
+		buttonScores.setFocusPainted(false); // Remove focus ring
+		buttonScores.setBackground(Color.BLACK); // Set background to black
+		buttonScores.setOpaque(true);
+		buttonScores.setBorderPainted(false);
+		buttonScores.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonScores.setForeground(Color.WHITE); // Make text white
+		buttonScores.addActionListener(this); // Add action listener to high scores button
+		buttonScores.addMouseListener(this); // Add mouse listener to high scores button
+		gamepanel.add(buttonScores); // Add high scores button to the panel
 		
-		this.EnterIP = new JTextField();
-		this.EnterIP.setSize(200, 100);
-		this.EnterIP.setLocation(550, 300);
-		this.EnterIP.addKeyListener(this);
-		this.EnterIP.setVisible(false);
-		this.gamepanel.add(this.EnterIP);
+		buttonHelp = new JButton("Help"); // Help button
+		buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
+		buttonHelp.setLocation(540, 370); // x and y coordinates (540, 370)
+		buttonHelp.setFocusPainted(false); // Remove focus ring
+		buttonHelp.setBackground(Color.BLACK); // Set background to black
+		buttonHelp.setOpaque(true);
+		buttonHelp.setBorderPainted(false);
+		buttonHelp.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonHelp.setForeground(Color.WHITE); // Make text white
+		buttonHelp.addActionListener(this); // Add action listener to help button
+		buttonHelp.addMouseListener(this); // Add mouse listener to help button
+		gamepanel.add(buttonHelp); // Add help button to the panel
 		
+		buttonQuit = new JButton("Quit"); // Quit button
+		buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
+		buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
+		buttonQuit.setFocusPainted(false); // Remove focus ring
+		buttonQuit.setBackground(Color.BLACK); // Set background to black
+		buttonQuit.setOpaque(true);
+		buttonQuit.setBorderPainted(false);
+		buttonQuit.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonQuit.setForeground(Color.WHITE); // Make text white
+		buttonQuit.addActionListener(this); // Add action listener to quit button
+		buttonQuit.addMouseListener(this); // Add mouse listener to quit button
+		gamepanel.add(buttonQuit); // Add quit button to the panel
 		
+		buttonHost = new JButton("Host");
+		buttonHost.setSize(250, 100);
+		buttonHost.setLocation(300, 300);
+		buttonHost.setFocusPainted(false);
+		buttonHost.setBackground(Color.BLACK);
+		buttonHost.setOpaque(true);
+		buttonHost.setBorderPainted(false);
+		buttonHost.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonHost.setForeground(Color.WHITE); // Make text white
+		buttonHost.addActionListener(this); // Add action listener to host button
+		buttonHost.addMouseListener(this); // Add mouse listener to host button
+		buttonHost.setVisible(false);
+		gamepanel.add(buttonHost); // Add host button to the panel
 		
-		////////////////////////////////////////////////////////////////
+		buttonClient = new JButton("Client");
+		buttonClient.setSize(250, 100);
+		buttonClient.setLocation(750, 300);
+		buttonClient.setFocusPainted(false);
+		buttonClient.setBackground(Color.BLACK);
+		buttonClient.setOpaque(true);
+		buttonClient.setBorderPainted(false);
+		buttonClient.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonClient.setForeground(Color.WHITE); // Make text white
+		buttonClient.addActionListener(this); // Add action listener to client button
+		buttonClient.addMouseListener(this); // Add mouse listener to client button
+		buttonClient.setVisible(false);
+		gamepanel.add(buttonClient); // Add client button to the panel
 		
+		EnterIP = new JTextField();
+		EnterIP.setSize(200, 100);
+		EnterIP.setLocation(550, 300);
+		EnterIP.addKeyListener(this);
+		EnterIP.setVisible(false);
+		gamepanel.add(EnterIP);
 		
-		this.buttonScores = new JButton("High Scores"); // High scores button
-		this.buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
-		this.buttonScores.setLocation(540, 300); // x and y coordinates (540, 300)
-		this.buttonScores.setFocusPainted(false); // Remove focus ring
-		this.buttonScores.setBackground(Color.BLACK); // Set background to black
-		this.buttonScores.setOpaque(true);
-		this.buttonScores.setBorderPainted(false);
-		this.buttonScores.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonScores.setForeground(Color.WHITE); // Make text white
-		this.buttonScores.addActionListener(this); // Add action listener to high scores button
-		this.buttonScores.addMouseListener(this); // Add mouse listener to high scores button
-		this.gamepanel.add(this.buttonScores); // Add high scores button to the panel
+		////////////////////
+		// Help Menu JButtons
+		////////////////////
 		
-		this.buttonHelp = new JButton("Help"); // Help button
-		this.buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
-		this.buttonHelp.setLocation(540, 370); // x and y coordinates (540, 370)
-		this.buttonHelp.setFocusPainted(false); // Remove focus ring
-		this.buttonHelp.setBackground(Color.BLACK); // Set background to black
-		this.buttonHelp.setOpaque(true);
-		this.buttonHelp.setBorderPainted(false);
-		this.buttonHelp.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonHelp.setForeground(Color.WHITE); // Make text white
-		this.buttonHelp.addActionListener(this); // Add action listener to help button
-		this.buttonHelp.addMouseListener(this); // Add mouse listener to help button
-		this.gamepanel.add(this.buttonHelp); // Add help button to the panel
-		
-		
-		////////////////////////////////////////////////////////////////
-		// ***HELP MENU JBUTTONS***
 		// Main Menu button
-		this.buttonMainMenu = new JButton("Main Menu"); // Button to return to main menu
-		this.buttonMainMenu.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
-		this.buttonMainMenu.setForeground(Color.WHITE); // Make text white
-		this.buttonMainMenu.setBackground(Color.BLACK); // Set background to black
-		this.buttonMainMenu.setOpaque(true);
-		this.buttonMainMenu.setFocusPainted(false); // Remove focus ring
-		this.buttonMainMenu.setBorderPainted(false);
-		this.buttonMainMenu.addActionListener(this); // Add action listener to button main menu
-		this.buttonMainMenu.setSize(130,30); // 130 x 30 pixels
-		this.buttonMainMenu.setLocation(580,615); // x and y coordinates (580, 615)
-		this.buttonMainMenu.setVisible(false);
-		this.buttonMainMenu.addMouseListener(this);
-		this.gamepanel.add(buttonMainMenu); // Add main menu button to the panel
+		buttonMainMenu = new JButton("Main Menu"); // Button to return to main menu
+		buttonMainMenu.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		buttonMainMenu.setForeground(Color.WHITE); // Make text white
+		buttonMainMenu.setBackground(Color.BLACK); // Set background to black
+		buttonMainMenu.setOpaque(true);
+		buttonMainMenu.setFocusPainted(false); // Remove focus ring
+		buttonMainMenu.setBorderPainted(false);
+		buttonMainMenu.addActionListener(this); // Add action listener to button main menu
+		buttonMainMenu.setSize(130,30); // 130 x 30 pixels
+		buttonMainMenu.setLocation(580,615); // x and y coordinates (580, 615)
+		buttonMainMenu.setVisible(false);
+		buttonMainMenu.addMouseListener(this);
+		gamepanel.add(buttonMainMenu); // Add main menu button to the panel
 		
 		// Next button 
-		this.buttonNext = new JButton("Next"); // Button to go to next page
-		this.buttonNext.setFont(new Font("Times New Roman", Font.BOLD, 15));  // Times New Roman text font size 15, bolded
-		this.buttonNext.setForeground(Color.WHITE); // make text white
-		this.buttonNext.setBackground(Color.BLACK); // set background to black
-		this.buttonNext.setOpaque(true);
-		this.buttonNext.setFocusPainted(false);  // remove focus ring
-		this.buttonNext.setBorderPainted(false);
-		this.buttonNext.addActionListener(this); // Add action listener to next button
-		this.buttonNext.setSize(130,30); // 130 x 30 pixels
-		this.buttonNext.setLocation(727,615); // x and y coordinates (727, 615)
-		this.buttonNext.setVisible(false);
-		this.buttonNext.addMouseListener(this);
-		this.gamepanel.add(buttonNext); // Add next button to the panel
+		buttonNext = new JButton("Next"); // Button to go to next page
+		buttonNext.setFont(new Font("Times New Roman", Font.BOLD, 15));  // Times New Roman text font size 15, bolded
+		buttonNext.setForeground(Color.WHITE); // make text white
+		buttonNext.setBackground(Color.BLACK); // set background to black
+		buttonNext.setOpaque(true);
+		buttonNext.setFocusPainted(false); // Remove focus ring
+		buttonNext.setBorderPainted(false);
+		buttonNext.addActionListener(this); // Add action listener to next button
+		buttonNext.setSize(130,30); // 130 x 30 pixels
+		buttonNext.setLocation(727,615); // x and y coordinates (727, 615)
+		buttonNext.setVisible(false);
+		buttonNext.addMouseListener(this);
+		gamepanel.add(buttonNext); // Add next button to the panel
 		
 		// Previous button
-		this.buttonPrevious = new JButton("Previous"); // Button to go back to previous page
-		this.buttonPrevious.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
-		this.buttonPrevious.setForeground(Color.WHITE); // make text white
-		this.buttonPrevious.setBackground(Color.BLACK); // set background to black
-		this.buttonPrevious.setOpaque(true);
-		this.buttonPrevious.setFocusPainted(false);  // remove focus ring
-		this.buttonPrevious.setBorderPainted(false);
-		this.buttonPrevious.addActionListener(this); // Add action listener to previous button
-		this.buttonPrevious.setSize(130,30); // 130 x 30 pixels
-		this.buttonPrevious.setLocation(420,615); // x and y coordinates (420, 615)
-		this.buttonPrevious.setVisible(false);	
-		this.buttonPrevious.addMouseListener(this);
-		this.gamepanel.add(buttonPrevious); // Add previous button to the panel
+		buttonPrevious = new JButton("Previous"); // Button to go back to previous page
+		buttonPrevious.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		buttonPrevious.setForeground(Color.WHITE); // make text white
+		buttonPrevious.setBackground(Color.BLACK); // set background to black
+		buttonPrevious.setOpaque(true);
+		buttonPrevious.setFocusPainted(false); // Remove focus ring
+		buttonPrevious.setBorderPainted(false);
+		buttonPrevious.addActionListener(this); // Add action listener to previous button
+		buttonPrevious.setSize(130,30); // 130 x 30 pixels
+		buttonPrevious.setLocation(420,615); // x and y coordinates (420, 615)
+		buttonPrevious.setVisible(false);	
+		buttonPrevious.addMouseListener(this);
+		gamepanel.add(buttonPrevious); // Add previous button to the panel
 		
 		// Back button
-		this.buttonBack = new JButton("Back");
-		this.buttonBack.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		this.buttonBack.setForeground(Color.WHITE); // make text white
-		this.buttonBack.setBackground(Color.BLACK); // set background to black
-		this.buttonBack.setOpaque(true);
-		this.buttonBack.setFocusPainted(false);  // remove focus ring
-		this.buttonBack.setBorderPainted(false);
-		this.buttonBack.addActionListener(this); // Add action listener to previous button
-		this.buttonBack.setSize(130,30); // 130 x 30 pixels
-		this.buttonBack.setLocation(420,615); // x and y coordinates (420, 615)
-		this.buttonBack.setVisible(false);	
-		this.buttonBack.addMouseListener(this);
-		this.gamepanel.add(buttonBack);
+		buttonBack = new JButton("Back");
+		buttonBack.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonBack.setForeground(Color.WHITE); // make text white
+		buttonBack.setBackground(Color.BLACK); // set background to black
+		buttonBack.setOpaque(true);
+		buttonBack.setFocusPainted(false);  // remove focus ring
+		buttonBack.setBorderPainted(false);
+		buttonBack.addActionListener(this); // Add action listener to previous button
+		buttonBack.setSize(130,30); // 130 x 30 pixels
+		buttonBack.setLocation(420,615); // x and y coordinates (420, 615)
+		buttonBack.setVisible(false);	
+		buttonBack.addMouseListener(this);
+		gamepanel.add(buttonBack);
 		
 		// Back button 2
-		this.buttonBack2 = new JButton("Back");
-		this.buttonBack2.setFont(new Font("Times New Roman", Font.BOLD, 15));
-		this.buttonBack2.setForeground(Color.WHITE); // make text white
-		this.buttonBack2.setBackground(Color.BLACK); // set background to black
-		this.buttonBack2.setOpaque(true);
-		this.buttonBack2.setFocusPainted(false);  // remove focus ring
-		this.buttonBack2.setBorderPainted(false);
-		this.buttonBack2.addActionListener(this); // Add action listener to previous button
-		this.buttonBack2.setSize(130,30); // 130 x 30 pixels
-		this.buttonBack2.setLocation(420,615); // x and y coordinates (420, 615)
-		this.buttonBack2.setVisible(false);	
-		this.buttonBack2.addMouseListener(this);
-		this.gamepanel.add(buttonBack2);
+		buttonBack2 = new JButton("Back");
+		buttonBack2.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonBack2.setForeground(Color.WHITE); // make text white
+		buttonBack2.setBackground(Color.BLACK); // set background to black
+		buttonBack2.setOpaque(true);
+		buttonBack2.setFocusPainted(false);  // remove focus ring
+		buttonBack2.setBorderPainted(false);
+		buttonBack2.addActionListener(this); // Add action listener to previous button
+		buttonBack2.setSize(130,30); // 130 x 30 pixels
+		buttonBack2.setLocation(420,615); // x and y coordinates (420, 615)
+		buttonBack2.setVisible(false);	
+		buttonBack2.addMouseListener(this);
+		gamepanel.add(buttonBack2);
 		
 		// RulesOfGame - Text Area
-		this.RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
-		this.RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman text font size 15
-		this.RulesOfGame.setForeground(Color.WHITE); // Change text colour to black
-		this.RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
-		this.RulesOfGame.setSize(438,470); // 438 x 470 pixels
-		this.RulesOfGame.setLocation(420,137); // x and y coordinates (420, 137)
-		this.RulesOfGame.setEditable(false); // Prevent user from editing the text area
-		this.RulesOfGame.setVisible(false);
-		this.RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
-		this.gamepanel.add(RulesOfGame); // Add textarea to the panel
+		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
+		RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman text font size 15
+		RulesOfGame.setForeground(Color.WHITE); // Change text colour to black
+		RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
+		RulesOfGame.setSize(438,470); // 438 x 470 pixels
+		RulesOfGame.setLocation(420,137); // x and y coordinates (420, 137)
+		RulesOfGame.setEditable(false); // Prevent user from editing the text area
+		RulesOfGame.setVisible(false);
+		RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
+		gamepanel.add(RulesOfGame); // Add textarea to the panel
 		
-		////////////////////////////////////////////////////////////////
-		
-		this.buttonQuit = new JButton("Quit"); // Quit button
-		this.buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
-		this.buttonQuit.setLocation(540, 440); // x and y coordinates (540, 440)
-		this.buttonQuit.setFocusPainted(false); // Remove focus ring
-		this.buttonQuit.setBackground(Color.BLACK); // Set background to black
-		this.buttonQuit.setOpaque(true);
-		this.buttonQuit.setBorderPainted(false);
-		this.buttonQuit.setFont(new Font("Arial", Font.PLAIN, 20)); // Arial text font size 20
-		this.buttonQuit.setForeground(Color.WHITE); // Make text white
-		this.buttonQuit.addActionListener(this); // Add action listener to quit button
-		this.buttonQuit.addMouseListener(this); // Add mouse listener to quit button
-		this.gamepanel.add(this.buttonQuit); // Add help button to the panel
-		
-		////////////////////////////////////////////////////////////////
 		ssm = new SuperSocketMaster(1337, this);
 		System.out.println("My server ip is: "+ssm.getMyAddress());
 		ssm.connect();
-		this.labelIP = new JLabel(ssm.getMyAddress());
-		this.labelIP.setLocation(550, 300);
-		this.labelIP.setSize(200,50);
-		this.labelIP.setFont(new Font("Arial", Font.PLAIN, 30)); // Arial text font size 20
-		this.labelIP.setForeground(Color.WHITE); // Make text white
-		this.gamepanel.add(this.labelIP);
-		this.labelIP.setVisible(false);
 		
-		////////////////////////////////////////////////////////////////
-		this.frame = new JFrame("Game Of The Generals Marvel Edition");
+		labelIP = new JLabel(ssm.getMyAddress());
+		labelIP.setLocation(550, 300);
+		labelIP.setSize(200,50);
+		labelIP.setFont(new Font("Times New Roman", Font.BOLD, 30)); // Times New Roman text font size 30, bolded
+		labelIP.setForeground(Color.WHITE); // Make text white
+		labelIP.setVisible(false);
+		gamepanel.add(labelIP);
+		
+		////////////////////
+		// Frame
+		////////////////////
+		
+		frame = new JFrame("Game Of The Generals Marvel Edition");
+		
 		// Puts the panel inside the frame.
-		this.frame.setContentPane(gamepanel);
+		frame.setContentPane(gamepanel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-		this.frame.pack();
+		frame.pack();
 		
 		// Exit Java program when the frame is closed.
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		this.frame.setResizable(false);
+		frame.setResizable(false);
 		
 		// Shows the frame.
-		this.frame.setVisible(true);
-		
-		////////////////////////////////////////////////////////////////
-		
+		frame.setVisible(true);
 	}
 	
 	
