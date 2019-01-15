@@ -181,7 +181,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		if(evt.getSource() == button[0][1]){
+		else if(evt.getSource() == button[0][0]){
+			button[0][1].setIcon(null);
+			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+		}
+		else if(evt.getSource() == button[0][1]){
 			System.out.println("Pressed button 2 on board");
 			button[0][0].setIcon(null);
 			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
