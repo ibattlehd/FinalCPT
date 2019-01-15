@@ -40,10 +40,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonBack;
 	JButton buttonBack2;
 
-	JButton button[][] = new JButton[9][8];
+	JButton button[][] = new JButton[8][9];
 	int intRow;
 	int intCol;
-	int intSize = 9;
 
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
@@ -343,8 +342,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		gamepanel.setPreferredSize(new Dimension(1280, 720));
 		
 		boardpanel = new BoardPanel();
-		boardpanel.setLayout(new GridLayout(intSize,intSize));
-		boardpanel.setPreferredSize(new Dimension(1280, 720));
+		boardpanel.setLayout(new GridLayout(8,9));
+		//boardpanel.setPreferredSize(new Dimension(1280, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
@@ -353,11 +352,17 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// JButtons
 		////////////////////
 		
-		for(intRow = 0; intRow < intSize; intRow++){
-			for(intCol = 0; intCol < intSize-1; intCol++){
+		for(intRow = 0; intRow < 8; intRow++){
+			for(intCol = 0; intCol < 9; intCol++){
 				button[intRow][intCol] = new JButton();
 				button[intRow][intCol].addActionListener(this);
 				button[intRow][intCol].setSize(90, 90);
+				
+				//button[intRow][intCol].setFocusPainted(false);
+				button[intRow][intCol].setBackground(Color.RED);
+				button[intRow][intCol].setOpaque(true);
+				//button[intRow][intCol].setBorderPainted(false);
+				
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
