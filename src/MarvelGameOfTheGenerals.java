@@ -182,12 +182,35 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				System.exit(0);
 		}
 		else if(evt.getSource() == button[0][0]){
-			button[0][1].setIcon(null);
+			System.out.println("Pressed button 1 on board");
+			for(intRow = 0; intRow < 8; intRow++){
+				for(intCol = 0; intCol < 9; intCol++){
+					if(button[intRow][intCol].getIcon() != null){
+						button[intRow][intCol].setIcon(null);
+					}
+				}
+			}
+			/*
+			if(button[0][1].getIcon() != null){
+				button[0][1].setIcon(null);
+			}
+			*/
 			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
 		}
 		else if(evt.getSource() == button[0][1]){
 			System.out.println("Pressed button 2 on board");
-			button[0][0].setIcon(null);
+			for(intRow = 0; intRow < 8; intRow++){
+				for(intCol = 0; intCol < 9; intCol++){
+					if(button[intRow][intCol].getIcon() != null){
+						button[intRow][intCol].setIcon(null);
+					}
+				}
+			}
+			/*
+			if(button[0][0].getIcon() != null){
+				button[0][0].setIcon(null);
+			}
+			*/
 			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
 		}
 	}
