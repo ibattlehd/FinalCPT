@@ -114,6 +114,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		else if(evt.getSource() == buttonScores){
 			System.out.println("Pressed high scores");
+			frame.add(boardpanel, BorderLayout.WEST);
 		}
 		else if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
@@ -595,7 +596,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		frame = new JFrame("Game Of The Generals Marvel Edition");
 		
 		// Puts the panel inside the frame.
-		frame.add(boardpanel, BorderLayout.WEST);
 		frame.add(gamepanel, BorderLayout.EAST);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
