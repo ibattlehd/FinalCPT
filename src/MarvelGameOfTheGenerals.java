@@ -388,11 +388,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				button[intRow][intCol] = new JButton();
 				button[intRow][intCol].setSize(90, 90);
 				button[intRow][intCol].addActionListener(this);
-				
-				button[intRow][intCol].setBackground(Color.BLACK);
-				button[intRow][intCol].setFocusPainted(false);
-				button[intRow][intCol].setOpaque(true);
-				
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
