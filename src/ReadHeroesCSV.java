@@ -7,6 +7,7 @@ public class ReadHeroesCSV{
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
 		String strLine;
+		String strHeroes[][] = new String[8][9];
 		
 		try{
 			thefile = new FileReader("../data/heroes.csv");
@@ -24,10 +25,11 @@ public class ReadHeroesCSV{
 				String[][] strLinesCsv = new String[strLines.length][];
 				for (int intCount=0; intCount<strLines.length; intCount++) {
 					strLinesCsv[intCount] = strLines[intCount].split(",");
-					System.out.println(strLinesCsv[intCount][0]);
 				}
-				strLinesCsv[0][1] = "test";
-				System.out.println(strLinesCsv[0][1]);
+				for (int intCount=0; intCount<strLines.length; intCount++) {
+					strHeroes[0][intCount] = strLinesCsv[intCount][0];
+					System.out.println(strHeroes[0][intCount]);
+				}
 			}catch(IOException e){
 				e.printStackTrace();
 			}
