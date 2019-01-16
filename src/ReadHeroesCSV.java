@@ -1,44 +1,36 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
 
-public class ReadHeroesCSV {
-
-    public static void main(String[] args) {
-        String fileName= "../data/heroes.csv";
-        File file= new File(fileName);
-
-        // this gives you a 2-dimensional array of strings
-        List<List<String>> lines = new ArrayList<>();
-        Scanner inputStream;
-
-        try{
-            inputStream = new Scanner(file);
-
-            while(inputStream.hasNext()){
-                String line= inputStream.next();
-                String[] values = line.split(",");
-                // this adds the currently parsed line to the 2-dimensional string array
-                lines.add(Arrays.asList(values));
-            }
-
-            inputStream.close();
-        }catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        
-        int lineNo = 1;
-        for(List<String> line: lines) {
-            int columnNo = 1;
-            for (String value: line) {
-                System.out.println("Line " + lineNo + " Column " + columnNo + ": " + value); // print out csv values
-                columnNo++;
-            }
-            lineNo++;
-        }
-    }
-
+public class ReadHeroesCSV{
+    public static void main(String[] args){
+		
+		boolean blnOpen = false;
+		BufferedReader con = new BufferedReader(new InputStreamReader(System.in));
+		String strHeroes[][] = new String[8][9];
+		String strLine;
+		
+		FileReader thefile = null;
+		BufferedReader thefiledata = null;
+		
+		try{
+			thefile = new FileReader("../data/heroes.csv");
+			thefiledata = new BufferedReader(thefile);
+			blnOpen = true;
+		}catch(IOException e){
+			System.out.println("unable to open file");
+		}
+		
+		if(blnOpen){
+			try{
+				strLine = thefiledata.readLine();
+				System.out.println(strLine);
+				String strLines[] = strLine.split(",");
+				String[][] strLinesCsv = new String[strLines.length][];
+				for (int intCount=0; intCount<strLines.length; intCount++) {
+					strLinesCsv[intCount] = strLines[intCount].split(",");
+					System.out.println(strLinesCsv[intCount][0]);
+				}
+			}catch(IOException e){
+			}
+		}
+	}
 }
