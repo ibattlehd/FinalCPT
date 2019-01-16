@@ -27,19 +27,20 @@ public class BoardData{
 			try{
 				while(true){
 					String strLine = thefiledata.readLine();
+					//System.out.println(strLine);
 					if(strLine == null){
 						break;
 					}
-					String strLines[] = strLine.split(",");
+					String strLines[] = strLine.split(","); // 1-dimensional array strLines[0-8]
 					String[][] strLinesCsv = new String[strLines.length][];
 					for (int intCount=0; intCount<strLines.length; intCount++) {
 						strLinesCsv[intCount] = strLines[intCount].split(",");
 					}
+					System.out.println(strLinesCsv[0][0]);
 					for (int intCount=0; intCount<strLines.length; intCount++) {
 						for(int intRow=0; intRow<8; intRow++) {
-							for(int intCol=0; intCol<9; intCol++ ){
+							for(int intCol=0; intCol<9; intCol++){
 								strHeroes[intRow][intCol] = strLinesCsv[intCount][0];
-								System.out.println(strHeroes[0][intCount]);
 							}
 						}
 					}
