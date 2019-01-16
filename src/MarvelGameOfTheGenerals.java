@@ -15,8 +15,9 @@ import java.io.*;
 */
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
-	JFrame frame;
-	GamePanel gamepanel;
+	JFrame menuframe;
+	JFrame boardframe;
+	MenuPanel menupanel;
 	BoardPanel boardpanel;
 	Timer timer;
 	
@@ -72,7 +73,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
 		if(evt.getSource() == timer){
-			gamepanel.repaint(); // Repaint the panel based on timer (60 fps).
+			menupanel.repaint(); // Repaint the panel based on timer (60 fps).
 		}
 		else if(evt.getSource() == buttonPlay){
 			buttonPlay.setVisible(false);
@@ -366,9 +367,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		gamepanel = new GamePanel();
-		gamepanel.setLayout(null);
-		gamepanel.setPreferredSize(new Dimension(1280, 720));
+		menupanel = new MenuPanel();
+		menupanel.setLayout(null);
+		menupanel.setPreferredSize(new Dimension(1280, 720));
 		
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
@@ -409,7 +410,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonPlay.setForeground(Color.WHITE); // Make text white
 		buttonPlay.addActionListener(this); // Add action listener to play button
 		buttonPlay.addMouseListener(this); // Add mouse listener to play button
-		gamepanel.add(buttonPlay); // Add play button to the panel
+		menupanel.add(buttonPlay); // Add play button to the panel
 		
 		buttonScores = new JButton("High Scores"); // High scores button
 		buttonScores.setSize(200, 50); // 200 pixels by 50 pixels
@@ -422,7 +423,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonScores.setForeground(Color.WHITE); // Make text white
 		buttonScores.addActionListener(this); // Add action listener to high scores button
 		buttonScores.addMouseListener(this); // Add mouse listener to high scores button
-		gamepanel.add(buttonScores); // Add high scores button to the panel
+		menupanel.add(buttonScores); // Add high scores button to the panel
 		
 		buttonHelp = new JButton("Help"); // Help button
 		buttonHelp.setSize(200, 50); // 200 pixels by 50 pixels
@@ -435,7 +436,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonHelp.setForeground(Color.WHITE); // Make text white
 		buttonHelp.addActionListener(this); // Add action listener to help button
 		buttonHelp.addMouseListener(this); // Add mouse listener to help button
-		gamepanel.add(buttonHelp); // Add help button to the panel
+		menupanel.add(buttonHelp); // Add help button to the panel
 		
 		buttonQuit = new JButton("Quit"); // Quit button
 		buttonQuit.setSize(200, 50); // 200 pixels by 50 pixels
@@ -448,7 +449,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonQuit.setForeground(Color.WHITE); // Make text white
 		buttonQuit.addActionListener(this); // Add action listener to quit button
 		buttonQuit.addMouseListener(this); // Add mouse listener to quit button
-		gamepanel.add(buttonQuit); // Add quit button to the panel
+		menupanel.add(buttonQuit); // Add quit button to the panel
 		
 		buttonHost = new JButton("Host");
 		buttonHost.setSize(250, 100);
@@ -462,7 +463,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonHost.addActionListener(this); // Add action listener to host button
 		buttonHost.addMouseListener(this); // Add mouse listener to host button
 		buttonHost.setVisible(false);
-		gamepanel.add(buttonHost); // Add host button to the panel
+		menupanel.add(buttonHost); // Add host button to the panel
 		
 		buttonClient = new JButton("Client");
 		buttonClient.setSize(250, 100);
@@ -476,14 +477,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonClient.addActionListener(this); // Add action listener to client button
 		buttonClient.addMouseListener(this); // Add mouse listener to client button
 		buttonClient.setVisible(false);
-		gamepanel.add(buttonClient); // Add client button to the panel
+		menupanel.add(buttonClient); // Add client button to the panel
 		
 		EnterIP = new JTextField();
 		EnterIP.setSize(200, 100);
 		EnterIP.setLocation(550, 300);
 		EnterIP.addKeyListener(this);
 		EnterIP.setVisible(false);
-		gamepanel.add(EnterIP);
+		menupanel.add(EnterIP);
 		
 		////////////////////
 		// Help Menu JButtons
@@ -502,7 +503,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonMainMenu.setLocation(580,615); // x and y coordinates (580, 615)
 		buttonMainMenu.setVisible(false);
 		buttonMainMenu.addMouseListener(this);
-		gamepanel.add(buttonMainMenu); // Add main menu button to the panel
+		menupanel.add(buttonMainMenu); // Add main menu button to the panel
 		
 		// Next button 
 		buttonNext = new JButton("Next"); // Button to go to next page
@@ -517,7 +518,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonNext.setLocation(727,615); // x and y coordinates (727, 615)
 		buttonNext.setVisible(false);
 		buttonNext.addMouseListener(this);
-		gamepanel.add(buttonNext); // Add next button to the panel
+		menupanel.add(buttonNext); // Add next button to the panel
 		
 		// Previous button
 		buttonPrevious = new JButton("Previous"); // Button to go back to previous page
@@ -532,7 +533,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonPrevious.setLocation(420,615); // x and y coordinates (420, 615)
 		buttonPrevious.setVisible(false);	
 		buttonPrevious.addMouseListener(this);
-		gamepanel.add(buttonPrevious); // Add previous button to the panel
+		menupanel.add(buttonPrevious); // Add previous button to the panel
 		
 		// Back button
 		buttonBack = new JButton("Back");
@@ -547,7 +548,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack.setLocation(420,615); // x and y coordinates (420, 615)
 		buttonBack.setVisible(false);	
 		buttonBack.addMouseListener(this);
-		gamepanel.add(buttonBack);
+		menupanel.add(buttonBack);
 		
 		// Back button 2
 		buttonBack2 = new JButton("Back");
@@ -562,7 +563,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack2.setLocation(420,615); // x and y coordinates (420, 615)
 		buttonBack2.setVisible(false);	
 		buttonBack2.addMouseListener(this);
-		gamepanel.add(buttonBack2);
+		menupanel.add(buttonBack2);
 		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
@@ -574,7 +575,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		RulesOfGame.setEditable(false); // Prevent user from editing the text area
 		RulesOfGame.setVisible(false);
 		RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
-		gamepanel.add(RulesOfGame); // Add textarea to the panel
+		menupanel.add(RulesOfGame); // Add textarea to the panel
 		
 		ssm = new SuperSocketMaster(1337, this);
 		System.out.println("My server ip is: "+ssm.getMyAddress());
@@ -586,35 +587,39 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setFont(new Font("Times New Roman", Font.BOLD, 30)); // Times New Roman text font size 30, bolded
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
-		gamepanel.add(labelIP);
+		menupanel.add(labelIP);
 		
 		////////////////////
 		// Frame
 		////////////////////
 		
-		frame = new JFrame("Game Of The Generals Marvel Edition");
+		menuframe = new JFrame("Game Of The Generals Marvel Edition");
+		boardframe = new JFrame("Board");
 		
 		// Puts the panel inside the frame.
-		frame.add(gamepanel, BorderLayout.WEST);
-		frame.add(boardpanel, BorderLayout.EAST);
+		menuframe.setContentPane(menupanel);
+		boardframe.setContentPane(boardpanel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-		frame.pack();
-		
+		menuframe.pack();
+		boardframe.pack();
+				
 		// Exit Java program when the frame is closed.
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menuframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		boardframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		frame.setResizable(false);
+		//frame.setResizable(false);
 		
 		// Shows the frame.
-		frame.setVisible(true);
+		menuframe.setVisible(true);
+		boardframe.setVisible(true);
 	}
 	
 	////////////////////
 	// GAME PANEL
 	////////////////////
-	public class GamePanel extends JPanel{
+	public class MenuPanel extends JPanel{
 		// Properties
 		int intPage = 1;
 		BufferedImage mainmenu;
@@ -628,7 +633,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		
 		// Constructor
-		public GamePanel(){
+		public MenuPanel(){
 			super();
 			// Images
 			try{
