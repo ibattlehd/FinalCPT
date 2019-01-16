@@ -393,12 +393,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		
-		String[][] buttons = heroes.readHeroesArray();
-		System.out.println(buttons[0][0]);
-		
-		if(buttons[0][0].equals("antman")){
-			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
-		}
+		String[][] strButton = heroes.readHeroesArray();
+		System.out.println(strButton[0][8]);
 		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels

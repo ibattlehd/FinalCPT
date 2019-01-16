@@ -13,6 +13,7 @@ public class ReadHeroesCSV{
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
 		String strLine;
+		String strLine2;
 		String strHeroes[][] = new String[8][9];
 				
 		try{
@@ -25,16 +26,18 @@ public class ReadHeroesCSV{
 			
 		if(blnOpen){
 			try{
-				strLine = thefiledata.readLine();
-				System.out.println(strLine);
-				String strLines[] = strLine.split(",");
-				String[][] strLinesCsv = new String[strLines.length][];
-				for (int intCount=0; intCount<strLines.length; intCount++) {
-					strLinesCsv[intCount] = strLines[intCount].split(",");
-				}
-				for (int intCount=0; intCount<strLines.length; intCount++) {
-					strHeroes[0][intCount] = strLinesCsv[intCount][0];
-					System.out.println(strHeroes[0][intCount]);
+				String strLine1 = thefiledata.readLine();
+				while(strLine1 != null){
+					strLine = thefiledata.readLine();
+					String strLines[] = strLine.split(",");
+					String[][] strLinesCsv = new String[strLines.length][];
+					for (int intCount=0; intCount<strLines.length; intCount++) {
+						strLinesCsv[intCount] = strLines[intCount].split(",");
+					}
+					for (int intCount=0; intCount<strLines.length; intCount++) {
+						strHeroes[0][intCount] = strLinesCsv[intCount][0];
+						System.out.println(strHeroes[0][intCount]);
+					}
 				}
 			}catch(IOException e){
 				e.printStackTrace();
