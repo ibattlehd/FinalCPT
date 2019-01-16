@@ -8,16 +8,15 @@ import java.io.*;
 */
 public class BoardData{
 	
-	public String[][] readMapArray(){
+	//public String[][] readMapArray(){
+	public static void main(String[] args){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
-		String strLine;
-		String strLine2;
 		String strHeroes[][] = new String[8][9];
 				
 		try{
-			thefile = new FileReader("../data/heroes.csv");
+			thefile = new FileReader("../data/board.csv");
 			thefiledata = new BufferedReader(thefile);
 			blnOpen = true;
 		}catch(IOException e){
@@ -26,24 +25,30 @@ public class BoardData{
 			
 		if(blnOpen){
 			try{
-				String strLine1 = thefiledata.readLine();
-				while(strLine1 != null){
-					strLine = thefiledata.readLine();
+				while(true){
+					String strLine = thefiledata.readLine();
+					if(strLine == null){
+						break;
+					}
 					String strLines[] = strLine.split(",");
 					String[][] strLinesCsv = new String[strLines.length][];
 					for (int intCount=0; intCount<strLines.length; intCount++) {
 						strLinesCsv[intCount] = strLines[intCount].split(",");
 					}
 					for (int intCount=0; intCount<strLines.length; intCount++) {
-						strHeroes[0][intCount] = strLinesCsv[intCount][0];
-						System.out.println(strHeroes[0][intCount]);
+						for(int intRow=0; intRow<8; intRow++) {
+							for(int intCol=0; intCol<9; intCol++ ){
+								strHeroes[intRow][intCol] = strLinesCsv[intCount][0];
+								System.out.println(strHeroes[0][intCount]);
+							}
+						}
 					}
 				}
 			}catch(IOException e){
 				e.printStackTrace();
 			}
 		}
-		return strHeroes.clone();
+		//return strHeroes.clone();
 	}
 	
 }
