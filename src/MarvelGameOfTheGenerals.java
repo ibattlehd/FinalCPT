@@ -40,7 +40,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
-
+	
+	ReadHeroesCSV heroes = new ReadHeroesCSV();
 	JButton button[][] = new JButton[8][9];
 	int intRow;
 	int intCol;
@@ -392,7 +393,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		
-		button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+		String[][] buttons = heroes.readHeroesArray();
+		System.out.println(buttons[0][0]);
+		
+		if(buttons[0][0].equals("antman")){
+			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+		}
 		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels

@@ -7,14 +7,14 @@ import java.io.*;
 * @version 1.0
 */
 public class ReadHeroesCSV{
-    public static void main(String[] args){
-		
+	
+	public String[][] readHeroesArray(){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
 		String strLine;
 		String strHeroes[][] = new String[8][9];
-		
+				
 		try{
 			thefile = new FileReader("../data/heroes.csv");
 			thefiledata = new BufferedReader(thefile);
@@ -22,7 +22,7 @@ public class ReadHeroesCSV{
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		
+			
 		if(blnOpen){
 			try{
 				strLine = thefiledata.readLine();
@@ -40,5 +40,7 @@ public class ReadHeroesCSV{
 				e.printStackTrace();
 			}
 		}
+		return strHeroes.clone();
 	}
+	
 }
