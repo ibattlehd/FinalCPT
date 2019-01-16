@@ -1,14 +1,14 @@
 import java.io.*;
 
 /**
-* <h1>Read Heroes CSV</h1>
+* <h1>Board Data</h1>
 * Java class that reads from a CSV file and enters the data into a 2D array.
 * @author  ibattlehd (Nick)
 * @version 1.0
 */
-public class ReadHeroesCSV{
+public class BoardData{
 	
-	public String[][] readHeroesArray(){
+	public String[][] readMapArray(){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;

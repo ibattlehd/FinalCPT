@@ -41,7 +41,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonBack;
 	JButton buttonBack2;
 	
-	ReadHeroesCSV heroes = new ReadHeroesCSV();
+	BoardData boarddata = new BoardData();
 	JButton button[][] = new JButton[8][9];
 	int intRow;
 	int intCol;
@@ -192,11 +192,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					}
 				}
 			}
-			/*
-			if(button[0][1].getIcon() != null){
-				button[0][1].setIcon(null);
-			}
-			*/
 			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
 		}
 		else if(evt.getSource() == button[0][1]){
@@ -208,11 +203,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					}
 				}
 			}
-			/*
-			if(button[0][0].getIcon() != null){
-				button[0][0].setIcon(null);
-			}
-			*/
 			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
 		}
 	}
@@ -375,7 +365,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
 		//boardpanel.setLayout(null);
-		boardpanel.setPreferredSize(new Dimension(810, 720));
+		//boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
@@ -393,8 +383,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		
-		String[][] strButton = heroes.readHeroesArray();
-		System.out.println(strButton[0][8]);
+		button[0][0].setIcon(new ImageIcon(boardpanel.antman));
 		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
