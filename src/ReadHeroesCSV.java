@@ -3,20 +3,17 @@ import java.io.*;
 public class ReadHeroesCSV{
     public static void main(String[] args){
 		
-		boolean blnOpen = false;
-		BufferedReader con = new BufferedReader(new InputStreamReader(System.in));
-		String strHeroes[][] = new String[8][9];
-		String strLine;
-		
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
+		boolean blnOpen = false;
+		String strLine;
 		
 		try{
 			thefile = new FileReader("../data/heroes.csv");
 			thefiledata = new BufferedReader(thefile);
 			blnOpen = true;
 		}catch(IOException e){
-			System.out.println("unable to open file");
+			e.printStackTrace();
 		}
 		
 		if(blnOpen){
@@ -29,7 +26,10 @@ public class ReadHeroesCSV{
 					strLinesCsv[intCount] = strLines[intCount].split(",");
 					System.out.println(strLinesCsv[intCount][0]);
 				}
+				strLinesCsv[0][1] = "test";
+				System.out.println(strLinesCsv[0][1]);
 			}catch(IOException e){
+				e.printStackTrace();
 			}
 		}
 	}
