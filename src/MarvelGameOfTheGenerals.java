@@ -119,6 +119,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		else if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
+			//intHelpPage = 1;
+			RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote); 
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
