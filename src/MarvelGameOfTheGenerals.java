@@ -43,6 +43,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	BoardData boarddata = new BoardData();
 	JButton button[][] = new JButton[8][9];
+	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
 
@@ -185,6 +186,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
+		/*
 		else if(evt.getSource() == button[0][0]){
 			System.out.println("Pressed button 1 on board");
 			for(intRow = 0; intRow < 8; intRow++){
@@ -207,6 +209,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
 		}
+		*/
 	}
 		
 	@Override
@@ -384,8 +387,136 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
+		strArray[0][0] = "antman";
+		strArray[0][1] = "ironman";
+		strArray[0][2] = "hulk";
+		strArray[0][3] = "drstrange";
+		strArray[0][4] = "captainamerica";
+		strArray[0][5] = "blackpanther";
+		strArray[0][6] = "spiderman";
+		strArray[0][7] = "wanda";
+		strArray[0][8] = "starlord";
+		strArray[1][0] = "hawkeye";
+		strArray[1][1] = "thor";
+		strArray[1][2] = "vision";
+		strArray[1][3] = "loki";
+		strArray[1][4] = "shieldagents";
+		strArray[1][5] = "bluenexus";
+		strArray[1][6] = "loki";
+		strArray[1][7] = "shieldagents";
+		strArray[1][8] = "shieldagents";
+		strArray[2][0] = "shieldagents";
+		strArray[2][1] = "shieldagents";
+		strArray[2][2] = "shieldagents";
 		
-		button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+		strArray[5][0] = "hydrasoldiers";
+		strArray[5][1] = "hydrasoldiers";
+		strArray[5][2] = "hydrasoldiers";
+		strArray[6][0] = "thanos";
+		strArray[6][1] = "ultron";
+		strArray[6][2] = "dormammu";
+		strArray[6][3] = "drdoom";
+		strArray[6][4] = "redskull";
+		strArray[6][5] = "killmonger";
+		strArray[6][6] = "venom";
+		strArray[6][7] = "docock";
+		strArray[6][8] = "ronan";
+		strArray[7][0] = "modok";
+		strArray[7][1] = "yellowjacket";
+		strArray[7][2] = "punisher";
+		strArray[7][3] = "hela";
+		strArray[7][4] = "hydrasoldiers";
+		strArray[7][5] = "rednexus";
+		strArray[7][6] = "hela";
+		strArray[7][7] = "hydrasoldiers";
+		strArray[7][8] = "hydrasoldiers";
+		if(strArray[0][0].equals("antman")){
+			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+		}if(strArray[0][1].equals("ironman")){
+			button[0][1].setIcon(new ImageIcon(boardpanel.ironman));
+		}if(strArray[0][2].equals("hulk")){
+			button[0][2].setIcon(new ImageIcon(boardpanel.hulk));
+		}if(strArray[0][3].equals("drstrange")){
+			button[0][3].setIcon(new ImageIcon(boardpanel.drstrange));
+		}if(strArray[0][4].equals("captainamerica")){
+			button[0][4].setIcon(new ImageIcon(boardpanel.captainamerica));
+		}if(strArray[0][5].equals("blackpanther")){
+			button[0][5].setIcon(new ImageIcon(boardpanel.blackpanther));
+		}if(strArray[0][6].equals("spiderman")){
+			button[0][6].setIcon(new ImageIcon(boardpanel.spiderman));
+		}if(strArray[0][7].equals("wanda")){
+			button[0][7].setIcon(new ImageIcon(boardpanel.wanda));
+		}if(strArray[0][8].equals("starlord")){
+			button[0][8].setIcon(new ImageIcon(boardpanel.starlord));
+		}if(strArray[1][0].equals("hawkeye")){
+			button[1][0].setIcon(new ImageIcon(boardpanel.hawkeye));
+		}if(strArray[1][1].equals("thor")){
+			button[1][1].setIcon(new ImageIcon(boardpanel.thor));
+		}if(strArray[1][2].equals("vision")){
+			button[1][2].setIcon(new ImageIcon(boardpanel.vision));
+		}if(strArray[1][3].equals("loki")){
+			button[1][3].setIcon(new ImageIcon(boardpanel.loki));
+		}if(strArray[1][4].equals("shieldagents")){
+			button[1][4].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}if(strArray[1][5].equals("bluenexus")){
+			button[1][5].setIcon(new ImageIcon(boardpanel.bluenexus));
+		}if(strArray[1][6].equals("loki")){
+			button[1][6].setIcon(new ImageIcon(boardpanel.loki));
+		}if(strArray[1][7].equals("shieldagents")){
+			button[1][7].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}if(strArray[1][8].equals("shieldagents")){
+			button[1][8].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}if(strArray[2][0].equals("shieldagents")){
+			button[2][0].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}if(strArray[2][1].equals("shieldagents")){
+			button[2][1].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}if(strArray[2][2].equals("shieldagents")){
+			button[2][2].setIcon(new ImageIcon(boardpanel.shieldagents));
+		}
+		// villians
+		if(strArray[7][0].equals("modok")){
+			button[7][0].setIcon(new ImageIcon(boardpanel.modok));
+		}if(strArray[7][1].equals("yellowjacket")){
+			button[7][1].setIcon(new ImageIcon(boardpanel.yellowjacket));
+		}if(strArray[7][2].equals("punisher")){
+			button[7][2].setIcon(new ImageIcon(boardpanel.punisher));
+		}if(strArray[7][3].equals("hela")){
+			button[7][3].setIcon(new ImageIcon(boardpanel.hela));
+		}if(strArray[7][4].equals("hydrasoldiers")){
+			button[7][4].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[7][5].equals("rednexus")){
+			button[7][5].setIcon(new ImageIcon(boardpanel.rednexus));
+		}if(strArray[7][6].equals("hela")){
+			button[7][6].setIcon(new ImageIcon(boardpanel.hela));
+		}if(strArray[7][7].equals("hydrasoldiers")){
+			button[7][7].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[7][8].equals("hydrasoldiers")){
+			button[7][8].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[6][0].equals("thanos")){
+			button[6][0].setIcon(new ImageIcon(boardpanel.thanos));
+		}if(strArray[6][1].equals("ultron")){
+			button[6][1].setIcon(new ImageIcon(boardpanel.ultron));
+		}if(strArray[6][2].equals("dormammu")){
+			button[6][2].setIcon(new ImageIcon(boardpanel.dormammu));
+		}if(strArray[6][3].equals("drdoom")){
+			button[6][3].setIcon(new ImageIcon(boardpanel.drdoom));
+		}if(strArray[6][4].equals("redskull")){
+			button[6][4].setIcon(new ImageIcon(boardpanel.redskull));
+		}if(strArray[6][5].equals("killmonger")){
+			button[6][5].setIcon(new ImageIcon(boardpanel.killmonger));
+		}if(strArray[6][6].equals("venom")){
+			button[6][6].setIcon(new ImageIcon(boardpanel.venom));
+		}if(strArray[6][7].equals("docock")){
+			button[6][7].setIcon(new ImageIcon(boardpanel.docock));
+		}if(strArray[6][8].equals("ronan")){
+			button[6][8].setIcon(new ImageIcon(boardpanel.ronan));
+		}if(strArray[5][0].equals("hydrasoldiers")){
+			button[5][0].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[5][1].equals("hydrasoldiers")){
+			button[5][1].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[5][2].equals("hydrasoldiers")){
+			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}
 		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
@@ -640,6 +771,37 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public class BoardPanel extends JPanel{
 		// Properties
 		BufferedImage antman;
+		BufferedImage ironman;
+		BufferedImage hulk;
+		BufferedImage drstrange;
+		BufferedImage captainamerica;
+		BufferedImage blackpanther;
+		BufferedImage spiderman;
+		BufferedImage wanda;
+		BufferedImage starlord;
+		BufferedImage hawkeye;
+		BufferedImage thor;
+		BufferedImage vision;
+		BufferedImage loki;
+		BufferedImage shieldagents;
+		BufferedImage thanos;
+		BufferedImage hydrasoldiers;
+		BufferedImage ultron;
+		BufferedImage drdoom;
+		BufferedImage redskull;
+		BufferedImage dormammu;
+		BufferedImage killmonger;
+		BufferedImage venom;
+		BufferedImage docock;
+		BufferedImage ronan;
+		BufferedImage modok;
+		BufferedImage yellowjacket;
+		BufferedImage punisher;
+		BufferedImage hela;
+		BufferedImage rednexus;
+		BufferedImage bluenexus;
+		
+		
 		
 		// Methods
 		public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
@@ -651,6 +813,122 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			// Images
 			try{
 				antman = ImageIO.read(new File("../characterimg/Resized Images/antman.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				ironman = ImageIO.read(new File("../characterimg/Resized Images/ironman.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				hulk = ImageIO.read(new File("../characterimg/Resized Images/hulk.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				drstrange = ImageIO.read(new File("../characterimg/Resized Images/drstrange.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				captainamerica = ImageIO.read(new File("../characterimg/Resized Images/captainamerica.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				blackpanther = ImageIO.read(new File("../characterimg/Resized Images/blackpanther.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				spiderman = ImageIO.read(new File("../characterimg/Resized Images/spiderman.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				wanda = ImageIO.read(new File("../characterimg/Resized Images/wanda.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				starlord = ImageIO.read(new File("../characterimg/Resized Images/starlord.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				hawkeye = ImageIO.read(new File("../characterimg/Resized Images/hawkeye.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				thor = ImageIO.read(new File("../characterimg/Resized Images/thor.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				vision = ImageIO.read(new File("../characterimg/Resized Images/vision.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				loki = ImageIO.read(new File("../characterimg/Resized Images/loki.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				shieldagents = ImageIO.read(new File("../characterimg/Resized Images/shieldagent.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				bluenexus = ImageIO.read(new File("../characterimg/Resized Images/goodnexus.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				thanos = ImageIO.read(new File("../characterimg/Resized Images/thanos.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				hydrasoldiers = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				ultron = ImageIO.read(new File("../characterimg/Resized Images/ultron.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				dormammu = ImageIO.read(new File("../characterimg/Resized Images/dormammu.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				drdoom = ImageIO.read(new File("../characterimg/Resized Images/drdoom.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				redskull = ImageIO.read(new File("../characterimg/Resized Images/redskull.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				killmonger = ImageIO.read(new File("../characterimg/Resized Images/killmonger.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				venom = ImageIO.read(new File("../characterimg/Resized Images/venom.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				docock = ImageIO.read(new File("../characterimg/Resized Images/docock.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				ronan = ImageIO.read(new File("../characterimg/Resized Images/ronan.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				modok = ImageIO.read(new File("../characterimg/Resized Images/modok.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				yellowjacket = ImageIO.read(new File("../characterimg/Resized Images/yellowjacket.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				punisher = ImageIO.read(new File("../characterimg/Resized Images/punisher.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				hela = ImageIO.read(new File("../characterimg/Resized Images/hela.jpg"));
+			}catch(IOException e){
+				System.out.println("Unable to load image");
+			}try{
+				rednexus = ImageIO.read(new File("../characterimg/Resized Images/evilnexus.jpg"));
 			}catch(IOException e){
 				System.out.println("Unable to load image");
 			}
