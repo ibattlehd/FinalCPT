@@ -46,13 +46,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
-	
-	BoardData boarddata = new BoardData();
+
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
-  JTextArea ChatBox = new JTextArea();
+	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
 	JTextField SendMessage = new JTextField();
 
