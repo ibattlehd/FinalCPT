@@ -12,7 +12,7 @@ public class MarvelGOTGHighscores{
 		boolean blnOpen = false;
 		
 		try{
-			thefile = new FileReader("data/highscores.txt");
+			thefile = new FileReader("../data/highscores.txt");
 			blnOpen = true;
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
