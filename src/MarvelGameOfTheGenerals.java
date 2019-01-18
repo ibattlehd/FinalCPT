@@ -370,7 +370,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
 		//boardpanel.setLayout(null);
-		//boardpanel.setPreferredSize(new Dimension(810, 720));
+		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
@@ -728,7 +728,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		boardframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		//frame.setResizable(false);
+		menuframe.setResizable(false);
+		boardframe.setResizable(false);
 		
 		// Shows the frame.
 		menuframe.setVisible(true);
