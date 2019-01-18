@@ -6,13 +6,11 @@ import java.io.*;
 */
 public class MarvelGOTGHighscores{
 	
-	//public String[][] readMapArray(){
-	public static void main(String[]args){
+	public String[][] readMapArray(){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
-		int intNum = 100;
-		String strScores[][] = new String[1][intNum]; // holds top 100 high scores
+		String strScores[][] = new String[1][50]; // holds top 50 high scores
 		
 		try{
 			thefile = new FileReader("../data/highscores.txt");
@@ -27,7 +25,6 @@ public class MarvelGOTGHighscores{
 				String strLine = thefiledata.readLine();
 				String strLines[] = strLine.split(",");
 				String[][] strLinesTxt = new String[strLines.length][];
-				intNum = strLines.length;
 				for (int intCount=0; intCount<strLines.length; intCount++) {
 					strLinesTxt[intCount] = strLines[intCount].split(",");
 				}
@@ -40,6 +37,6 @@ public class MarvelGOTGHighscores{
 			}
 		}
 		
-		//return strScores.clone();
+		return strScores.clone();
 	}
 }
