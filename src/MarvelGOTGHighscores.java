@@ -12,7 +12,7 @@ public class MarvelGOTGHighscores{
 		boolean blnOpen = false;
 		
 		try{
-			thefile = new FileReader("highscores.txt");
+			thefile = new FileReader("data/highscores.txt");
 			blnOpen = true;
 		}catch(FileNotFoundException e){
 			e.printStackTrace();
@@ -20,20 +20,16 @@ public class MarvelGOTGHighscores{
 		
 		if(blnOpen){
 			thefiledata = new BufferedReader(thefile);
-			String strLine = "";
 			try{
-				strLine = thefiledata.readLine();
-				System.out.println(strLine);
+				String strLine = thefiledata.readLine();
+				String strLines[] = strLine.split(",");
+				String[][] strLinesTxt = new String[strLines.length][];
+				for (int intCount=0; intCount<strLines.length; intCount++) {
+					strLinesTxt[intCount] = strLines[intCount].split(",");
+					System.out.println(strLinesTxt[intCount][0]);
+				}
 			}catch(IOException e){
 				e.printStackTrace();
-			}
-			while(strLine != null){
-				try{
-					strLine = thefiledata.readLine();
-					System.out.println(strLine);
-				}catch(IOException e){
-					e.printStackTrace();
-				}
 			}
 		}
 		
