@@ -1,34 +1,40 @@
 import java.io.*;
 
+/**
+* <h1>Marvel Game of the Generals Highscores</h1>
+* @author  ibattlehd (Nick)
+* @version 1.0
+*/
 public class MarvelGOTGHighscores{
 	public static void main(String[] args){
-		boolean blnFileFail = false;
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
+		boolean blnOpen = false;
+		
 		try{
 			thefile = new FileReader("highscores.txt");
+			blnOpen = true;
 		}catch(FileNotFoundException e){
-			System.out.println("Unable to read from the file");
-			blnFileFail = true;
+			e.printStackTrace();
 		}
-		if(blnFileFail == false){
+		
+		if(blnOpen){
 			thefiledata = new BufferedReader(thefile);
-			
 			String strLine = "";
 			try{
 				strLine = thefiledata.readLine();
+				System.out.println(strLine);
 			}catch(IOException e){
-				strLine = "testing";
+				e.printStackTrace();
 			}
 			while(strLine != null){
-				System.out.println(strLine);
 				try{
 					strLine = thefiledata.readLine();
+					System.out.println(strLine);
 				}catch(IOException e){
-					strLine = "testing";
+					e.printStackTrace();
 				}
 			}
-			
 		}
 		
 	}
