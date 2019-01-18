@@ -9,6 +9,8 @@ class MyImageIcon extends ImageIcon{
 		name = imageName;
 	}
 	
+	// override equals method
+	// check if names are equal
 	@Override
 	public boolean equals(Object other){
 		MyImageIcon otherImage = (MyImageIcon)other;
