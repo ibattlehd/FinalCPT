@@ -41,6 +41,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonBack;
 	JButton buttonBack2;
 	
+	JTextArea ChatBox = new JTextArea();
+	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
+	JTextField SendMessage = new JTextField();
+	
+	
+	
 	BoardData boarddata = new BoardData();
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -707,6 +713,31 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
+		
+		// Chat Box
+		menupanel.add(ChatBox);
+		menupanel.add(ChatBoxScroll);
+		menupanel.add(SendMessage);
+		
+		
+		ChatBoxScroll.setSize(300, 500);
+		ChatBoxScroll.setLocation(900,100);
+		
+		
+		SendMessage.setSize(300,100);
+		SendMessage.setLocation(900, 600);
+		SendMessage.addActionListener(this);
+		
+		//thefield.setSize(400, 100);
+		//thefield.setLocation(0, 400);
+		//thefield.addActionListener(this);
+	
+		
+		
+		
+		//JTextArea ChatBox = new JTextArea();
+	//JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
+	//JTextField SendMessage = new JTextField();
 		
 		////////////////////
 		// Frame
