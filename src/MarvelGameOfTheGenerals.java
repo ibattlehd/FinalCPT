@@ -733,12 +733,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
-    
-    // Chat Box
+		
+		// Chat Box
 		menupanel.add(ChatBox);
 		menupanel.add(ChatBoxScroll);
 		menupanel.add(SendMessage);
-		
 		
 		ChatBoxScroll.setSize(300, 500);
 		ChatBoxScroll.setLocation(900,100);
