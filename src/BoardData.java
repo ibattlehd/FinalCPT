@@ -14,6 +14,7 @@ public class BoardData{
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
 		String strHeroes[][] = new String[8][9];
+		int intLines = 0;
 				
 		try{
 			thefile = new FileReader("../data/board.csv");
@@ -27,24 +28,30 @@ public class BoardData{
 			try{
 				while(true){
 					String strLine = thefiledata.readLine();
+					intLines = intLines + 1;
 					//System.out.println(strLine);
+					//System.out.println("");
 					if(strLine == null){
 						break;
 					}
-					String strLines[] = strLine.split(","); // 1-dimensional array strLines[0-8]
-					String[][] strLinesCsv = new String[strLines.length][];
-					for (int intCount=0; intCount<strLines.length; intCount++) {
-						strLinesCsv[intCount] = strLines[intCount].split(",");
-					}
-					System.out.println(strLinesCsv[0][0]);
-					for (int intCount=0; intCount<strLines.length; intCount++) {
-						for(int intRow=0; intRow<8; intRow++) {
-							for(int intCol=0; intCol<9; intCol++){
-								strHeroes[intRow][intCol] = strLinesCsv[intCount][0];
-							}
+					String strLines[] = strLine.split(",");
+					System.out.println(intLines);
+					System.out.println(strLines[intLines]);
+				}
+				/*
+				String[][] strLinesCsv = new String[strLines.length][];
+				for (int intCount=0; intCount<strLines.length; intCount++) {
+					strLinesCsv[intCount] = strLines[intCount].split(",");
+				}
+				System.out.println(strLinesCsv[0][0]);
+				for (int intCount=0; intCount<strLines.length; intCount++) {
+					for(int intRow=0; intRow<8; intRow++) {
+						for(int intCol=0; intCol<9; intCol++){
+							strHeroes[intRow][intCol] = strLinesCsv[intCount][0];
 						}
 					}
 				}
+				*/
 			}catch(IOException e){
 				e.printStackTrace();
 			}
