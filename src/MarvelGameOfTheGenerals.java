@@ -13,6 +13,7 @@ import java.io.*;
 * @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
 * @version 1.0
 */
+
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame menuframe;
@@ -26,6 +27,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonScores;
 	JButton buttonHelp;
 	JButton buttonQuit;
+	
+	JTextField P1;
+	String strHostName;
+	String strClientName;
+	boolean blnHostNameEntered = false;
+	boolean blnClientNameEntered = false;
 	
 	// Help Menu
 	JButton buttonMainMenu;
@@ -41,17 +48,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonBack;
 	JButton buttonBack2;
 	
-	JTextArea ChatBox = new JTextArea();
-	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
-	JTextField SendMessage = new JTextField();
-	
-	
-	
 	BoardData boarddata = new BoardData();
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
+  JTextArea ChatBox = new JTextArea();
+	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
+	JTextField SendMessage = new JTextField();
 
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
@@ -89,7 +93,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
 			buttonHost.setVisible(true);
-			buttonClient.setVisible(true);	
+			buttonClient.setVisible(true);
 			buttonBack2.setVisible(true);
 		}
 		else if(evt.getSource() == buttonHost){
@@ -97,6 +101,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(true);
+			// Set username for host
+			P1.setVisible(true);
+			strHostName = P1.getText();
+			blnHostNameEntered = true;
+			P1.setVisible(false);
+			if(blnHostNameEntered){
+				menuframe.requestFocus();
+			}
 		}
 		else if(evt.getSource() == buttonClient){
 			buttonHost.setVisible(false);
@@ -611,6 +623,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		EnterIP.setVisible(false);
 		menupanel.add(EnterIP);
 		
+		// Text field that will be used to enter name
+		P1 = new JTextField();
+		P1.setSize(300, 50);
+		P1.setLocation(490, 225);
+		P1.setVisible(false);
+		P1.addActionListener(this);
+		menupanel.add(P1);
+		
 		////////////////////
 		// Help Menu JButtons
 		////////////////////
@@ -713,8 +733,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
-		
-		// Chat Box
+    
+    // Chat Box
 		menupanel.add(ChatBox);
 		menupanel.add(ChatBoxScroll);
 		menupanel.add(SendMessage);
@@ -727,17 +747,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		SendMessage.setSize(300,100);
 		SendMessage.setLocation(900, 600);
 		SendMessage.addActionListener(this);
-		
-		//thefield.setSize(400, 100);
-		//thefield.setLocation(0, 400);
-		//thefield.addActionListener(this);
-	
-		
-		
-		
-		//JTextArea ChatBox = new JTextArea();
-	//JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
-	//JTextField SendMessage = new JTextField();
 		
 		////////////////////
 		// Frame
