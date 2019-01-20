@@ -2,13 +2,13 @@
 
 ## Rules
 ### Objective
-The Objective of the game is to eliminate the nexus of your opponent.
+The objective of the game is to eliminate the nexus of your opponent.
 
 ### THE PIECES
 ### Heroes
-** -  indicates special piece
+** :arrow_forward: indicates special piece
 
-*** -  indicates character has special ability
+*** :arrow_forward: indicates character has special ability
 
 Pieces      |Power| No. of Pieces | Functions 
 |------------|-------|---------------|-----------|
