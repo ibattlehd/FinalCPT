@@ -733,7 +733,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
-		RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman text font size 15
+		RulesOfGame.setFont(new Font("Arial", Font.PLAIN, 15)); // Arial font size 15
 		RulesOfGame.setForeground(Color.WHITE); // Change text colour to black
 		RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
 		RulesOfGame.setSize(438,470); // 438 x 470 pixels
@@ -750,7 +750,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP = new JLabel(ssm.getMyAddress());
 		labelIP.setLocation(550, 300);
 		labelIP.setSize(200,50);
-		labelIP.setFont(new Font("Times New Roman", Font.BOLD, 30)); // Times New Roman text font size 30, bolded
+		labelIP.setFont(new Font("Helvetica", Font.BOLD, 30)); // Helvetica text font size 30, bolded
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
