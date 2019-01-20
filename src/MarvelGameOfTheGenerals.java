@@ -616,7 +616,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonHost.setBackground(Color.BLACK);
 		buttonHost.setOpaque(true);
 		buttonHost.setBorderPainted(false);
-		buttonHost.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonHost.setFont(font_1); // custom font
 		buttonHost.setForeground(Color.WHITE); // Make text white
 		buttonHost.addActionListener(this); // Add action listener to host button
 		buttonHost.addMouseListener(this); // Add mouse listener to host button
@@ -630,7 +630,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonClient.setBackground(Color.BLACK);
 		buttonClient.setOpaque(true);
 		buttonClient.setBorderPainted(false);
-		buttonClient.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonClient.setFont(font_1); // custom font
 		buttonClient.setForeground(Color.WHITE); // Make text white
 		buttonClient.addActionListener(this); // Add action listener to client button
 		buttonClient.addMouseListener(this); // Add mouse listener to client button
@@ -657,8 +657,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		////////////////////
 		
 		// Main Menu button
-		buttonMainMenu = new JButton("Main Menu"); // Button to return to main menu
-		buttonMainMenu.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		buttonMainMenu = new JButton("Menu"); // Button to return to main menu
+		buttonMainMenu.setFont(font_2); // custom font
 		buttonMainMenu.setForeground(Color.WHITE); // Make text white
 		buttonMainMenu.setBackground(Color.BLACK); // Set background to black
 		buttonMainMenu.setOpaque(true);
@@ -673,7 +673,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Next button 
 		buttonNext = new JButton("Next"); // Button to go to next page
-		buttonNext.setFont(new Font("Times New Roman", Font.BOLD, 15));  // Times New Roman text font size 15, bolded
+		buttonNext.setFont(font_2); // custom font
 		buttonNext.setForeground(Color.WHITE); // make text white
 		buttonNext.setBackground(Color.BLACK); // set background to black
 		buttonNext.setOpaque(true);
@@ -688,7 +688,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Previous button
 		buttonPrevious = new JButton("Previous"); // Button to go back to previous page
-		buttonPrevious.setFont(new Font("Times New Roman", Font.BOLD, 15)); // Times New Roman text font size 15, bolded
+		buttonPrevious.setFont(font_2); // custom font
 		buttonPrevious.setForeground(Color.WHITE); // make text white
 		buttonPrevious.setBackground(Color.BLACK); // set background to black
 		buttonPrevious.setOpaque(true);
@@ -703,11 +703,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Back button
 		buttonBack = new JButton("Back");
-		buttonBack.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonBack.setFont(font_2);
 		buttonBack.setForeground(Color.WHITE); // make text white
 		buttonBack.setBackground(Color.BLACK); // set background to black
 		buttonBack.setOpaque(true);
-		buttonBack.setFocusPainted(false);  // remove focus ring
+		buttonBack.setFocusPainted(false); // remove focus ring
 		buttonBack.setBorderPainted(false);
 		buttonBack.addActionListener(this); // Add action listener to previous button
 		buttonBack.setSize(130,30); // 130 x 30 pixels
@@ -718,11 +718,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Back button 2
 		buttonBack2 = new JButton("Back");
-		buttonBack2.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		buttonBack2.setFont(font_2);
 		buttonBack2.setForeground(Color.WHITE); // make text white
 		buttonBack2.setBackground(Color.BLACK); // set background to black
 		buttonBack2.setOpaque(true);
-		buttonBack2.setFocusPainted(false);  // remove focus ring
+		buttonBack2.setFocusPainted(false); // remove focus ring
 		buttonBack2.setBorderPainted(false);
 		buttonBack2.addActionListener(this); // Add action listener to previous button
 		buttonBack2.setSize(130,30); // 130 x 30 pixels
