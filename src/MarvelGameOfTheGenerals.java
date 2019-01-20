@@ -733,8 +733,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
-		RulesOfGame.setFont(new Font("Arial", Font.PLAIN, 15)); // Arial font size 15
-		RulesOfGame.setForeground(Color.WHITE); // Change text colour to black
+		RulesOfGame.setFont(new Font("Arial", Font.BOLD, 15)); // Arial font size 15, bolded
+		RulesOfGame.setForeground(Color.WHITE); // Change text colour to white
 		RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
 		RulesOfGame.setSize(438,470); // 438 x 470 pixels
 		RulesOfGame.setLocation(420,137); // x and y coordinates (420, 137)
