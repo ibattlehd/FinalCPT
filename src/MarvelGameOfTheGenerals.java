@@ -539,11 +539,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		
 		/*
-		 * **** *   * **** ****** ****** ***   ***     ***** ****** **   * ****** ******
-		 * *    *   * *      **   *    * *  * *  *     *     *    * * *  *   **   *
-		 * *    *   * ****   **   *    * *   *   *     ***** *    * *  * *   **   ******
-		 * *    *   *    *   **   *    * *       *     *     *    * *   **   **        *
-		 * **** ***** ****   **   ****** *       *     *     ****** *    *   **   ******
+		 * **** *    * **** ****** ****** ***   ***     ***** ****** **   * ****** ******
+		 * *    *    * *      **   *    * *  * *  *     *     *    * * *  *   **   *
+		 * *    *    * ****   **   *    * *   *   *     ***** *    * *  * *   **   ******
+		 * *    *    *    *   **   *    * *       *     *     *    * *   **   **        *
+		 * **** ****** ****   **   ****** *       *     *     ****** *    *   **   ******
 		 */
 		try {
 			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
@@ -739,7 +739,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
-		RulesOfGame.setFont(new Font("Arial", Font.BOLD, 15)); // Arial font size 15, bolded
+		RulesOfGame.setFont(new Font("Helvetica", Font.BOLD, 15)); // Arial font size 15, bolded
 		RulesOfGame.setForeground(Color.WHITE); // Change text colour to white
 		RulesOfGame.setBackground(new Color(214,0,0)); // Change background colour to custom red colour
 		RulesOfGame.setSize(438,470); // 438 x 470 pixels
