@@ -6,9 +6,9 @@ The objective of the game is to eliminate the nexus of your opponent.
 
 ### THE PIECES
 ### Heroes
-** :arrow_forward: indicates special piece
+__**__ indicates special piece
 
-*** :arrow_forward: indicates character has special ability
+__***__ indicates character has special ability
 
 Pieces      |Power| No. of Pieces | Functions 
 |------------|-------|---------------|-----------|
@@ -47,7 +47,7 @@ Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 |Hydra Soldiers***|Special| (x6)         |Can only eliminate Loki           |
 |Red Nexus**   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
 
-NOTE: If both characters are both equal power, BOTH are eliminated. 
+:heavy_exclamation_mark:NOTE: If both characters are both equal power, BOTH are eliminated. 
 
 ### Movement
 1. Heroes always make the first move. Players move alternately. 
@@ -68,7 +68,3 @@ The game ends:
 1. When the Nexus is eliminated
 2. When a player resigns.
 3. When both players agree on a draw
-
-
-
-
