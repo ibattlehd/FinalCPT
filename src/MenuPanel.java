@@ -2,15 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
-import javax.imageio.*;
 import java.io.*;
+import javax.imageio.*;
 
 public class MenuPanel extends JPanel{
 	// Properties
 	int intPage = 1;
 	BufferedImage mainmenu;
 	BufferedImage antman;
-	Font font = null;
 	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
@@ -22,11 +21,6 @@ public class MenuPanel extends JPanel{
 	// Constructor
 	public MenuPanel(){
 		super();
-		try{
-			font = new Font("../fonts/Roboto-Regular.ttf", Font.PLAIN, 40);
-		}catch(Exception e){
-			System.out.println("Unable to load font");
-		}	
 		// Images
 		try{
 			mainmenu = ImageIO.read(new File("../img/mainmenu.png"));

@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
-import javax.imageio.*;
 import java.io.*;
+import javax.imageio.*;
 
 /**
 * <h1>Game of the Generals - Marvel Edition</h1>
@@ -13,6 +13,7 @@ import java.io.*;
 * @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
 * @version 1.0
 */
+
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame menuframe;
@@ -26,6 +27,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonScores;
 	JButton buttonHelp;
 	JButton buttonQuit;
+	Font font_1;
+	Font font_2;
 	
 	JTextField P1;
 	String strHostName;
@@ -536,6 +539,24 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
 		}
 		
+		try {
+			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")));
+		} catch (IOException | FontFormatException e) {
+			e.printStackTrace();
+			font_1 = new Font("Helvetica", Font.BOLD, 30);
+		}
+		
+		try {
+			font_2 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-2.ttf")).deriveFont(30f);
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-2.ttf")));
+		} catch (IOException | FontFormatException e) {
+			e.printStackTrace();
+			font_2 = new Font("Helvetica", Font.BOLD, 30);
+		}
+		
 		buttonPlay = new JButton("Play"); // Play button
 		buttonPlay.setSize(200, 50); // 200 pixels by 50 pixels
 		buttonPlay.setLocation(540, 230); // x and y coordinates (540, 230)
@@ -543,7 +564,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonPlay.setBackground(Color.BLACK); // Set background to black
 		buttonPlay.setOpaque(true);
 		buttonPlay.setBorderPainted(false);
-		buttonPlay.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonPlay.setFont(font_1); // custom font
 		buttonPlay.setForeground(Color.WHITE); // Make text white
 		buttonPlay.addActionListener(this); // Add action listener to play button
 		buttonPlay.addMouseListener(this); // Add mouse listener to play button
@@ -556,7 +577,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonScores.setBackground(Color.BLACK); // Set background to black
 		buttonScores.setOpaque(true);
 		buttonScores.setBorderPainted(false);
-		buttonScores.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonScores.setFont(font_1); // custom font
 		buttonScores.setForeground(Color.WHITE); // Make text white
 		buttonScores.addActionListener(this); // Add action listener to high scores button
 		buttonScores.addMouseListener(this); // Add mouse listener to high scores button
@@ -569,7 +590,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonHelp.setBackground(Color.BLACK); // Set background to black
 		buttonHelp.setOpaque(true);
 		buttonHelp.setBorderPainted(false);
-		buttonHelp.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonHelp.setFont(font_1); // custom font
 		buttonHelp.setForeground(Color.WHITE); // Make text white
 		buttonHelp.addActionListener(this); // Add action listener to help button
 		buttonHelp.addMouseListener(this); // Add mouse listener to help button
@@ -582,7 +603,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonQuit.setBackground(Color.BLACK); // Set background to black
 		buttonQuit.setOpaque(true);
 		buttonQuit.setBorderPainted(false);
-		buttonQuit.setFont(new Font("Times New Roman", Font.BOLD, 20)); // Times New Roman text font size 20, bolded
+		buttonQuit.setFont(font_1); // custom font
 		buttonQuit.setForeground(Color.WHITE); // Make text white
 		buttonQuit.addActionListener(this); // Add action listener to quit button
 		buttonQuit.addMouseListener(this); // Add mouse listener to quit button
