@@ -10,7 +10,7 @@ import javax.imageio.*;
 * The Marvel edition of Game of the Generals in Java.
 * <p>
 * For more information visit https://ibattlehd.github.io/FinalCPT/
-* @author  ibattlehd (Nick), kennethtse14 (Kenneth), jkaz2001 (John)
+* @author  ibattlehd
 * @version 1.0
 */
 
@@ -21,62 +21,50 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	MenuPanel menupanel;
 	BoardPanel boardpanel;
 	Timer timer;
-	
-	// Main Menu Buttons
+	SuperSocketMaster ssm;
+	// Main Menu
 	JButton buttonPlay;
 	JButton buttonScores;
 	JButton buttonHelp;
 	JButton buttonQuit;
 	Font font_1;
 	Font font_2;
-	
-	JTextField P1;
-	String strHostName;
-	String strClientName;
-	boolean blnHostNameEntered = false;
-	boolean blnClientNameEntered = false;
-	
 	// Help Menu
 	JButton buttonMainMenu;
 	JButton buttonNext;
 	JButton buttonPrevious;
 	JTextArea RulesOfGame;
-	
+	// Used to setup game
 	JLabel labelIP;
-	SuperSocketMaster ssm;
 	JButton buttonHost;
 	JButton buttonClient;
 	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
-
+	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
+	// Chat
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
 	JTextField SendMessage = new JTextField();
 
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
-	
 	// Objective Instruction
 	String strObjective = "OBJECTIVE";
 	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
-	
 	// Pieces Information
 	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
-	
 	// Movement Rules
 	String strMovementTitle = "MOVEMENT";
 	String strMovementDescription = "1. Heroes always make the first move. Players move alternately"+"\n"+"2. A player is allowed to move only one piece at a time."+"\n"+"3. A move consists of moving a piece to a square, either forward, backward or sideward. A diagonal move or a move of more than one square is illegal";
-
 	// Battling between players Rules
 	String strBattleTitle = "BATTLE";
 	String strBattleDescription = "As the game progresses, battles are made resulting in the elimination of marvel characters. A battle is made when a character moves into the same square occupied by an opposing character. When a battle occurs the following rules of elimation apply:";
 	String strBattleDescriptionCont = "1. A higher powered character eliminates a lower powered character from the board"+"\n"+"2. If both characters power level are of equal, both are eliminated."+"\n"+"3. Loki(Heroes)/Hela(Villian) eliminates any character with a power level of 12 down to a character with a power level of 1"+"\n"+"4. The Nexus can be eliminated by any piece"+"\n"+"5. Only Shield Agents(Heroes) and Hydra Soldiers(Villians) can eliminate the infiltrator(Loki/Hela)";
-	
 	// How the game ends
 	String strEndGameTitle = "HOW THE GAME ENDS";
 	String strEndGameDescription = "The game ends:";
@@ -89,33 +77,27 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			menupanel.repaint(); // Repaint the panel based on timer (60 fps).
 		}
 		else if(evt.getSource() == buttonPlay){
+			// hide menu JButtons
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
+			// show necessary JButtons
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);
 			buttonBack2.setVisible(true);
 		}
 		else if(evt.getSource() == buttonHost){
-			labelIP.setVisible(true);
-			buttonHost.setVisible(false);
-			buttonClient.setVisible(false);
-			buttonBack.setVisible(true);
-			// Set username for host
-			P1.setVisible(true);
-			strHostName = P1.getText();
-			blnHostNameEntered = true;
-			P1.setVisible(false);
-			if(blnHostNameEntered){
-				menuframe.requestFocus();
-			}
+			labelIP.setVisible(true); // show host IP address
+			buttonHost.setVisible(false); // hide host JButton
+			buttonClient.setVisible(false); // hide client JButton
+			buttonBack.setVisible(true); // show back JButton
 		}
 		else if(evt.getSource() == buttonClient){
-			buttonHost.setVisible(false);
-			buttonClient.setVisible(false);
-			buttonBack.setVisible(true);
-			EnterIP.setVisible(true);
+			buttonHost.setVisible(false); // hide host JButton
+			buttonClient.setVisible(false); // hide client JButton
+			buttonBack.setVisible(true); // show back JButton
+			EnterIP.setVisible(true); // show EnterIP JTextFielda
 		}
 		else if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
@@ -650,6 +632,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		EnterIP.setVisible(false);
 		menupanel.add(EnterIP);
 		
+		/*
 		// Text field that will be used to enter name
 		P1 = new JTextField();
 		P1.setSize(300, 50);
@@ -657,6 +640,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		P1.setVisible(false);
 		P1.addActionListener(this);
 		menupanel.add(P1);
+		*/
 		
 		////////////////////
 		// Help Menu JButtons

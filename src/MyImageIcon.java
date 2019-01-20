@@ -1,5 +1,9 @@
 import javax.swing.*;
 
+/**
+* <h1>MyImageIcon</h1>
+* @author ibattlehd
+*/
 class MyImageIcon extends ImageIcon{
 	
 	private String name;
