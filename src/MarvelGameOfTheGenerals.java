@@ -135,7 +135,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonBack.setVisible(false);
 		}
 		else if(evt.getSource() == buttonScores){
-			System.out.println("Pressed high scores");
 		}
 		else if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
@@ -539,6 +538,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
 		}
 		
+		/*
+		 * **** *   * **** ****** ****** ***   ***     ***** ****** **   * ****** ******
+		 * *    *   * *      **   *    * *  * *  *     *     *    * * *  *   **   *
+		 * *    *   * ****   **   *    * *   *   *     ***** *    * *  * *   **   ******
+		 * *    *   *    *   **   *    * *       *     *     *    * *   **   **        *
+		 * **** ***** ****   **   ****** *       *     *     ****** *    *   **   ******
+		 */
 		try {
 			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
