@@ -14,7 +14,8 @@ import javax.imageio.*;
 */
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
-	JFrame theframe;
+	JFrame menuframe;
+	JFrame boardframe;
 	MenuPanel menupanel;
 	BoardPanel boardpanel;
 	Timer timer;
@@ -164,6 +165,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ChatBox.setVisible(true);
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
+			boardframe.setVisible(true);
 			buttonEnter2.setVisible(false);
 			buttonBack.setVisible(false);
 			buttonBack2.setVisible(false);
@@ -171,6 +173,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		// host
 		else if(evt.getSource() == buttonEnter){
+			boardframe.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
@@ -889,23 +892,28 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Frame
 		////////////////////
 		
-		theframe = new JFrame("Game Of The Generals Marvel Edition");
+		menuframe = new JFrame("Game Of The Generals Marvel Edition");
+		boardframe = new JFrame("Board");
 		
 		// Puts the panel inside the frame.
-		theframe.add(menupanel, BorderLayout.EAST);
-		theframe.add(boardpanel, BorderLayout.WEST);
+		menuframe.setContentPane(menupanel);
+		boardframe.setContentPane(boardpanel);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-		theframe.pack();
+		menuframe.pack();
+		boardframe.pack();
 				
 		// Exit Java program when the frame is closed.
-		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		menuframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		boardframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		theframe.setResizable(false);
+		menuframe.setResizable(false);
+		boardframe.setResizable(false);
 		
 		// Shows the frame.
-		theframe.setVisible(true);
+		menuframe.setVisible(true);
+		boardframe.setVisible(false);
 	}
 	
 	// Main Method
