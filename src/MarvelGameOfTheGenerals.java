@@ -14,8 +14,7 @@ import javax.imageio.*;
 */
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
-	JFrame menuframe;
-	JFrame boardframe;
+	JFrame theframe;
 	MenuPanel menupanel;
 	BoardPanel boardpanel;
 	Timer timer;
@@ -165,7 +164,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ChatBox.setVisible(true);
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
-			boardframe.setVisible(true);
 			buttonEnter2.setVisible(false);
 			buttonBack.setVisible(false);
 			buttonBack2.setVisible(false);
@@ -173,7 +171,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		// host
 		else if(evt.getSource() == buttonEnter){
-			boardframe.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
@@ -892,28 +889,23 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// Frame
 		////////////////////
 		
-		menuframe = new JFrame("Game Of The Generals Marvel Edition");
-		boardframe = new JFrame("Board");
+		theframe = new JFrame("Game Of The Generals Marvel Edition");
 		
 		// Puts the panel inside the frame.
-		menuframe.setContentPane(menupanel);
-		boardframe.setContentPane(boardpanel);
+		theframe.add(menupanel, BorderLayout.EAST);
+		theframe.add(boardpanel, BorderLayout.WEST);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
-		menuframe.pack();
-		boardframe.pack();
+		theframe.pack();
 				
 		// Exit Java program when the frame is closed.
-		menuframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		boardframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		theframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// Disables window resizing.
-		menuframe.setResizable(false);
-		boardframe.setResizable(false);
+		theframe.setResizable(false);
 		
 		// Shows the frame.
-		menuframe.setVisible(true);
-		boardframe.setVisible(false);
+		theframe.setVisible(true);
 	}
 	
 	// Main Method
