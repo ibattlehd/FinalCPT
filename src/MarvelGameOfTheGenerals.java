@@ -166,6 +166,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
 			boardframe.setVisible(true);
+			menuframe.setVisible(false);
 			buttonEnter2.setVisible(false);
 			buttonBack.setVisible(false);
 			buttonBack2.setVisible(false);
@@ -173,13 +174,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		// host
 		else if(evt.getSource() == buttonEnter){
-			boardframe.setVisible(true);
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
 			buttonEnter.setVisible(false);
 			buttonBack2.setVisible(false);
-			menupanel.setVisible(true);
+			menuframe.setVisible(false);
+			boardframe.setVisible(true);
 			ChatBox.setVisible(true);
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
