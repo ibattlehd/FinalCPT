@@ -41,6 +41,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JTextField EnterIP;
 	JButton buttonBack;
 	JButton buttonBack2;
+	JButton buttonEnter2;
+	JButton buttonEnter;
+	
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -48,8 +51,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	int intCol;
 	// Chat
 	JTextArea ChatBox = new JTextArea();
-	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
-	JTextField SendMessage = new JTextField();
+	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
+	JTextField ChatMessage = new JTextField();
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
 	// Objective Instruction
@@ -130,25 +133,100 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);
 			buttonBack2.setVisible(true);
+			buttonEnter.setVisible(false);
 		}
 		else if(evt.getSource() == buttonHost){
 			labelIP.setVisible(true); // show host IP address
 			buttonHost.setVisible(false); // hide host JButton
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
+			buttonEnter.setVisible(true);
+			
+		
 		}
 		else if(evt.getSource() == buttonClient){
 			buttonHost.setVisible(false); // hide host JButton
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
-			EnterIP.setVisible(true); // show EnterIP JTextFielda
+			EnterIP.setVisible(true); // show EnterIP JTextField
+			buttonEnter.setVisible(false);
+			buttonEnter2.setVisible(true);
+			
+			
+			
+			
 		}
+		// client
+		else if(evt.getSource() == buttonEnter2){
+			String strEnterIP = EnterIP.getText();
+			System.out.println(strEnterIP);
+			
+			ssm = new SuperSocketMaster(strEnterIP, 1337, this);
+			ssm.connect();
+			System.out.println("Server joined");
+		
+			menupanel.setVisible(true);
+			ChatBox.setVisible(true);
+			ChatScroll.setVisible(true);
+			ChatMessage.setVisible(true);
+			boardframe.setVisible(true);
+			buttonEnter2.setVisible(false);
+			buttonBack.setVisible(false);
+			buttonBack2.setVisible(false);
+			EnterIP.setVisible(false);
+			
+			
+			
+			
+			
+		}
+		// host
+		else if(evt.getSource() == buttonEnter){
+			boardframe.setVisible(true);
+			buttonHost.setVisible(false);
+			buttonClient.setVisible(false);
+			buttonBack.setVisible(false);
+			buttonEnter.setVisible(false);
+			buttonBack2.setVisible(false);
+			menupanel.setVisible(true);
+			ChatBox.setVisible(true);
+			ChatScroll.setVisible(true);
+			ChatMessage.setVisible(true);
+			
+			
+			
+			
+			//ssm = new SuperSocketMaster(labelIP, 1337, this);
+			ssm.connect();
+		
+		}
+		else if(evt.getSource() == ChatMessage){
+			
+			// Need to fix menupanel and boardpanel issue
+			// Need to fix message to appear on chat box
+			// game data (black pieces for enemy side)
+			System.out.println("Going to send this out over network: "+ChatMessage.getText());
+			
+			ssm.sendText(ChatMessage.getText());
+			
+			ChatMessage.setText("");
+			
+		}
+		else if(evt.getSource() == ssm){
+			String strData;
+			strData = ssm.readText();
+			ChatBox.append(strData + "\n");
+			
+		}
+		
+		
 		else if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);
 			labelIP.setVisible(false);
 			EnterIP.setVisible(false);
+			buttonEnter.setVisible(false);
 		}
 		else if(evt.getSource() == buttonBack2){
 			buttonBack2.setVisible(false);
@@ -159,6 +237,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
+			buttonEnter.setVisible(false);
 		}
 		else if(evt.getSource() == buttonScores){
 		}
@@ -173,6 +252,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			RulesOfGame.setVisible(true);
 			buttonMainMenu.setVisible(true);
 			buttonNext.setVisible(true);	
+			buttonEnter.setVisible(false);
 		}
 		else if(evt.getSource() == buttonMainMenu){ // User selects Main Menu Button in Help menu
 			intHelpPage = 0; // Return back to main menu
@@ -184,6 +264,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonMainMenu.setVisible(false);
 			buttonNext.setVisible(false);
 			buttonPrevious.setVisible(false);
+			buttonEnter.setVisible(false);
 		}
 		else if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
@@ -414,7 +495,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
 		//boardpanel.setLayout(null);
-		boardpanel.setPreferredSize(new Dimension(810, 720));
+		boardpanel.setPreferredSize(new Dimension(900, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
@@ -745,7 +826,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack.setBorderPainted(false);
 		buttonBack.addActionListener(this); // Add action listener to previous button
 		buttonBack.setSize(130,30); // 130 x 30 pixels
-		buttonBack.setLocation(420,615); // x and y coordinates (420, 615)
+		buttonBack.setLocation(575,615); // x and y coordinates (420, 615)
 		buttonBack.setVisible(false);	
 		buttonBack.addMouseListener(this);
 		menupanel.add(buttonBack);
@@ -760,10 +841,46 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack2.setBorderPainted(false);
 		buttonBack2.addActionListener(this); // Add action listener to previous button
 		buttonBack2.setSize(130,30); // 130 x 30 pixels
-		buttonBack2.setLocation(420,615); // x and y coordinates (420, 615)
+		buttonBack2.setLocation(575,615); // x and y coordinates (420, 615)
 		buttonBack2.setVisible(false);	
 		buttonBack2.addMouseListener(this);
 		menupanel.add(buttonBack2);
+		
+		// Enter Button (enter into game host)
+		buttonEnter = new JButton("Enter");
+		buttonEnter.setFont(font_2);
+		buttonEnter.setForeground(Color.WHITE); // make text white
+		buttonEnter.setBackground(Color.BLACK); // set background to black
+		buttonEnter.setOpaque(true);
+		buttonEnter.setFocusPainted(false); // remove focus ring
+		buttonEnter.setBorderPainted(false);
+		buttonEnter.addActionListener(this); // Add action listener to previous button
+		buttonEnter.setSize(130,30); // 130 x 30 pixels
+		buttonEnter.setLocation(900,325); // x and y coordinates (420, 615)
+		buttonEnter.setVisible(false);	
+		buttonEnter.addMouseListener(this);
+		menupanel.add(buttonEnter);
+		
+		
+		// Enter Button (enter into game client)
+		buttonEnter2 = new JButton("Enter");
+		buttonEnter2.setFont(font_2);
+		buttonEnter2.setForeground(Color.WHITE); // make text white
+		buttonEnter2.setBackground(Color.BLACK); // set background to black
+		buttonEnter2.setOpaque(true);
+		buttonEnter2.setFocusPainted(false); // remove focus ring
+		buttonEnter2.setBorderPainted(false);
+		buttonEnter2.addActionListener(this); // Add action listener to previous button
+		buttonEnter2.setSize(130,30); // 130 x 30 pixels
+		buttonEnter2.setLocation(900,325); // x and y coordinates (420, 615)
+		buttonEnter2.setVisible(false);	
+		buttonEnter2.addMouseListener(this);
+		menupanel.add(buttonEnter2);
+		
+		
+		
+		
+		
 		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
@@ -777,6 +894,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
 		menupanel.add(RulesOfGame); // Add textarea to the panel
 		
+		
+		
+		// Networking 
 		ssm = new SuperSocketMaster(1337, this);
 		System.out.println("My server ip is: "+ssm.getMyAddress());
 		ssm.connect();
@@ -791,16 +911,20 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Chat Box
 		menupanel.add(ChatBox);
-		menupanel.add(ChatBoxScroll);
-		menupanel.add(SendMessage);
+		menupanel.add(ChatScroll);
+		menupanel.add(ChatMessage);
 		
-		ChatBoxScroll.setSize(300, 500);
-		ChatBoxScroll.setLocation(900,100);
+		ChatScroll.setSize(300, 500);
+		ChatScroll.setLocation(950,50);
+		ChatScroll.setVisible(false);
+		
+		ChatMessage.setSize(300,100);
+		ChatMessage.setLocation(950, 550);
+		ChatMessage.addActionListener(this);
+		ChatMessage.setVisible(false);
 		
 		
-		SendMessage.setSize(300,100);
-		SendMessage.setLocation(900, 600);
-		SendMessage.addActionListener(this);
+		
 		
 		////////////////////
 		// Frame
@@ -827,7 +951,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Shows the frame.
 		menuframe.setVisible(true);
-		boardframe.setVisible(true);
+		boardframe.setVisible(false);
 	}
 	
 	// Main Method
