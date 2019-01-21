@@ -18,6 +18,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JFrame boardframe;
 	MenuPanel menupanel;
 	BoardPanel boardpanel;
+	ChatPanel chatpanel;
 	Timer timer;
 	SuperSocketMaster ssm;
 	// Main Menu
@@ -466,6 +467,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		//boardpanel.setLayout(null);
 		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
+		chatpanel = new ChatPanel();
+		chatpanel.setLayout(null);
+		chatpanel.setPreferredSize(new Dimension(470, 720));
+		
 		timer = new Timer(1000/60, this);
 		timer.start();
 		
@@ -873,16 +878,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		menupanel.add(labelIP);
 		
 		// Chat Box
-		menupanel.add(ChatBox);
-		menupanel.add(ChatScroll);
-		menupanel.add(ChatMessage);
+		chatpanel.add(ChatBox);
+		chatpanel.add(ChatScroll);
+		chatpanel.add(ChatMessage);
 		
 		ChatScroll.setSize(300, 500);
-		ChatScroll.setLocation(950,50);
+		ChatScroll.setLocation(0,50);
 		ChatScroll.setVisible(false);
 		
 		ChatMessage.setSize(300,100);
-		ChatMessage.setLocation(950, 550);
+		ChatMessage.setLocation(0, 550);
 		ChatMessage.addActionListener(this);
 		ChatMessage.setVisible(false);
 		
@@ -898,7 +903,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Puts the panel inside the frame.
 		menuframe.setContentPane(menupanel);
-		boardframe.setContentPane(boardpanel);
+		boardframe.add(boardpanel, BorderLayout.WEST);
+		boardframe.add(chatpanel, BorderLayout.EAST);
 		
 		// Causes this Window to be sized to fit the preferred size and layouts of its subcomponents.
 		menuframe.pack();
