@@ -43,7 +43,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonBack2;
 	JButton buttonEnter2;
 	JButton buttonEnter;
-	
+	// High scores
+	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
+	String highscores[][] = scores.readMapArray();
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -303,9 +305,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		/*
 		else if(evt.getSource() == button[0][0]){
 			System.out.println("Pressed button 1 on board");
+			/*
 			for(intRow = 0; intRow < 8; intRow++){
 				for(intCol = 0; intCol < 9; intCol++){
 					if(button[intRow][intCol].getIcon() != null){
@@ -313,10 +315,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					}
 				}
 			}
-			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
+			*/
 		}
 		else if(evt.getSource() == button[0][1]){
 			System.out.println("Pressed button 2 on board");
+			/*
 			for(intRow = 0; intRow < 8; intRow++){
 				for(intCol = 0; intCol < 9; intCol++){
 					if(button[intRow][intCol].getIcon() != null){
@@ -324,9 +327,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					}
 				}
 			}
-			button[0][1].setIcon(new ImageIcon(boardpanel.antman));
+			*/
 		}
-		*/
 	}
 		
 	@Override
@@ -443,6 +445,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 	@Override
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
+	}
+	
+	public void checkCharacter(){
 	}
 	
 	// Constructor

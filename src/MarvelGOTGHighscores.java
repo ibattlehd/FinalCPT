@@ -7,8 +7,7 @@ import java.io.*;
 
 public class MarvelGOTGHighscores{
 	
-	//public String[][] readMapArray(){
-	public static void main(String[] args){
+	public String[][] readMapArray(){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
@@ -39,6 +38,6 @@ public class MarvelGOTGHighscores{
 			}
 		}
 		
-		//return strScores.clone();
+		return strScores.clone();
 	}
 }
