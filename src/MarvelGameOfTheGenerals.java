@@ -363,58 +363,42 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseEntered(MouseEvent evt){ // Called after the cursor enters the bounds of the listened-to component.
 		if(evt.getSource() == buttonPlay){
 			buttonPlay.setBackground(Color.RED);
-			buttonPlay.setOpaque(true);
-			buttonPlay.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonScores){
 			buttonScores.setBackground(Color.RED);
-			buttonScores.setOpaque(true);
-			buttonScores.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonHelp){
 			buttonHelp.setBackground(Color.RED);
-			buttonHelp.setOpaque(true);
-			buttonHelp.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonQuit){
 			buttonQuit.setBackground(Color.RED);
-			buttonQuit.setOpaque(true);
-			buttonQuit.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonHost){
 			buttonHost.setBackground(Color.RED);
-			buttonHost.setOpaque(true);
-			buttonHost.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonClient){
 			buttonClient.setBackground(Color.RED);
-			buttonClient.setOpaque(true);
-			buttonClient.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonBack){
 			buttonBack.setBackground(Color.RED);
-			buttonBack.setOpaque(true);
-			buttonBack.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonBack2){
 			buttonBack2.setBackground(Color.RED);
-			buttonBack2.setOpaque(true);
-			buttonBack2.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonMainMenu){
 			buttonMainMenu.setBackground(Color.RED);
-			buttonMainMenu.setOpaque(true);
-			buttonMainMenu.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonNext){
 			buttonNext.setBackground(Color.RED);
-			buttonNext.setOpaque(true);
-			buttonNext.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonPrevious){
 			buttonPrevious.setBackground(Color.RED);
-			buttonPrevious.setOpaque(true);
-			buttonPrevious.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonEnter){
+			buttonEnter.setBackground(Color.RED);
+		}
+		if(evt.getSource() == buttonEnter2){
+			buttonEnter2.setBackground(Color.RED);
 		}
 	}
 		
@@ -422,58 +406,42 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseExited(MouseEvent evt){ // Called after the cursor exits the bounds of the listened-to component.
 		if(evt.getSource() == buttonPlay){
 			buttonPlay.setBackground(Color.BLACK);
-			buttonPlay.setOpaque(true);
-			buttonPlay.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonScores){
 			buttonScores.setBackground(Color.BLACK);
-			buttonScores.setOpaque(true);
-			buttonScores.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonHelp){
 			buttonHelp.setBackground(Color.BLACK);
-			buttonHelp.setOpaque(true);
-			buttonHelp.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonQuit){
 			buttonQuit.setBackground(Color.BLACK);
-			buttonQuit.setOpaque(true);
-			buttonQuit.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonHost){
 			buttonHost.setBackground(Color.BLACK);
-			buttonHost.setOpaque(true);
-			buttonHost.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonClient){
 			buttonClient.setBackground(Color.BLACK);
-			buttonClient.setOpaque(true);
-			buttonClient.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonMainMenu){
 			buttonMainMenu.setBackground(Color.BLACK);
-			buttonMainMenu.setOpaque(true);
-			buttonMainMenu.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonNext){
 			buttonNext.setBackground(Color.BLACK);
-			buttonNext.setOpaque(true);
-			buttonNext.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonPrevious){
 			buttonPrevious.setBackground(Color.BLACK);
-			buttonPrevious.setOpaque(true);
-			buttonPrevious.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonBack){
 			buttonBack.setBackground(Color.BLACK);
-			buttonBack.setOpaque(true);
-			buttonBack.setBorderPainted(false);
 		}
 		if(evt.getSource() == buttonBack2){
 			buttonBack2.setBackground(Color.BLACK);
-			buttonBack2.setOpaque(true);
-			buttonBack2.setBorderPainted(false);
+		}
+		if(evt.getSource() == buttonEnter){
+			buttonEnter.setBackground(Color.BLACK);
+		}
+		if(evt.getSource() == buttonEnter2){
+			buttonEnter2.setBackground(Color.BLACK);
 		}
 	}
 			
@@ -495,7 +463,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
 		//boardpanel.setLayout(null);
-		boardpanel.setPreferredSize(new Dimension(900, 720));
+		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		timer = new Timer(1000/60, this);
 		timer.start();
