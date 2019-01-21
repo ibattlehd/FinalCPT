@@ -82,7 +82,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character Hawkeye = new character(false, 3, false, false, 1, 0);
 	character AntMan = new character(false, 2, false, false, 0, 0);
 	character Vision = new character(false, 1, false, false, 1, 2);
-	character Loki = new character(false, 14, false, true, 1, 3);
+	character Loki1 = new character(false, 14, false, true, 1, 3);
+	character Loki2 = new character(false, 14, false, true, 1, 6);
 	character ShieldAgent1 = new character(false, 13, false, true, 1, 4);
 	character ShieldAgent2 = new character(false, 13, false, true, 1, 7);
 	character ShieldAgent3 = new character(false, 13, false, true, 1, 8);
@@ -444,15 +445,15 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[Hawkeye.intX][Hawkeye.intY] = "hawkeye";
 		strArray[Thor.intX][Thor.intY] = "thor";
 		strArray[Vision.intX][Vision.intY] = "vision";
-		strArray[Loki.intX][Loki.intY] = "loki";
-		strArray[1][4] = "shieldagents";
-		strArray[1][5] = "bluenexus";
-		strArray[1][6] = "loki";
-		strArray[1][7] = "shieldagents";
-		strArray[1][8] = "shieldagents";
-		strArray[2][0] = "shieldagents";
-		strArray[2][1] = "shieldagents";
-		strArray[2][2] = "shieldagents";
+		strArray[ShieldAgent1.intX][ShieldAgent1.intY] = "shieldagent1";
+		strArray[BlueNexus.intX][BlueNexus.intY] = "bluenexus";
+		strArray[Loki1.intX][Loki1.intY] = "loki1";
+		strArray[Loki2.intX][Loki2.intY] = "loki2";
+		strArray[ShieldAgent2.intX][ShieldAgent2.intY] = "shieldagent2";
+		strArray[ShieldAgent3.intX][ShieldAgent3.intY] = "shieldagent3";
+		strArray[ShieldAgent4.intX][ShieldAgent4.intY] = "shieldagent4";
+		strArray[ShieldAgent5.intX][ShieldAgent5.intY] = "shieldagent5";
+		strArray[ShieldAgent6.intX][ShieldAgent6.intY] = "shieldagent6";
 		
 		strArray[5][0] = "hydrasoldiers";
 		strArray[5][1] = "hydrasoldiers";
@@ -499,23 +500,23 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[1][1].setIcon(new ImageIcon(boardpanel.thor));
 		}if(strArray[1][2].equals("vision")){
 			button[1][2].setIcon(new ImageIcon(boardpanel.vision));
-		}if(strArray[1][3].equals("loki")){
-			button[1][3].setIcon(new ImageIcon(boardpanel.loki));
-		}if(strArray[1][4].equals("shieldagents")){
+		}if(strArray[1][3].equals("loki1")){
+			button[1][3].setIcon(new ImageIcon(boardpanel.loki1));
+		}if(strArray[1][4].equals("shieldagent1")){
 			button[1][4].setIcon(new ImageIcon(boardpanel.shieldagent1));
 		}if(strArray[1][5].equals("bluenexus")){
 			button[1][5].setIcon(new ImageIcon(boardpanel.bluenexus));
-		}if(strArray[1][6].equals("loki")){
-			button[1][6].setIcon(new ImageIcon(boardpanel.loki));
-		}if(strArray[1][7].equals("shieldagents")){
+		}if(strArray[1][6].equals("loki2")){
+			button[1][6].setIcon(new ImageIcon(boardpanel.loki2));
+		}if(strArray[1][7].equals("shieldagent2")){
 			button[1][7].setIcon(new ImageIcon(boardpanel.shieldagent2));
-		}if(strArray[1][8].equals("shieldagents")){
+		}if(strArray[1][8].equals("shieldagent3")){
 			button[1][8].setIcon(new ImageIcon(boardpanel.shieldagent3));
-		}if(strArray[2][0].equals("shieldagents")){
+		}if(strArray[2][0].equals("shieldagent4")){
 			button[2][0].setIcon(new ImageIcon(boardpanel.shieldagent4));
-		}if(strArray[2][1].equals("shieldagents")){
+		}if(strArray[2][1].equals("shieldagent5")){
 			button[2][1].setIcon(new ImageIcon(boardpanel.shieldagent5));
-		}if(strArray[2][2].equals("shieldagents")){
+		}if(strArray[2][2].equals("shieldagent6")){
 			button[2][2].setIcon(new ImageIcon(boardpanel.shieldagent6));
 		}
 		// villians

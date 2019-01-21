@@ -19,7 +19,8 @@ public class BoardPanel extends JPanel{
 	BufferedImage hawkeye;
 	BufferedImage thor;
 	BufferedImage vision;
-	BufferedImage loki;
+	BufferedImage loki1;
+	BufferedImage loki2;
 	BufferedImage shieldagent1;
 	BufferedImage shieldagent2;
 	BufferedImage shieldagent3;
@@ -100,7 +101,11 @@ public class BoardPanel extends JPanel{
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
-			loki = ImageIO.read(new File("../characterimg/Resized Images/loki.jpg"));
+			loki1 = ImageIO.read(new File("../characterimg/Resized Images/loki.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			loki2 = ImageIO.read(new File("../characterimg/Resized Images/loki.jpg"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
