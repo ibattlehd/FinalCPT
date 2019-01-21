@@ -536,9 +536,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[ShieldAgent5.intX][ShieldAgent5.intY] = "shieldagent5";
 		strArray[ShieldAgent6.intX][ShieldAgent6.intY] = "shieldagent6";
 		
-		strArray[5][0] = "hydrasoldiers";
-		strArray[5][1] = "hydrasoldiers";
-		strArray[5][2] = "hydrasoldiers";
+		strArray[HydraSoldier4.intX][HydraSoldier4.intY] = "hydrasoldier4";
+		strArray[HydraSoldier5.intX][HydraSoldier5.intY] = "hydrasoldier5";
+		strArray[HydraSoldier6.intX][HydraSoldier6.intY] = "hydrasoldier6";
 		strArray[6][0] = "thanos";
 		strArray[6][1] = "ultron";
 		strArray[6][2] = "dormammu";
@@ -552,11 +552,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[7][1] = "yellowjacket";
 		strArray[7][2] = "punisher";
 		strArray[7][3] = "hela";
-		strArray[7][4] = "hydrasoldiers";
+		strArray[HydraSoldier1.intX][HydraSoldier1.intY] = "hydrasoldier1";
 		strArray[7][5] = "rednexus";
 		strArray[7][6] = "hela";
-		strArray[7][7] = "hydrasoldiers";
-		strArray[7][8] = "hydrasoldiers";
+		strArray[HydraSoldier2.intX][HydraSoldier2.intY] = "hydrasoldier2";
+		strArray[HydraSoldier3.intX][HydraSoldier3.intY] = "hydrasoldier3";
 		if(strArray[0][0].equals("antman")){
 			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
 		}if(strArray[0][1].equals("ironman")){
@@ -609,16 +609,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[7][2].setIcon(new ImageIcon(boardpanel.punisher));
 		}if(strArray[7][3].equals("hela")){
 			button[7][3].setIcon(new ImageIcon(boardpanel.hela));
-		}if(strArray[7][4].equals("hydrasoldiers")){
-			button[7][4].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[7][4].equals("hydrasoldier1")){
+			button[7][4].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
 		}if(strArray[7][5].equals("rednexus")){
 			button[7][5].setIcon(new ImageIcon(boardpanel.rednexus));
 		}if(strArray[7][6].equals("hela")){
 			button[7][6].setIcon(new ImageIcon(boardpanel.hela));
-		}if(strArray[7][7].equals("hydrasoldiers")){
-			button[7][7].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
-		}if(strArray[7][8].equals("hydrasoldiers")){
-			button[7][8].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[7][7].equals("hydrasoldier2")){
+			button[7][7].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
+		}if(strArray[7][8].equals("hydrasoldier3")){
+			button[7][8].setIcon(new ImageIcon(boardpanel.hydrasoldier3));
 		}if(strArray[6][0].equals("thanos")){
 			button[6][0].setIcon(new ImageIcon(boardpanel.thanos));
 		}if(strArray[6][1].equals("ultron")){
@@ -637,12 +637,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[6][7].setIcon(new ImageIcon(boardpanel.docock));
 		}if(strArray[6][8].equals("ronan")){
 			button[6][8].setIcon(new ImageIcon(boardpanel.ronan));
-		}if(strArray[5][0].equals("hydrasoldiers")){
-			button[5][0].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
-		}if(strArray[5][1].equals("hydrasoldiers")){
-			button[5][1].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
-		}if(strArray[5][2].equals("hydrasoldiers")){
-			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldiers));
+		}if(strArray[5][0].equals("hydrasoldier4")){
+			button[5][0].setIcon(new ImageIcon(boardpanel.hydrasoldier4));
+		}if(strArray[5][1].equals("hydrasoldier5")){
+			button[5][1].setIcon(new ImageIcon(boardpanel.hydrasoldier5));
+		}if(strArray[5][2].equals("hydrasoldier6")){
+			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
 		
 		/*

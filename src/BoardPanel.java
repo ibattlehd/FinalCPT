@@ -28,7 +28,12 @@ public class BoardPanel extends JPanel{
 	BufferedImage shieldagent5;
 	BufferedImage shieldagent6;
 	BufferedImage thanos;
-	BufferedImage hydrasoldiers;
+	BufferedImage hydrasoldier1;
+	BufferedImage hydrasoldier2;
+	BufferedImage hydrasoldier3;
+	BufferedImage hydrasoldier4;
+	BufferedImage hydrasoldier5;
+	BufferedImage hydrasoldier6;
 	BufferedImage ultron;
 	BufferedImage drdoom;
 	BufferedImage redskull;
@@ -141,7 +146,27 @@ public class BoardPanel extends JPanel{
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
-			hydrasoldiers = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+			hydrasoldier1 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hydrasoldier2 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hydrasoldier3 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hydrasoldier4 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hydrasoldier5 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hydrasoldier6 = ImageIO.read(new File("../characterimg/Resized Images/hydrasoldiers.jpg"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
