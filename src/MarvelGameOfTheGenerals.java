@@ -114,7 +114,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character Yellowjacket = new character(false, 2, false, false, 7, 1);
 	character Punisher = new character(false, 1, false, false, 7, 2);
 	character Hela1 = new character(false, 14, false, true, 7, 3);
-	character Hela2 = new character(false, 14, false, true, 7, 3);
+	character Hela2 = new character(false, 14, false, true, 7, 6);
 	character HydraSoldier1 = new character(false, 13, false, true, 7, 4);
 	character HydraSoldier2 = new character(false, 13, false, true, 7, 7);
 	character HydraSoldier3 = new character(false, 13, false, true, 7, 8);
@@ -525,10 +525,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[Modok.intX][Modok.intY] = "modok";
 		strArray[Yellowjacket.intX][Yellowjacket.intY] = "yellowjacket";
 		strArray[Punisher.intX][Punisher.intY] = "punisher";
-		strArray[Hela.intX][Hela.intY] = "hela";
+		strArray[Hela1.intX][Hela1.intY] = "hela1";
 		strArray[HydraSoldier1.intX][HydraSoldier1.intY] = "hydrasoldier1";
 		strArray[RedNexus.intX][RedNexus.intY] = "rednexus";
-		strArray[Hela.intX][Hela.intY] = "hela";
+		strArray[Hela2.intX][Hela2.intY] = "hela2";
 		strArray[HydraSoldier2.intX][HydraSoldier2.intY] = "hydrasoldier2";
 		strArray[HydraSoldier3.intX][HydraSoldier3.intY] = "hydrasoldier3";
 		if(strArray[0][0].equals("antman")){
@@ -581,14 +581,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[7][1].setIcon(new ImageIcon(boardpanel.yellowjacket));
 		}if(strArray[7][2].equals("punisher")){
 			button[7][2].setIcon(new ImageIcon(boardpanel.punisher));
-		}if(strArray[7][3].equals("hela")){
-			button[7][3].setIcon(new ImageIcon(boardpanel.hela));
+		}if(strArray[7][3].equals("hela1")){
+			button[7][3].setIcon(new ImageIcon(boardpanel.hela1));
 		}if(strArray[7][4].equals("hydrasoldier1")){
 			button[7][4].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
 		}if(strArray[7][5].equals("rednexus")){
 			button[7][5].setIcon(new ImageIcon(boardpanel.rednexus));
-		}if(strArray[7][6].equals("hela")){
-			button[7][6].setIcon(new ImageIcon(boardpanel.hela));
+		}if(strArray[7][6].equals("hela2")){
+			button[7][6].setIcon(new ImageIcon(boardpanel.hela2));
 		}if(strArray[7][7].equals("hydrasoldier2")){
 			button[7][7].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
 		}if(strArray[7][8].equals("hydrasoldier3")){
