@@ -72,6 +72,15 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character Thor = new character(false, 12, false, true, 1, 1);
 	character IronMan = new character(false, 11, false, false, 0, 1);
 	character Hulk = new character(false, 10, false, false, 0, 2);
+	character DrStrange = new character(false, 9, false, false, 0, 3);
+	character CaptainAmerica = new character(false, 8, false, false, 0, 4);
+	character BlackPanther = new character(false, 7, false, true, 0, 5);
+	character Spiderman = new character(false, 6, false, true, 0, 6);
+	character Wanda = new character(false, 5, false, false, 0, 7);
+	character StarLord = new character(false, 4, false, false, 0, 8);
+	character Hawkeye = new character(false, 3, false, false, 1, 0);
+	character AntMan = new character(false, 2, false, false, 0, 0);
+	character Vision = new character(false, 1, false, false, 1, 2);
 	
 	// Methods
 	@Override
@@ -402,7 +411,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[0][7] = "wanda";
 		strArray[0][8] = "starlord";
 		strArray[1][0] = "hawkeye";
-		strArray[1][1] = "thor";
+		strArray[Thor.intX][Thor.intY] = "Thor";
 		strArray[1][2] = "vision";
 		strArray[1][3] = "loki";
 		strArray[1][4] = "shieldagents";
