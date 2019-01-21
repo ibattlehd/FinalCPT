@@ -141,20 +141,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
 			buttonEnter.setVisible(true);
-			
-		
 		}
 		else if(evt.getSource() == buttonClient){
 			buttonHost.setVisible(false); // hide host JButton
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
 			EnterIP.setVisible(true); // show EnterIP JTextField
-			buttonEnter.setVisible(false);
 			buttonEnter2.setVisible(true);
-			
-			
-			
-			
 		}
 		// client
 		else if(evt.getSource() == buttonEnter2){
@@ -174,11 +167,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonBack.setVisible(false);
 			buttonBack2.setVisible(false);
 			EnterIP.setVisible(false);
-			
-			
-			
-			
-			
 		}
 		// host
 		else if(evt.getSource() == buttonEnter){
@@ -227,6 +215,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			labelIP.setVisible(false);
 			EnterIP.setVisible(false);
 			buttonEnter.setVisible(false);
+			buttonEnter.setVisible(false);
+			buttonEnter2.setVisible(false);
 		}
 		else if(evt.getSource() == buttonBack2){
 			buttonBack2.setVisible(false);
@@ -238,6 +228,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
 			buttonEnter.setVisible(false);
+			buttonEnter.setVisible(false);
+			buttonEnter2.setVisible(false);
 		}
 		else if(evt.getSource() == buttonScores){
 		}
