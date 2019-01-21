@@ -46,6 +46,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String highscores[][] = scores.readMapArray();
 	HighscoresCount numberscores = new HighscoresCount();
 	int intScoresCount = numberscores.ScoresCount();
+	JLabel highscoreslabel[];
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -612,13 +613,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
 		
-		/*
-		 * ***** *    * **** ****** ****** ***   ***     ***** ****** **   * ****** ******
-		 * *     *    * *      **   *    * *  * *  *     *     *    * * *  *   **   *
-		 * *     *    * ****   **   *    * *   *   *     ***** *    * *  * *   **   ******
-		 * *     *    *    *   **   *    * *       *     *     *    * *   **   **        *
-		 * ***** ****** ****   **   ****** *       *     *     ****** *    *   **   ******
-		 */
+		// Custom fonts
 		try {
 			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
