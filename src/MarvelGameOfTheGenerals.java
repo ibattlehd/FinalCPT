@@ -480,21 +480,21 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}if(strArray[1][3].equals("loki")){
 			button[1][3].setIcon(new ImageIcon(boardpanel.loki));
 		}if(strArray[1][4].equals("shieldagents")){
-			button[1][4].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[1][4].setIcon(new ImageIcon(boardpanel.shieldagent1));
 		}if(strArray[1][5].equals("bluenexus")){
 			button[1][5].setIcon(new ImageIcon(boardpanel.bluenexus));
 		}if(strArray[1][6].equals("loki")){
 			button[1][6].setIcon(new ImageIcon(boardpanel.loki));
 		}if(strArray[1][7].equals("shieldagents")){
-			button[1][7].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[1][7].setIcon(new ImageIcon(boardpanel.shieldagent2));
 		}if(strArray[1][8].equals("shieldagents")){
-			button[1][8].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[1][8].setIcon(new ImageIcon(boardpanel.shieldagent3));
 		}if(strArray[2][0].equals("shieldagents")){
-			button[2][0].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[2][0].setIcon(new ImageIcon(boardpanel.shieldagent4));
 		}if(strArray[2][1].equals("shieldagents")){
-			button[2][1].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[2][1].setIcon(new ImageIcon(boardpanel.shieldagent5));
 		}if(strArray[2][2].equals("shieldagents")){
-			button[2][2].setIcon(new ImageIcon(boardpanel.shieldagents));
+			button[2][2].setIcon(new ImageIcon(boardpanel.shieldagent6));
 		}
 		// villians
 		if(strArray[7][0].equals("modok")){

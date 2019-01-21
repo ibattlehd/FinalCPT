@@ -20,7 +20,12 @@ public class BoardPanel extends JPanel{
 	BufferedImage thor;
 	BufferedImage vision;
 	BufferedImage loki;
-	BufferedImage shieldagents;
+	BufferedImage shieldagent1;
+	BufferedImage shieldagent2;
+	BufferedImage shieldagent3;
+	BufferedImage shieldagent4;
+	BufferedImage shieldagent5;
+	BufferedImage shieldagent6;
 	BufferedImage thanos;
 	BufferedImage hydrasoldiers;
 	BufferedImage ultron;
@@ -99,7 +104,27 @@ public class BoardPanel extends JPanel{
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
-			shieldagents = ImageIO.read(new File("../characterimg/Resized Images/shieldagent.jpg"));
+			shieldagent1 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent1.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			shieldagent2 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent2.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			shieldagent3 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent3.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			shieldagent4 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent4.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			shieldagent5 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent5.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			shieldagent6 = ImageIO.read(new File("../characterimg/Resized Images/shieldagent6.png"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
