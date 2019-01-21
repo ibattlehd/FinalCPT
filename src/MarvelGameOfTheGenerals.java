@@ -53,6 +53,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
+	boolean blnPress = false;
 	// Chat
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
@@ -310,30 +311,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		else if(evt.getSource() == button[0][0]){
-			System.out.println("Pressed button 1 on board");
-			/*
-			for(intRow = 0; intRow < 8; intRow++){
-				for(intCol = 0; intCol < 9; intCol++){
-					if(button[intRow][intCol].getIcon() != null){
-						button[intRow][intCol].setIcon(null);
-					}
-				}
-			}
-			*/
-		}
-		else if(evt.getSource() == button[0][1]){
-			System.out.println("Pressed button 2 on board");
-			/*
-			for(intRow = 0; intRow < 8; intRow++){
-				for(intCol = 0; intCol < 9; intCol++){
-					if(button[intRow][intCol].getIcon() != null){
-						button[intRow][intCol].setIcon(null);
-					}
-				}
-			}
-			*/
-		}
 	}
 		
 	@Override
@@ -356,6 +333,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 	@Override
 	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
+		if(evt.getSource() == button[0][0]){
+			highlightHeroAvailableSpot();
+		}
+		heroCondition();
+		if(evt.getSource() == button[2][7]){
+			if(blnPress){
+				button[2][7].setIcon(new ImageIcon(boardpanel.antman));
+				button[0][0].setIcon(null);
+			}
+		}
 	}
 		
 	@Override
@@ -452,7 +439,24 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	}
 	
-	public void checkCharacter(){
+	public void highlightHeroAvailableSpot(){
+		for(intRow = 0; intRow < 3; intRow++){
+			for(intCol = 0; intCol < 9; intCol++){
+				if(button[intRow][intCol].getIcon() == null){
+					button[intRow][intCol].setBackground(Color.RED);
+				}
+			}
+		}
+	}
+	
+	public void heroCondition(){
+		for(intRow = 0; intRow < 3; intRow++){
+			for(intCol = 0; intCol < 9; intCol++){
+				if(button[intRow][intCol].getBackground() == Color.RED){
+					blnPress = true;
+				}
+			}
+		}
 	}
 	
 	// Constructor
@@ -485,6 +489,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				button[intRow][intCol].setBackground(Color.BLACK); // Set background to black
 				button[intRow][intCol].setOpaque(true);
 				button[intRow][intCol].addActionListener(this);
+				button[intRow][intCol].addMouseListener(this);
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
