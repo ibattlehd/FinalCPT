@@ -5,15 +5,6 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 
-/**
-* <h1>Game of the Generals - Marvel Edition</h1>
-* The Marvel edition of Game of the Generals in Java.
-* <p>
-* For more information visit https://ibattlehd.github.io/FinalCPT/
-* @author  ibattlehd
-* @version 1.0
-*/
-
 public class character{
 	
 	// Properties

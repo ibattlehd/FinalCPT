@@ -10,10 +10,8 @@ import javax.imageio.*;
 * The Marvel edition of Game of the Generals in Java.
 * <p>
 * For more information visit https://ibattlehd.github.io/FinalCPT/
-* @author  ibattlehd
 * @version 1.0
 */
-
 public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, MouseListener{
 	// Properties
 	JFrame menuframe;
@@ -46,6 +44,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// High scores
 	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
 	String highscores[][] = scores.readMapArray();
+	HighscoresCount numberscores = new HighscoresCount();
+	int intScoresCount = numberscores.ScoresCount();
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -452,6 +452,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	// Constructor
 	public MarvelGameOfTheGenerals(){
+		
+		System.out.println(intScoresCount);
 		
 		menupanel = new MenuPanel();
 		menupanel.setLayout(null);

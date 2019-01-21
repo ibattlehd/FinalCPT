@@ -1,15 +1,16 @@
 import java.io.*;
 
 /**
-* <h1>Marvel Game of the Generals Highscores</h1>
+* <h1>Highscores count</h1>
 */
-public class MarvelGOTGHighscores{
+public class HighscoresCount{
 	
-	public String[][] readMapArray(){
+	public int ScoresCount(){
 		FileReader thefile = null;
 		BufferedReader thefiledata = null;
 		boolean blnOpen = false;
 		String strScores[][] = new String[1][50]; // holds top 50 high scores
+		int intCount = 0;
 		
 		try{
 			thefile = new FileReader("../data/highscores.txt");
@@ -24,18 +25,18 @@ public class MarvelGOTGHighscores{
 				String strLine = thefiledata.readLine();
 				String strLines[] = strLine.split(",");
 				String[][] strLinesTxt = new String[strLines.length][];
-				for (int intCount=0; intCount<strLines.length; intCount++) {
+				for (intCount=0; intCount<strLines.length; intCount++) {
 					strLinesTxt[intCount] = strLines[intCount].split(",");
 				}
-				for (int intCount=0; intCount<strLines.length; intCount++) {
+				for (intCount=0; intCount<strLines.length; intCount++) {
 					strScores[0][intCount] = strLinesTxt[intCount][0];
-					System.out.println(strScores[0][intCount]);
 				}
 			}catch(IOException e){
 				e.printStackTrace();
 			}
 		}
 		
-		return strScores.clone();
+		return intCount;
 	}
+
 }
