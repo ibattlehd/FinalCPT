@@ -64,6 +64,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
 	// Pieces Information
 	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
+	String strPieces = "Consult the github website to learn about the rules of the pieces.";
 	// Movement Rules
 	String strMovementTitle = "MOVEMENT";
 	String strMovementDescription = "1. Heroes always make the first move. Players move alternately"+"\n"+"2. A player is allowed to move only one piece at a time."+"\n"+"3. A move consists of moving a piece to a square, either forward, backward or sideward. A diagonal move or a move of more than one square is illegal";
@@ -242,7 +243,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
 			//intHelpPage = 1;
-			RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote); 
+			RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces); 
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
@@ -272,7 +273,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(intHelpPage == 1){
 				buttonPrevious.setVisible(false); // set to false because there is no previous pages to go back to
 				buttonNext.setVisible(true); // Allow user to go next page
-				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote); // All the instructions(String) for the first page
+				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces); // All the instructions(String) for the first page
 				
 				
 			// 2nd Page of Help Menu
@@ -293,7 +294,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				if(intHelpPage == 1){
 					buttonPrevious.setVisible(false);
 					buttonNext.setVisible(true);
-					RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);					
+					RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces);					
 					
 				}else if(intHelpPage == 2){
 					buttonPrevious.setVisible(true);
@@ -874,11 +875,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		chatpanel.add(ChatMessage);
 		
 		ChatScroll.setSize(300, 500);
-		ChatScroll.setLocation(0,50);
+		ChatScroll.setLocation(120,50);
 		ChatScroll.setVisible(false);
 		
 		ChatMessage.setSize(300,100);
-		ChatMessage.setLocation(0, 550);
+		ChatMessage.setLocation(120, 550);
 		ChatMessage.addActionListener(this);
 		ChatMessage.setVisible(false);
 		
