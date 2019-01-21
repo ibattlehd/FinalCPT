@@ -69,6 +69,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameDescription = "The game ends:";
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
 	// Heroes
+	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intArrayX, intArrayY)
 	character Thor = new character(false, 12, false, true, 1, 1);
 	character IronMan = new character(false, 11, false, false, 0, 1);
 	character Hulk = new character(false, 10, false, false, 0, 2);
@@ -81,6 +82,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character Hawkeye = new character(false, 3, false, false, 1, 0);
 	character AntMan = new character(false, 2, false, false, 0, 0);
 	character Vision = new character(false, 1, false, false, 1, 2);
+	character Loki = new character(false, 14, false, true, 1, 3);
+	character ShieldAgent1 = new character(false, 13, false, true, 1, 4);
+	character ShieldAgent2 = new character(false, 13, false, true, 1, 7);
+	character ShieldAgent3 = new character(false, 13, false, true, 1, 8);
+	character ShieldAgent4 = new character(false, 13, false, true, 2, 0);
+	character ShieldAgent5 = new character(false, 13, false, true, 2, 1);
+	character ShieldAgent6 = new character(false, 13, false, true, 2, 2);
+	character BlueNexus = new character(false, 0, true, false, 1, 5);
 	
 	// Methods
 	@Override
@@ -401,7 +410,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
-		strArray[0][0] = "antman";
+		strArray[AntMan.intX][AntMan.intY] = "antman";
 		strArray[0][1] = "ironman";
 		strArray[0][2] = "hulk";
 		strArray[0][3] = "drstrange";
@@ -411,7 +420,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[0][7] = "wanda";
 		strArray[0][8] = "starlord";
 		strArray[1][0] = "hawkeye";
-		strArray[Thor.intX][Thor.intY] = "Thor";
+		strArray[Thor.intX][Thor.intY] = "thor";
 		strArray[1][2] = "vision";
 		strArray[1][3] = "loki";
 		strArray[1][4] = "shieldagents";
