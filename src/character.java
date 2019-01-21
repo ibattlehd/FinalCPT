@@ -17,7 +17,7 @@ import javax.imageio.*;
 public class character{
 	
 	// Properties
-	int intLevel;
+	int intPower;
 	boolean blnDead;
 	boolean blnSpecialPiece;
 	boolean blnSpecialAbility;
@@ -47,9 +47,9 @@ public class character{
 	}
 	
 	// Constructor
-	public character(boolean blnDead, int intLevel, boolean blnSpecialPiece, boolean blnSpecialAbility, int intArrayX, int intArrayY){
+	public character(boolean blnDead, int intPower, boolean blnSpecialPiece, boolean blnSpecialAbility, int intArrayX, int intArrayY){
 		this.blnDead = blnDead;
-		this.intLevel = intLevel;
+		this.intPower = intPower;
 		this.blnSpecialPiece = blnSpecialPiece;
 		this.blnSpecialAbility = blnSpecialAbility;
 		this.intX = intArrayX;
