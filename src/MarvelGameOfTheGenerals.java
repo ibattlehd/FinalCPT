@@ -826,7 +826,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack.setBorderPainted(false);
 		buttonBack.addActionListener(this); // Add action listener to previous button
 		buttonBack.setSize(130,30); // 130 x 30 pixels
-		buttonBack.setLocation(575,615); // x and y coordinates (420, 615)
+		buttonBack.setLocation(575,615); // x and y coordinates (575, 615)
 		buttonBack.setVisible(false);	
 		buttonBack.addMouseListener(this);
 		menupanel.add(buttonBack);
@@ -841,7 +841,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack2.setBorderPainted(false);
 		buttonBack2.addActionListener(this); // Add action listener to previous button
 		buttonBack2.setSize(130,30); // 130 x 30 pixels
-		buttonBack2.setLocation(575,615); // x and y coordinates (420, 615)
+		buttonBack2.setLocation(575,615); // x and y coordinates (575, 615)
 		buttonBack2.setVisible(false);	
 		buttonBack2.addMouseListener(this);
 		menupanel.add(buttonBack2);
@@ -856,7 +856,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonEnter.setBorderPainted(false);
 		buttonEnter.addActionListener(this); // Add action listener to previous button
 		buttonEnter.setSize(130,30); // 130 x 30 pixels
-		buttonEnter.setLocation(900,325); // x and y coordinates (420, 615)
+		buttonEnter.setLocation(900,325); // x and y coordinates (900, 325)
 		buttonEnter.setVisible(false);	
 		buttonEnter.addMouseListener(this);
 		menupanel.add(buttonEnter);
@@ -872,7 +872,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonEnter2.setBorderPainted(false);
 		buttonEnter2.addActionListener(this); // Add action listener to previous button
 		buttonEnter2.setSize(130,30); // 130 x 30 pixels
-		buttonEnter2.setLocation(900,325); // x and y coordinates (420, 615)
+		buttonEnter2.setLocation(900,325); // x and y coordinates (900, 325)
 		buttonEnter2.setVisible(false);	
 		buttonEnter2.addMouseListener(this);
 		menupanel.add(buttonEnter2);
