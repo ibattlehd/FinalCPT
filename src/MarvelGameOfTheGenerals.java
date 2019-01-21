@@ -411,18 +411,18 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		strArray[AntMan.intX][AntMan.intY] = "antman";
-		strArray[0][1] = "ironman";
-		strArray[0][2] = "hulk";
-		strArray[0][3] = "drstrange";
-		strArray[0][4] = "captainamerica";
-		strArray[0][5] = "blackpanther";
-		strArray[0][6] = "spiderman";
-		strArray[0][7] = "wanda";
-		strArray[0][8] = "starlord";
-		strArray[1][0] = "hawkeye";
+		strArray[IronMan.intX][IronMan.intY] = "ironman";
+		strArray[Hulk.intX][Hulk.intY] = "hulk";
+		strArray[DrStrange.intX][DrStrange.intY] = "drstrange";
+		strArray[CaptainAmerica.intX][CaptainAmerica.intY] = "captainamerica";
+		strArray[BlackPanther.intX][BlackPanther.intY] = "blackpanther";
+		strArray[Spiderman.intX][Spiderman.intY] = "spiderman";
+		strArray[Wanda.intX][Wanda.intY] = "wanda";
+		strArray[StarLord.intX][StarLord.intY] = "starlord";
+		strArray[Hawkeye.intX][Hawkeye.intY] = "hawkeye";
 		strArray[Thor.intX][Thor.intY] = "thor";
-		strArray[1][2] = "vision";
-		strArray[1][3] = "loki";
+		strArray[Vision.intX][Vision.intY] = "vision";
+		strArray[Loki.intX][Loki.intY] = "loki";
 		strArray[1][4] = "shieldagents";
 		strArray[1][5] = "bluenexus";
 		strArray[1][6] = "loki";
