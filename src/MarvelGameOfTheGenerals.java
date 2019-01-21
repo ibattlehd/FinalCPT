@@ -112,7 +112,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character Modok = new character(false, 3, false, false, 7, 0);
 	character Yellowjacket = new character(false, 2, false, false, 7, 1);
 	character Punisher = new character(false, 1, false, false, 7, 2);
-	character Hela = new character(false, 14, false, true, 7, 3);
+	character Hela1 = new character(false, 14, false, true, 7, 3);
+	character Hela2 = new character(false, 14, false, true, 7, 3);
 	character HydraSoldier1 = new character(false, 13, false, true, 7, 4);
 	character HydraSoldier2 = new character(false, 13, false, true, 7, 7);
 	character HydraSoldier3 = new character(false, 13, false, true, 7, 8);
@@ -161,8 +162,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ssm = new SuperSocketMaster(strEnterIP, 1337, this);
 			ssm.connect();
 			System.out.println("Server joined");
-		
-			menupanel.setVisible(true);
+			
 			ChatBox.setVisible(true);
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
@@ -193,6 +193,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ssm.connect();
 		
 		}
+		
 		else if(evt.getSource() == ChatMessage){
 			
 			// Need to fix menupanel and boardpanel issue
@@ -205,13 +206,13 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ChatMessage.setText("");
 			
 		}
+		
 		else if(evt.getSource() == ssm){
 			String strData;
 			strData = ssm.readText();
 			ChatBox.append(strData + "\n");
 			
 		}
-		
 		
 		else if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
@@ -456,8 +457,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
-		System.out.println(intScoresCount);
-		
 		menupanel = new MenuPanel();
 		menupanel.setLayout(null);
 		menupanel.setPreferredSize(new Dimension(1280, 720));
@@ -513,22 +512,22 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[HydraSoldier4.intX][HydraSoldier4.intY] = "hydrasoldier4";
 		strArray[HydraSoldier5.intX][HydraSoldier5.intY] = "hydrasoldier5";
 		strArray[HydraSoldier6.intX][HydraSoldier6.intY] = "hydrasoldier6";
-		strArray[6][0] = "thanos";
-		strArray[6][1] = "ultron";
-		strArray[6][2] = "dormammu";
-		strArray[6][3] = "drdoom";
-		strArray[6][4] = "redskull";
-		strArray[6][5] = "killmonger";
-		strArray[6][6] = "venom";
-		strArray[6][7] = "docock";
-		strArray[6][8] = "ronan";
-		strArray[7][0] = "modok";
-		strArray[7][1] = "yellowjacket";
-		strArray[7][2] = "punisher";
-		strArray[7][3] = "hela";
+		strArray[Thanos.intX][Thanos.intY] = "thanos";
+		strArray[Ultron.intX][Ultron.intY] = "ultron";
+		strArray[Dormammu.intX][Dormammu.intY] = "dormammu";
+		strArray[DrDoom.intX][DrDoom.intY] = "drdoom";
+		strArray[RedSkull.intX][RedSkull.intY] = "redskull";
+		strArray[KillMonger.intX][KillMonger.intY] = "killmonger";
+		strArray[Venom.intX][Venom.intY] = "venom";
+		strArray[DocOck.intX][DocOck.intY] = "docock";
+		strArray[Ronan.intX][Ronan.intY] = "ronan";
+		strArray[Modok.intX][Modok.intY] = "modok";
+		strArray[Yellowjacket.intX][Yellowjacket.intY] = "yellowjacket";
+		strArray[Punisher.intX][Punisher.intY] = "punisher";
+		strArray[Hela.intX][Hela.intY] = "hela";
 		strArray[HydraSoldier1.intX][HydraSoldier1.intY] = "hydrasoldier1";
-		strArray[7][5] = "rednexus";
-		strArray[7][6] = "hela";
+		strArray[RedNexus.intX][RedNexus.intY] = "rednexus";
+		strArray[Hela.intX][Hela.intY] = "hela";
 		strArray[HydraSoldier2.intX][HydraSoldier2.intY] = "hydrasoldier2";
 		strArray[HydraSoldier3.intX][HydraSoldier3.intY] = "hydrasoldier3";
 		if(strArray[0][0].equals("antman")){
@@ -829,7 +828,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonEnter.addMouseListener(this);
 		menupanel.add(buttonEnter);
 		
-		
 		// Enter Button (enter into game client)
 		buttonEnter2 = new JButton("Enter");
 		buttonEnter2.setFont(font_2);
@@ -845,11 +843,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonEnter2.addMouseListener(this);
 		menupanel.add(buttonEnter2);
 		
-		
-		
-		
-		
-		
 		// RulesOfGame - Text Area
 		RulesOfGame = new JTextArea(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote);
 		RulesOfGame.setFont(new Font("Times New Roman", Font.PLAIN, 15)); // Times New Roman font size 15
@@ -861,8 +854,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		RulesOfGame.setVisible(false);
 		RulesOfGame.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
 		menupanel.add(RulesOfGame); // Add textarea to the panel
-		
-		
 		
 		// Networking 
 		ssm = new SuperSocketMaster(1337, this);
@@ -890,9 +881,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		ChatMessage.setLocation(0, 550);
 		ChatMessage.addActionListener(this);
 		ChatMessage.setVisible(false);
-		
-		
-		
 		
 		////////////////////
 		// Frame

@@ -45,7 +45,8 @@ public class BoardPanel extends JPanel{
 	BufferedImage modok;
 	BufferedImage yellowjacket;
 	BufferedImage punisher;
-	BufferedImage hela;
+	BufferedImage hela1;
+	BufferedImage hela2;
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
 	
@@ -214,7 +215,11 @@ public class BoardPanel extends JPanel{
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
-			hela = ImageIO.read(new File("../characterimg/Resized Images/hela.jpg"));
+			hela1 = ImageIO.read(new File("../characterimg/Resized Images/hela.jpg"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
+			hela2 = ImageIO.read(new File("../characterimg/Resized Images/hela.jpg"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
 		}try{
