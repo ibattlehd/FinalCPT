@@ -18,7 +18,9 @@ public class character{
 	
 	// Properties
 	int intLevel;
-	boolean blnDead = false;
+	boolean blnDead;
+	boolean blnSpecialPiece;
+	boolean blnSpecialAbility;
 	int intX;
 	int intY;
 	
@@ -45,9 +47,11 @@ public class character{
 	}
 	
 	// Constructor
-	public character(boolean blnDead, int intLevel, int intArrayX, int intArrayY){
+	public character(boolean blnDead, int intLevel, boolean blnSpecialPiece, boolean blnSpecialAbility, int intArrayX, int intArrayY){
 		this.blnDead = blnDead;
 		this.intLevel = intLevel;
+		this.blnSpecialPiece = blnSpecialPiece;
+		this.blnSpecialAbility = blnSpecialAbility;
 		this.intX = intArrayX;
 		this.intY = intArrayY;
 	}

@@ -68,9 +68,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameTitle = "HOW THE GAME ENDS";
 	String strEndGameDescription = "The game ends:";
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
-	// Characters
-	character Thor = new character(false, 12, 1, 1);
-	character IronMan = new character(false, 11, 0, 1);
+	// Heroes
+	character Thor = new character(false, 12, false, true, 1, 1);
+	character IronMan = new character(false, 11, false, false, 0, 1);
+	character Hulk = new character(false, 10, false, false, 0, 2);
 	
 	// Methods
 	@Override
