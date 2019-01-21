@@ -38,8 +38,6 @@ public class BoardPanel extends JPanel{
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
 	
-	
-	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
 	}

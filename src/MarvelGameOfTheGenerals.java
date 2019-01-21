@@ -50,7 +50,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatBoxScroll = new JScrollPane(ChatBox); 
 	JTextField SendMessage = new JTextField();
-
 	// Help Menu - Instructions (String)
 	int intHelpPage = 0; // Set initial value of Help Menu Pages to 0
 	// Objective Instruction
@@ -69,6 +68,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameTitle = "HOW THE GAME ENDS";
 	String strEndGameDescription = "The game ends:";
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
+	// Characters
+	character Thor = new character(false, 12, 1, 1);
+	character IronMan = new character(false, 11, 0, 1);
 	
 	// Methods
 	@Override

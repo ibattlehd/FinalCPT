@@ -4,6 +4,7 @@ import java.io.*;
 * <h1>Marvel Game of the Generals Highscores</h1>
 * @author ibattlehd
 */
+
 public class MarvelGOTGHighscores{
 	
 	public String[][] readMapArray(){
