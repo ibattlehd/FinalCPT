@@ -91,6 +91,27 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character ShieldAgent6 = new character(false, 13, false, true, 2, 2);
 	character BlueNexus = new character(false, 0, true, false, 1, 5);
 	
+	// Villians
+	character Thanos = new character(false, 12, false, true, 0, 6);
+	character Ultron = new character(false, 11, false, false, 1, 6);
+	character Dormammu = new character(false, 10, false, false, 2, 6);
+	character DrDoom = new character(false, 9, false, false, 3, 6);
+	character RedSkull = new character(false, 8, false, false, 4, 6);
+	character KillMonger = new character(false, 7, false, true, 5, 6);
+	character Venom = new character(false, 6, false, true, 6, 6);
+	character DocOck = new character(false, 5, false, false, 7, 6);
+	character Ronan = new character(false, 4, false, false, 8, 6);
+	character Modok = new character(false, 3, false, false, 0, 7);
+	character Yellowjacket = new character(false, 2, false, false, 1, 7);
+	character Punisher = new character(false, 1, false, false, 2, 7);
+	character Hela = new character(false, 14, false, true, 3, 7);
+	character HydraSoldier1 = new character(false, 13, false, true, 4, 7);
+	character HydraSoldier2 = new character(false, 13, false, true, 7, 7);
+	character HydraSoldier3 = new character(false, 13, false, true, 8, 7);
+	character HydraSoldier4 = new character(false, 13, false, true, 0, 5);
+	character HydraSoldier5 = new character(false, 13, false, true, 1, 5);
+	character HydraSoldier6 = new character(false, 13, false, true, 2, 5);
+	character RedNexus = new character(false, 0, true, false, 7, 5);
 	// Methods
 	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
