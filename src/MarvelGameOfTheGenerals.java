@@ -324,7 +324,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				if(evt.getSource() == button[intRow][intCol]){
@@ -336,7 +335,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				}
 			}
 		}
-		*/
 	}
 		
 	@Override
@@ -455,7 +453,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	}
 	
-	/*
 	public void checkPotentialMoveDown(int intRow, int intCol){
 		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
 			if(button[intRow+1][intCol].getIcon() == null){
@@ -508,7 +505,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 	}
-	*/
 	
 	public void characterDown(character selectedcharacter){
 		selectedcharacter.moveDown();
