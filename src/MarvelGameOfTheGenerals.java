@@ -448,7 +448,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveDown(int intRow, int intCol){
-		if(button[intRow][intCol].getIcon() != null){
+		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
 			if(button[intRow+1][intCol].getIcon() == null){
 				button[intRow+1][intCol].setBackground(Color.RED);
 				blnMoveDown = true;
@@ -458,7 +458,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveUp(int intRow, int intCol){
-		if(button[intRow][intCol].getIcon() != null){
+		if(button[intRow][intCol].getIcon() != null && intRow-1 > 0){
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED);
 				blnMoveUp = true;
@@ -468,7 +468,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveLeft(int intRow, int intCol){
-		if(button[intRow][intCol].getIcon() != null){
+		if(button[intRow][intCol].getIcon() != null && intCol-1 > 0){
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED);
 				blnMoveLeft = true;
@@ -478,7 +478,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveRight(int intRow, int intCol){
-		if(button[intRow][intCol].getIcon() != null){
+		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED);
 				blnMoveRight = true;
