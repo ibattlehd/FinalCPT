@@ -79,50 +79,51 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
 	// Heroes
 	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intArrayX, intArrayY)
-	character Thor = new character(false, 12, false, true, 1, 1);
-	character IronMan = new character(false, 11, false, false, 0, 1);
-	character Hulk = new character(false, 10, false, false, 0, 2);
-	character DrStrange = new character(false, 9, false, false, 0, 3);
-	character CaptainAmerica = new character(false, 8, false, false, 0, 4);
-	character BlackPanther = new character(false, 7, false, true, 0, 5);
-	character Spiderman = new character(false, 6, false, true, 0, 6);
+	character Thor = new character(false, 12, false, true, 0, 3);
+	character IronMan = new character(false, 11, false, false, 1, 3);
+	character Hulk = new character(false, 10, false, false, 1, 4);
+	character DrStrange = new character(false, 9, false, false, 0, 2);
+	character CaptainAmerica = new character(false, 8, false, false, 0, 5);
+	character BlackPanther = new character(false, 7, false, true, 1, 1);
+	character Spiderman = new character(false, 6, false, true, 1, 6);
 	character Wanda = new character(false, 5, false, false, 0, 7);
-	character StarLord = new character(false, 4, false, false, 0, 8);
-	character Hawkeye = new character(false, 3, false, false, 1, 0);
-	character AntMan = new character(false, 2, false, false, 0, 0);
-	character Vision = new character(false, 1, false, false, 1, 2);
-	character Loki1 = new character(false, 14, false, true, 1, 3);
-	character Loki2 = new character(false, 14, false, true, 1, 6);
-	character ShieldAgent1 = new character(false, 13, false, true, 1, 4);
-	character ShieldAgent2 = new character(false, 13, false, true, 1, 7);
-	character ShieldAgent3 = new character(false, 13, false, true, 1, 8);
-	character ShieldAgent4 = new character(false, 13, false, true, 2, 0);
-	character ShieldAgent5 = new character(false, 13, false, true, 2, 1);
-	character ShieldAgent6 = new character(false, 13, false, true, 2, 2);
-	character BlueNexus = new character(false, 0, true, false, 1, 5);
+	character StarLord = new character(false, 4, false, false, 0, 0);
+	character Hawkeye = new character(false, 3, false, false, 0, 8);
+	character AntMan = new character(false, 2, false, false, 2, 8);
+	character Vision = new character(false, 1, false, false, 0, 1);
+	character Loki1 = new character(false, 14, false, true, 1, 0);
+	character Loki2 = new character(false, 14, false, true, 1, 8);
+	character ShieldAgent1 = new character(false, 13, false, true, 2, 2);
+	character ShieldAgent2 = new character(false, 13, false, true, 2, 3);
+	character ShieldAgent3 = new character(false, 13, false, true, 2, 4);
+	character ShieldAgent4 = new character(false, 13, false, true, 2, 5);
+	character ShieldAgent5 = new character(false, 13, false, true, 2, 6);
+	character ShieldAgent6 = new character(false, 13, false, true, 2, 0);
+	character BlueNexus = new character(false, 0, true, false, 0, 4);
 	
 	// Villians
-	character Thanos = new character(false, 12, false, true, 6, 0);
-	character Ultron = new character(false, 11, false, false, 6, 1);
-	character Dormammu = new character(false, 10, false, false, 6, 2);
-	character DrDoom = new character(false, 9, false, false, 6, 3);
-	character RedSkull = new character(false, 8, false, false, 6, 4);
-	character KillMonger = new character(false, 7, false, true, 6, 5);
+	character Thanos = new character(false, 12, false, true, 7, 3);
+	character Ultron = new character(false, 11, false, false, 6, 3);
+	character Dormammu = new character(false, 10, false, false, 6, 4);
+	character DrDoom = new character(false, 9, false, false, 7, 2);
+	character RedSkull = new character(false, 8, false, false, 7, 5);
+	character KillMonger = new character(false, 7, false, true, 6, 1);
 	character Venom = new character(false, 6, false, true, 6, 6);
-	character DocOck = new character(false, 5, false, false, 6, 7);
-	character Ronan = new character(false, 4, false, false, 6, 8);
-	character Modok = new character(false, 3, false, false, 7, 0);
-	character Yellowjacket = new character(false, 2, false, false, 7, 1);
-	character Punisher = new character(false, 1, false, false, 7, 2);
-	character Hela1 = new character(false, 14, false, true, 7, 3);
-	character Hela2 = new character(false, 14, false, true, 7, 6);
-	character HydraSoldier1 = new character(false, 13, false, true, 7, 4);
-	character HydraSoldier2 = new character(false, 13, false, true, 7, 7);
-	character HydraSoldier3 = new character(false, 13, false, true, 7, 8);
-	character HydraSoldier4 = new character(false, 13, false, true, 5, 0);
-	character HydraSoldier5 = new character(false, 13, false, true, 5, 1);
-	character HydraSoldier6 = new character(false, 13, false, true, 5, 2);
-	character RedNexus = new character(false, 0, true, false, 7, 5);
+	character DocOck = new character(false, 5, false, false, 7, 7);
+	character Ronan = new character(false, 4, false, false, 7, 0);
+	character Modok = new character(false, 3, false, false, 7, 8);
+	character Yellowjacket = new character(false, 2, false, false, 5, 8);
+	character Punisher = new character(false, 1, false, false, 7, 1);
+	character Hela1 = new character(false, 14, false, true, 6, 0);
+	character Hela2 = new character(false, 14, false, true, 6, 8);
+	character HydraSoldier1 = new character(false, 13, false, true, 5, 2);
+	character HydraSoldier2 = new character(false, 13, false, true, 5, 3);
+	character HydraSoldier3 = new character(false, 13, false, true, 5, 4);
+	character HydraSoldier4 = new character(false, 13, false, true, 5, 5);
+	character HydraSoldier5 = new character(false, 13, false, true, 5, 6);
+	character HydraSoldier6 = new character(false, 13, false, true, 5, 0);
+	
+	character RedNexus = new character(false, 0, true, false, 7, 4);
 	
 	// Methods
 	@Override
@@ -536,92 +537,100 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		strArray[Hela2.intX][Hela2.intY] = "hela2";
 		strArray[HydraSoldier2.intX][HydraSoldier2.intY] = "hydrasoldier2";
 		strArray[HydraSoldier3.intX][HydraSoldier3.intY] = "hydrasoldier3";
-		if(strArray[0][0].equals("antman")){
-			button[0][0].setIcon(new ImageIcon(boardpanel.antman));
-		}if(strArray[0][1].equals("ironman")){
-			button[0][1].setIcon(new ImageIcon(boardpanel.ironman));
-		}if(strArray[0][2].equals("hulk")){
-			button[0][2].setIcon(new ImageIcon(boardpanel.hulk));
-		}if(strArray[0][3].equals("drstrange")){
-			button[0][3].setIcon(new ImageIcon(boardpanel.drstrange));
-		}if(strArray[0][4].equals("captainamerica")){
-			button[0][4].setIcon(new ImageIcon(boardpanel.captainamerica));
-		}if(strArray[0][5].equals("blackpanther")){
-			button[0][5].setIcon(new ImageIcon(boardpanel.blackpanther));
-		}if(strArray[0][6].equals("spiderman")){
-			button[0][6].setIcon(new ImageIcon(boardpanel.spiderman));
-		}if(strArray[0][7].equals("wanda")){
-			button[0][7].setIcon(new ImageIcon(boardpanel.wanda));
-		}if(strArray[0][8].equals("starlord")){
-			button[0][8].setIcon(new ImageIcon(boardpanel.starlord));
-		}if(strArray[1][0].equals("hawkeye")){
-			button[1][0].setIcon(new ImageIcon(boardpanel.hawkeye));
-		}if(strArray[1][1].equals("thor")){
-			button[1][1].setIcon(new ImageIcon(boardpanel.thor));
-		}if(strArray[1][2].equals("vision")){
-			button[1][2].setIcon(new ImageIcon(boardpanel.vision));
-		}if(strArray[1][3].equals("loki1")){
-			button[1][3].setIcon(new ImageIcon(boardpanel.loki1));
-		}if(strArray[1][4].equals("shieldagent1")){
-			button[1][4].setIcon(new ImageIcon(boardpanel.shieldagent1));
-		}if(strArray[1][5].equals("bluenexus")){
-			button[1][5].setIcon(new ImageIcon(boardpanel.bluenexus));
-		}if(strArray[1][6].equals("loki2")){
-			button[1][6].setIcon(new ImageIcon(boardpanel.loki2));
-		}if(strArray[1][7].equals("shieldagent2")){
-			button[1][7].setIcon(new ImageIcon(boardpanel.shieldagent2));
-		}if(strArray[1][8].equals("shieldagent3")){
-			button[1][8].setIcon(new ImageIcon(boardpanel.shieldagent3));
-		}if(strArray[2][0].equals("shieldagent4")){
-			button[2][0].setIcon(new ImageIcon(boardpanel.shieldagent4));
-		}if(strArray[2][1].equals("shieldagent5")){
-			button[2][1].setIcon(new ImageIcon(boardpanel.shieldagent5));
-		}if(strArray[2][2].equals("shieldagent6")){
-			button[2][2].setIcon(new ImageIcon(boardpanel.shieldagent6));
+		
+		if(strArray[AntMan.intX][AntMan.intY].equals("antman")){
+			button[AntMan.intX][AntMan.intY].setIcon(new ImageIcon(boardpanel.antman));
+		}if(strArray[IronMan.intX][IronMan.intY].equals("ironman")){
+			button[IronMan.intX][IronMan.intY].setIcon(new ImageIcon(boardpanel.ironman));
+		}if(strArray[Hulk.intX][Hulk.intY].equals("hulk")){
+			button[Hulk.intX][Hulk.intY].setIcon(new ImageIcon(boardpanel.hulk));
+		}if(strArray[DrStrange.intX][DrStrange.intY].equals("drstrange")){
+			button[DrStrange.intX][DrStrange.intY].setIcon(new ImageIcon(boardpanel.drstrange));
+		}if(strArray[CaptainAmerica.intX][CaptainAmerica.intY].equals("captainamerica")){
+			button[CaptainAmerica.intX][CaptainAmerica.intY].setIcon(new ImageIcon(boardpanel.captainamerica));
+		}if(strArray[BlackPanther.intX][BlackPanther.intY].equals("blackpanther")){
+			button[BlackPanther.intX][BlackPanther.intY].setIcon(new ImageIcon(boardpanel.blackpanther));
+		}if(strArray[Spiderman.intX][Spiderman.intY].equals("spiderman")){
+			button[Spiderman.intX][Spiderman.intY].setIcon(new ImageIcon(boardpanel.spiderman));
+		}if(strArray[Wanda.intX][Wanda.intY].equals("wanda")){
+			button[Wanda.intX][Wanda.intY].setIcon(new ImageIcon(boardpanel.wanda));
+		}if(strArray[StarLord.intX][StarLord.intY].equals("starlord")){
+			button[StarLord.intX][StarLord.intY].setIcon(new ImageIcon(boardpanel.starlord));
+		}if(strArray[Hawkeye.intX][Hawkeye.intY].equals("hawkeye")){
+			button[Hawkeye.intX][Hawkeye.intY].setIcon(new ImageIcon(boardpanel.hawkeye));
+		}if(strArray[Thor.intX][Thor.intY].equals("thor")){
+			button[Thor.intX][Thor.intY].setIcon(new ImageIcon(boardpanel.thor));
+		}if(strArray[Vision.intX][Vision.intY].equals("vision")){
+			button[Vision.intX][Vision.intY].setIcon(new ImageIcon(boardpanel.vision));
+			
+		}if(strArray[Loki1.intX][Loki1.intY].equals("loki1")){
+			button[Loki1.intX][Loki1.intY].setIcon(new ImageIcon(boardpanel.loki1));
+		}if(strArray[ShieldAgent1.intX][ShieldAgent1.intY].equals("shieldagent1")){
+			button[ShieldAgent1.intX][ShieldAgent1.intY].setIcon(new ImageIcon(boardpanel.shieldagent1));
+		}if(strArray[BlueNexus.intX][BlueNexus.intY].equals("bluenexus")){
+			button[BlueNexus.intX][BlueNexus.intY].setIcon(new ImageIcon(boardpanel.bluenexus));
+		}if(strArray[Loki1.intX][Loki2.intY].equals("loki2")){
+			button[Loki1.intX][Loki2.intY].setIcon(new ImageIcon(boardpanel.loki2));
+			
+		}if(strArray[ShieldAgent2.intX][ShieldAgent1.intY].equals("shieldagent2")){
+			button[ShieldAgent2.intX][ShieldAgent1.intY].setIcon(new ImageIcon(boardpanel.shieldagent2));
+		}if(strArray[ShieldAgent3.intX][ShieldAgent3.intY].equals("shieldagent3")){
+			button[ShieldAgent3.intX][ShieldAgent3.intY].setIcon(new ImageIcon(boardpanel.shieldagent3));
+		}if(strArray[ShieldAgent4.intX][ShieldAgent4.intY].equals("shieldagent4")){
+			button[ShieldAgent4.intX][ShieldAgent4.intY].setIcon(new ImageIcon(boardpanel.shieldagent4));
+		}if(strArray[ShieldAgent5.intX][ShieldAgent5.intY].equals("shieldagent5")){
+			button[ShieldAgent5.intX][ShieldAgent5.intY].setIcon(new ImageIcon(boardpanel.shieldagent5));
+		}if(strArray[ShieldAgent6.intX][ShieldAgent6.intY].equals("shieldagent6")){
+			button[ShieldAgent6.intX][ShieldAgent6.intY].setIcon(new ImageIcon(boardpanel.shieldagent6));
 		}
 		// villians
-		if(strArray[7][0].equals("modok")){
-			button[7][0].setIcon(new ImageIcon(boardpanel.modok));
-		}if(strArray[7][1].equals("yellowjacket")){
-			button[7][1].setIcon(new ImageIcon(boardpanel.yellowjacket));
-		}if(strArray[7][2].equals("punisher")){
-			button[7][2].setIcon(new ImageIcon(boardpanel.punisher));
-		}if(strArray[7][3].equals("hela1")){
-			button[7][3].setIcon(new ImageIcon(boardpanel.hela1));
-		}if(strArray[7][4].equals("hydrasoldier1")){
-			button[7][4].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
-		}if(strArray[7][5].equals("rednexus")){
-			button[7][5].setIcon(new ImageIcon(boardpanel.rednexus));
-		}if(strArray[7][6].equals("hela2")){
-			button[7][6].setIcon(new ImageIcon(boardpanel.hela2));
-		}if(strArray[7][7].equals("hydrasoldier2")){
-			button[7][7].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
-		}if(strArray[7][8].equals("hydrasoldier3")){
-			button[7][8].setIcon(new ImageIcon(boardpanel.hydrasoldier3));
-		}if(strArray[6][0].equals("thanos")){
-			button[6][0].setIcon(new ImageIcon(boardpanel.thanos));
-		}if(strArray[6][1].equals("ultron")){
-			button[6][1].setIcon(new ImageIcon(boardpanel.ultron));
-		}if(strArray[6][2].equals("dormammu")){
-			button[6][2].setIcon(new ImageIcon(boardpanel.dormammu));
-		}if(strArray[6][3].equals("drdoom")){
-			button[6][3].setIcon(new ImageIcon(boardpanel.drdoom));
-		}if(strArray[6][4].equals("redskull")){
-			button[6][4].setIcon(new ImageIcon(boardpanel.redskull));
-		}if(strArray[6][5].equals("killmonger")){
-			button[6][5].setIcon(new ImageIcon(boardpanel.killmonger));
-		}if(strArray[6][6].equals("venom")){
-			button[6][6].setIcon(new ImageIcon(boardpanel.venom));
-		}if(strArray[6][7].equals("docock")){
-			button[6][7].setIcon(new ImageIcon(boardpanel.docock));
-		}if(strArray[6][8].equals("ronan")){
-			button[6][8].setIcon(new ImageIcon(boardpanel.ronan));
-		}if(strArray[5][0].equals("hydrasoldier4")){
-			button[5][0].setIcon(new ImageIcon(boardpanel.hydrasoldier4));
-		}if(strArray[5][1].equals("hydrasoldier5")){
-			button[5][1].setIcon(new ImageIcon(boardpanel.hydrasoldier5));
-		}if(strArray[5][2].equals("hydrasoldier6")){
-			button[5][2].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
+		if(strArray[Modok.intX][Modok.intY].equals("modok")){
+			button[Modok.intX][Modok.intY].setIcon(new ImageIcon(boardpanel.modok));
+		}if(strArray[Yellowjacket.intX][Yellowjacket.intY].equals("yellowjacket")){
+			button[Yellowjacket.intX][Yellowjacket.intY].setIcon(new ImageIcon(boardpanel.yellowjacket));
+		}if(strArray[Punisher.intX][Punisher.intY].equals("punisher")){
+			button[Punisher.intX][Punisher.intY].setIcon(new ImageIcon(boardpanel.punisher));
+		
+		}if(strArray[Hela1.intX][Hela1.intY].equals("hela1")){
+			button[Hela1.intX][Hela1.intY].setIcon(new ImageIcon(boardpanel.hela1));
+			
+			
+			
+		}if(strArray[HydraSoldier1.intX][HydraSoldier1.intY].equals("hydrasoldier1")){
+			button[HydraSoldier1.intX][HydraSoldier1.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
+		}if(strArray[RedNexus.intX][RedNexus.intY].equals("rednexus")){
+			button[RedNexus.intX][RedNexus.intY].setIcon(new ImageIcon(boardpanel.rednexus));
+		}if(strArray[Hela2.intX][Hela2.intY].equals("hela2")){
+			button[Hela2.intX][Hela2.intY].setIcon(new ImageIcon(boardpanel.hela2));
+		}if(strArray[HydraSoldier2.intX][HydraSoldier2.intY].equals("hydrasoldier2")){
+			button[HydraSoldier2.intX][HydraSoldier2.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
+		}if(strArray[HydraSoldier3.intX][HydraSoldier3.intY].equals("hydrasoldier3")){
+			button[HydraSoldier3.intX][HydraSoldier3.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier3));
+		
+		}if(strArray[Thanos.intX][Thanos.intY].equals("thanos")){
+			button[Thanos.intX][Thanos.intY].setIcon(new ImageIcon(boardpanel.thanos));
+		}if(strArray[Ultron.intX][Ultron.intY].equals("ultron")){
+			button[Ultron.intX][Ultron.intY].setIcon(new ImageIcon(boardpanel.ultron));
+		}if(strArray[Dormammu.intX][Dormammu.intY].equals("dormammu")){
+			button[Dormammu.intX][Dormammu.intY].setIcon(new ImageIcon(boardpanel.dormammu));
+		}if(strArray[DrDoom.intX][DrDoom.intY].equals("drdoom")){
+			button[DrDoom.intX][DrDoom.intY].setIcon(new ImageIcon(boardpanel.drdoom));
+		}if(strArray[RedSkull.intX][RedSkull.intY].equals("redskull")){
+			button[RedSkull.intX][RedSkull.intY].setIcon(new ImageIcon(boardpanel.redskull));
+		}if(strArray[KillMonger.intX][KillMonger.intY].equals("killmonger")){
+			button[KillMonger.intX][KillMonger.intY].setIcon(new ImageIcon(boardpanel.killmonger));
+		}if(strArray[Venom.intX][Venom.intY].equals("venom")){
+			button[Venom.intX][Venom.intY].setIcon(new ImageIcon(boardpanel.venom));
+		}if(strArray[DocOck.intX][DocOck.intY].equals("docock")){
+			button[DocOck.intX][DocOck.intY].setIcon(new ImageIcon(boardpanel.docock));
+		}if(strArray[Ronan.intX][Ronan.intY].equals("ronan")){
+			button[Ronan.intX][Ronan.intY].setIcon(new ImageIcon(boardpanel.ronan));
+		}if(strArray[HydraSoldier4.intX][HydraSoldier4.intY].equals("hydrasoldier4")){
+			button[HydraSoldier4.intX][HydraSoldier4.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier4));
+		}if(strArray[HydraSoldier5.intX][HydraSoldier5.intY].equals("hydrasoldier5")){
+			button[HydraSoldier5.intX][HydraSoldier5.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier5));
+		}if(strArray[HydraSoldier6.intX][HydraSoldier6.intY].equals("hydrasoldier6")){
+			button[HydraSoldier6.intX][HydraSoldier6.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
 		
 		// Custom fonts
