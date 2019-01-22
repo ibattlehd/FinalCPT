@@ -558,6 +558,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow+1][intCol].getIcon() == null){
 				button[intRow+1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveDown = true;
+				/*
+				if(blnMoveDown == false && checkPotentialMoveCounter > 0){
+					button[intRow+1][intCol].setBackground(Color.BLACK);
+				}
+				*/
 			}
 		}
 		System.out.println("Move down: "+blnMoveDown);
@@ -570,6 +575,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveUp = true;
+				/*
+				if(blnMoveUp == false && checkPotentialMoveCounter > 0){
+					button[intRow-1][intCol].setBackground(Color.BLACK);
+				}
+				*/
 			}
 		}
 		System.out.println("Move up: "+blnMoveUp);
@@ -582,6 +592,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveLeft = true;
+				/*
+				if(blnMoveLeft == false && checkPotentialMoveCounter > 0){
+					button[intRow][intCol-1].setBackground(Color.BLACK);
+				}
+				*/
 			}
 		}
 		System.out.println("Move left: "+blnMoveLeft);
@@ -593,7 +608,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED); // indicate that character can move to this spot
-				blnMoveRight = true;				
+				blnMoveRight = true;
+				/*
+				if(blnMoveRight == false && checkPotentialMoveCounter > 0){
+					button[intRow][intCol+1].setBackground(Color.BLACK);
+				}
+				*/
 			}
 		}
 		System.out.println("Move right: "+blnMoveRight);
