@@ -33,7 +33,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonNext;
 	JButton buttonPrevious;
 	JTextArea RulesOfGame;
-	// Used to setup game
+	// Used to setup game (Networking)
 	JLabel labelIP;
 	JButton buttonHost;
 	JButton buttonClient;
@@ -59,7 +59,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	boolean blnMoveDown = false;
 	boolean blnMoveRight = false;
 	boolean blnMoveLeft = false;
-	// Chat
+	// Chat (Networking)
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
 	JTextField ChatMessage = new JTextField();
@@ -70,7 +70,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
 	// Pieces Information
 	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
-	String strPieces = "Consult the github website to learn about the rules of the pieces.";
+	String strPiecesNote = "Consult the github website to learn about the rules of the pieces.";
 	// Movement Rules
 	String strMovementTitle = "MOVEMENT";
 	String strMovementDescription = "1. Heroes always make the first move. Players move alternately"+"\n"+"2. A player is allowed to move only one piece at a time."+"\n"+"3. A move consists of moving a piece to a square, either forward, backward or sideward. A diagonal move or a move of more than one square is illegal";
@@ -140,7 +140,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			menupanel.repaint();
 			boardpanel.repaint();
 		}
-		else if(evt.getSource() == buttonPlay){
+		if(evt.getSource() == buttonPlay){
 			// hide menu JButtons
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
@@ -152,14 +152,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonBack2.setVisible(true);
 			buttonEnter.setVisible(false);
 		}
-		else if(evt.getSource() == buttonHost){
+		if(evt.getSource() == buttonHost){
 			labelIP.setVisible(true); // show host IP address
 			buttonHost.setVisible(false); // hide host JButton
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
 			buttonEnter.setVisible(true);
 		}
-		else if(evt.getSource() == buttonClient){
+		if(evt.getSource() == buttonClient){
 			buttonHost.setVisible(false); // hide host JButton
 			buttonClient.setVisible(false); // hide client JButton
 			buttonBack.setVisible(true); // show back JButton
@@ -167,7 +167,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonEnter2.setVisible(true);
 		}
 		// client
-		else if(evt.getSource() == buttonEnter2){
+		if(evt.getSource() == buttonEnter2){
 			String strEnterIP = EnterIP.getText();
 			System.out.println(strEnterIP);
 			
@@ -186,7 +186,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			EnterIP.setVisible(false);
 		}
 		// host
-		else if(evt.getSource() == buttonEnter){
+		if(evt.getSource() == buttonEnter){
 			buttonHost.setVisible(false);
 			buttonClient.setVisible(false);
 			buttonBack.setVisible(false);
@@ -204,29 +204,20 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		}
 		
-		else if(evt.getSource() == ChatMessage){
-			
-			// Need to fix menupanel and boardpanel issue
-			// Need to fix message to appear on chat box
-			// game data (black pieces for enemy side)
-			//System.out.println("Going to send this out over network: "+ChatMessage.getText());
-			
-			//ssm.sendText(ChatMessage.getText());
-			
-			//ChatMessage.setText("");
+		if(evt.getSource() == ChatMessage){
 			
 			String strData;
 			strData = ssm.readText();
 			
 			ssm.sendText("Sent: " + ChatMessage.getText());
 
-			ChatBox.append("Player: " + ChatMessage.getText() + "\n");
+			ChatBox.append("Username: " + ChatMessage.getText() + "\n");
 
 			ChatMessage.setText("");
 			
 		}
 		
-		else if(evt.getSource() == ssm){
+		if(evt.getSource() == ssm){
 			String strData;
 			strData = ssm.readText();
 	
@@ -236,9 +227,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 
 			
-		}
-		
-		else if(evt.getSource() == buttonBack){
+		}	
+		if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
 			buttonHost.setVisible(true);
 			buttonClient.setVisible(true);
@@ -248,7 +238,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonEnter.setVisible(false);
 			buttonEnter2.setVisible(false);
 		}
-		else if(evt.getSource() == buttonBack2){
+		if(evt.getSource() == buttonBack2){
 			buttonBack2.setVisible(false);
 			buttonPlay.setVisible(true);
 			buttonScores.setVisible(true);
@@ -261,12 +251,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonEnter.setVisible(false);
 			buttonEnter2.setVisible(false);
 		}
-		else if(evt.getSource() == buttonScores){
+		if(evt.getSource() == buttonScores){
 		}
-		else if(evt.getSource() == buttonHelp){  //User selects Help Button
+		if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
-			//intHelpPage = 1;
-			RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces); 
+			RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPiecesNote); 
 			buttonPlay.setVisible(false);
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
@@ -276,7 +265,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonNext.setVisible(true);	
 			buttonEnter.setVisible(false);
 		}
-		else if(evt.getSource() == buttonMainMenu){ // User selects Main Menu Button in Help menu
+		if(evt.getSource() == buttonMainMenu){ // User selects Main Menu Button in Help menu
 			intHelpPage = 0; // Return back to main menu
 			buttonPlay.setVisible(true);
 			buttonScores.setVisible(true);
@@ -288,7 +277,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonPrevious.setVisible(false);
 			buttonEnter.setVisible(false);
 		}
-		else if(evt.getSource() == buttonNext){ // User selects next button
+		if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
 			RulesOfGame.setText("");
 
@@ -296,7 +285,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(intHelpPage == 1){
 				buttonPrevious.setVisible(false); // set to false because there is no previous pages to go back to
 				buttonNext.setVisible(true); // Allow user to go next page
-				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces); // All the instructions(String) for the first page
+				RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPiecesNote); // All the instructions(String) for the first page
 				
 				
 			// 2nd Page of Help Menu
@@ -312,12 +301,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		// Button to go back to previous pages
-		else if(evt.getSource() == buttonPrevious){
+		if(evt.getSource() == buttonPrevious){
 			intHelpPage = intHelpPage - 1;
 				if(intHelpPage == 1){
 					buttonPrevious.setVisible(false);
 					buttonNext.setVisible(true);
-					RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPieces);					
+					RulesOfGame.setText(strObjective+"\n"+"\n"+strObjectiveDescription+"\n"+"\n"+strNote+"\n"+"\n"+strPiecesNote);					
 					
 				}else if(intHelpPage == 2){
 					buttonPrevious.setVisible(true);
@@ -330,7 +319,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					RulesOfGame.setText(strEndGameTitle+"\n"+"\n"+strEndGameDescription+"\n"+"\n"+strEndGameDescriptionCont);	
 				}
 		}
-		else if(evt.getSource() == buttonQuit){
+		if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
 		/*
@@ -711,6 +700,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 		*/
 		
+		
 		// Custom fonts
 		try {
 			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
@@ -906,7 +896,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonBack2.addMouseListener(this);
 		menupanel.add(buttonBack2);
 		
-		// Enter Button (enter into game host)
+		// Enter Button (enter into game HOST)
 		buttonEnter = new JButton("Enter");
 		buttonEnter.setFont(font_2);
 		buttonEnter.setForeground(Color.WHITE); // make text white
@@ -921,7 +911,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		buttonEnter.addMouseListener(this);
 		menupanel.add(buttonEnter);
 		
-		// Enter Button (enter into game client)
+		// Enter Button (enter into game CLIENT)
 		buttonEnter2 = new JButton("Enter");
 		buttonEnter2.setFont(font_2);
 		buttonEnter2.setForeground(Color.WHITE); // make text white
