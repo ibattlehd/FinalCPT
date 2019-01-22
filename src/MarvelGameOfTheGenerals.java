@@ -251,7 +251,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
-			buttonMainMenu.setVisible(true);
 			highscoresarea.setVisible(true);
 		}
 		if(evt.getSource() == buttonHelp){  //User selects Help Button
@@ -277,7 +276,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonNext.setVisible(false);
 			buttonPrevious.setVisible(false);
 			buttonEnter.setVisible(false);
-			highscoresarea.setVisible(false);
 		}
 		if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
@@ -557,11 +555,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow+1][intCol].getIcon() == null){
 				button[intRow+1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveDown = true;
-				/*
-				if(blnMoveDown == false && checkPotentialMoveCounter > 0){
-					button[intRow+1][intCol].setBackground(Color.BLACK);
-				}
-				*/
 			}
 		}
 		System.out.println("Move down: "+blnMoveDown);
@@ -574,11 +567,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveUp = true;
-				/*
-				if(blnMoveUp == false && checkPotentialMoveCounter > 0){
-					button[intRow-1][intCol].setBackground(Color.BLACK);
-				}
-				*/
 			}
 		}
 		System.out.println("Move up: "+blnMoveUp);
@@ -591,11 +579,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveLeft = true;
-				/*
-				if(blnMoveLeft == false && checkPotentialMoveCounter > 0){
-					button[intRow][intCol-1].setBackground(Color.BLACK);
-				}
-				*/
 			}
 		}
 		System.out.println("Move left: "+blnMoveLeft);
@@ -608,11 +591,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveRight = true;
-				/*
-				if(blnMoveRight == false && checkPotentialMoveCounter > 0){
-					button[intRow][intCol+1].setBackground(Color.BLACK);
-				}
-				*/
 			}
 		}
 		System.out.println("Move right: "+blnMoveRight);
@@ -628,7 +606,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		boardpanel = new BoardPanel();
 		boardpanel.setLayout(new GridLayout(8,9));
-		//boardpanel.setLayout(null);
 		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		chatpanel = new ChatPanel();
@@ -642,6 +619,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// JButtons
 		////////////////////
 		
+		
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				button[intRow][intCol] = new JButton();
@@ -649,7 +627,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				button[intRow][intCol].setBackground(Color.BLACK); // Set background to black
 				button[intRow][intCol].setOpaque(true);
 				button[intRow][intCol].addActionListener(this);
-				button[intRow][intCol].addMouseListener(this);
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
@@ -1042,7 +1019,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
-		
 		
 		// Highscores
 		highscoresarea = new JTextArea();
