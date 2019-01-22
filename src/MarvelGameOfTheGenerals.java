@@ -62,6 +62,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	boolean blnMoveDown = false;
 	boolean blnMoveRight = false;
 	boolean blnMoveLeft = false;
+	static int checkPotentialMoveCounter = 0; // This means that the checkPotentialMove methods have not been called yet
 	// Chat (Networking)
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
@@ -332,7 +333,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					checkPotentialMoveLeft(intRow, intCol);
 					checkPotentialMoveRight(intRow, intCol);
 					checkPotentialMoveUp(intRow, intCol);
-					resetCheck(evt);
 				}
 			}
 		}
@@ -384,6 +384,54 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			checkPotentialMoveLeft(7, 0);
 			checkPotentialMoveRight(7, 0);
 			checkPotentialMoveUp(7, 0);
+		}
+		if(evt.getSource() == button[0][1]){
+			checkPotentialMoveDown(0, 1);
+			checkPotentialMoveLeft(0, 1);
+			checkPotentialMoveRight(0, 1);
+			checkPotentialMoveUp(0, 1);
+		}
+		if(evt.getSource() == button[1][1]){
+			checkPotentialMoveDown(1, 1);
+			checkPotentialMoveLeft(1, 1);
+			checkPotentialMoveRight(1, 1);
+			checkPotentialMoveUp(1, 1);
+		}
+		if(evt.getSource() == button[2][1]){
+			checkPotentialMoveDown(2, 1);
+			checkPotentialMoveLeft(2, 1);
+			checkPotentialMoveRight(2, 1);
+			checkPotentialMoveUp(2, 1);
+		}
+		if(evt.getSource() == button[3][1]){
+			checkPotentialMoveDown(3, 1);
+			checkPotentialMoveLeft(3, 1);
+			checkPotentialMoveRight(3, 1);
+			checkPotentialMoveUp(3, 1);
+		}
+		if(evt.getSource() == button[4][1]){
+			checkPotentialMoveDown(4, 1);
+			checkPotentialMoveLeft(4, 1);
+			checkPotentialMoveRight(4, 1);
+			checkPotentialMoveUp(4, 1);
+		}
+		if(evt.getSource() == button[5][1]){
+			checkPotentialMoveDown(5, 1);
+			checkPotentialMoveLeft(5, 1);
+			checkPotentialMoveRight(5, 1);
+			checkPotentialMoveUp(5, 1);
+		}
+		if(evt.getSource() == button[6][1]){
+			checkPotentialMoveDown(6, 1);
+			checkPotentialMoveLeft(6, 1);
+			checkPotentialMoveRight(6, 1);
+			checkPotentialMoveUp(6, 1);
+		}
+		if(evt.getSource() == button[7][1]){
+			checkPotentialMoveDown(7, 1);
+			checkPotentialMoveLeft(7, 1);
+			checkPotentialMoveRight(7, 1);
+			checkPotentialMoveUp(7, 1);
 		}
 	}
 		
@@ -504,7 +552,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveDown(int intRow, int intCol){
+		checkPotentialMoveCounter++;
 		blnMoveDown = false;
+		if(intRow+1 < 8){
+			button[intRow+1][intCol].setBackground(Color.BLACK);
+		}
 		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
 			if(button[intRow+1][intCol].getIcon() == null){
 				button[intRow+1][intCol].setBackground(Color.RED);
@@ -517,6 +569,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	public void checkPotentialMoveUp(int intRow, int intCol){
 		blnMoveUp = false;
+		if(intRow-1 > 0){
+			button[intRow-1][intCol].setBackground(Color.BLACK);
+		}
 		if(button[intRow][intCol].getIcon() != null && intRow-1 > 0){
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED);
@@ -529,6 +584,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	public void checkPotentialMoveLeft(int intRow, int intCol){
 		blnMoveLeft = false;
+		if(intCol-1 > 0){
+			button[intRow][intCol-1].setBackground(Color.BLACK);
+		}
 		if(button[intRow][intCol].getIcon() != null && intCol-1 > 0){
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED);
@@ -541,6 +599,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	public void checkPotentialMoveRight(int intRow, int intCol){
 		blnMoveRight = false;
+		if(intCol+1 < 9){
+			button[intRow][intCol+1].setBackground(Color.BLACK);
+		}
 		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED);
