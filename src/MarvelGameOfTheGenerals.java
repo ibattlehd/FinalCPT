@@ -87,7 +87,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
 	// Heroes
 	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
-	/*
 	character Thor = new character(false, 12, false, true, 0, 3);
 	character IronMan = new character(false, 11, false, false, 1, 3);
 	character Hulk = new character(false, 10, false, false, 1, 4);
@@ -133,7 +132,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character HydraSoldier6 = new character(false, 13, false, true, 5, 0);
 	
 	character RedNexus = new character(false, 0, true, false, 7, 4);
-	*/
 	
 	// Methods
 	@Override
@@ -537,8 +535,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		menupanel.setPreferredSize(new Dimension(1280, 720));
 		
 		boardpanel = new BoardPanel();
-		//boardpanel.setLayout(new GridLayout(8,9));
-		boardpanel.setLayout(null);
+		boardpanel.setLayout(new GridLayout(8,9));
+		//boardpanel.setLayout(null);
 		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		chatpanel = new ChatPanel();
@@ -552,7 +550,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// JButtons
 		////////////////////
 		
-		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				button[intRow][intCol] = new JButton();
@@ -702,7 +699,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}if(strArray[HydraSoldier6.intY][HydraSoldier6.intX].equals("hydrasoldier6")){
 			button[HydraSoldier6.intY][HydraSoldier6.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
-		*/
 		
 		
 		// Custom fonts

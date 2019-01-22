@@ -49,7 +49,7 @@ public class BoardPanel extends JPanel{
 	BufferedImage hela2;
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
-	BufferedImage board;
+	//BufferedImage board;
 	
 	// Heroes
 	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
@@ -101,6 +101,7 @@ public class BoardPanel extends JPanel{
 	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
+		/*
 		g.drawImage(board, 0, 0, null);
 		
 		// Draw heroes
@@ -147,17 +148,21 @@ public class BoardPanel extends JPanel{
 		g.drawImage(hela2, Hela2.intX*90, Hela2.intY*90, null);
 		g.drawImage(hydrasoldier2, HydraSoldier2.intX*90, HydraSoldier2.intY*90, null);
 		g.drawImage(hydrasoldier3, HydraSoldier3.intX*90, HydraSoldier3.intY*90, null);
+		*/
 	}
 	
 	// Constructor
 	public BoardPanel(){
 		super();
 		// Images
+		/*
 		try{
 			board = ImageIO.read(new File("../img/board.png"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
-		}try{
+		}
+		*/
+		try{
 			antman = ImageIO.read(new File("../characterimg/Resized Images/antman.jpg"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");
