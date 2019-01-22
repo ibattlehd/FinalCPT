@@ -84,6 +84,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
 	// Heroes
 	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
+	/*
 	character Thor = new character(false, 12, false, true, 0, 3);
 	character IronMan = new character(false, 11, false, false, 1, 3);
 	character Hulk = new character(false, 10, false, false, 1, 4);
@@ -129,6 +130,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	character HydraSoldier6 = new character(false, 13, false, true, 5, 0);
 	
 	character RedNexus = new character(false, 0, true, false, 7, 4);
+	*/
 	
 	// Methods
 	@Override
