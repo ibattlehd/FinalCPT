@@ -55,7 +55,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
-	boolean blnPress = false;
 	boolean blnMoveUp = false;
 	boolean blnMoveDown = false;
 	boolean blnMoveRight = false;
@@ -84,7 +83,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strEndGameDescription = "The game ends:";
 	String strEndGameDescriptionCont = "1. When the Nexus is eliminated"+"\n"+"2. When a player resigns"+"\n"+"3. When both players agree on a draw";
 	// Heroes
-	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intArrayX, intArrayY)
+	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
 	character Thor = new character(false, 12, false, true, 0, 3);
 	character IronMan = new character(false, 11, false, false, 1, 3);
 	character Hulk = new character(false, 10, false, false, 1, 4);
@@ -135,7 +134,9 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	@Override
 	public void actionPerformed(ActionEvent evt){ // Action listener
 		if(evt.getSource() == timer){
-			menupanel.repaint(); // Repaint the panel based on timer (60 fps).
+			// Repaint the panel based on timer (60 fps).
+			menupanel.repaint();
+			boardpanel.repaint();
 		}
 		else if(evt.getSource() == buttonPlay){
 			// hide menu JButtons
@@ -318,6 +319,17 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
+		for(intRow = 0; intRow < 8; intRow++){
+			for(intCol = 0; intCol < 9; intCol++){
+				if(evt.getSource() == button[intRow][intCol]){
+					checkPotentialMoveDown(intRow, intCol);
+					checkPotentialMoveLeft(intRow, intCol);
+					checkPotentialMoveRight(intRow, intCol);
+					checkPotentialMoveUp(intRow, intCol);
+					resetCheck(evt);
+				}
+			}
+		}
 	}
 		
 	@Override
@@ -340,17 +352,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 	@Override
 	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
-		for(intRow = 0; intRow < 8; intRow++){
-			for(intCol = 0; intCol < 9; intCol++){
-				if(evt.getSource() == button[intRow][intCol]){
-					checkPotentialMoveDown(intRow, intCol);
-					checkPotentialMoveLeft(intRow, intCol);
-					checkPotentialMoveRight(intRow, intCol);
-					checkPotentialMoveUp(intRow, intCol);
-					resetCheck();
-				}
-			}
-		}
 	}
 		
 	@Override
@@ -481,36 +482,40 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED);
-				blnMoveRight = true;
+				blnMoveRight = true;				
 			}
 		}
 		System.out.println("Move right: "+blnMoveRight);
 	}
 	
-	public void resetBoardIndicators(){
+	public void resetCheck(ActionEvent evt){
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
-				button[intRow][intCol].setBackground(Color.BLACK);
-			}
-		}
-	}
-	
-	public void resetCheck(){
-		blnMoveUp = false;
-		blnMoveDown = false;
-		blnMoveRight = false;
-		blnMoveLeft = false;
-	}
-	
-	// method to check if user can press a button
-	public void heroCondition(){
-		for(intRow = 0; intRow < 3; intRow++){
-			for(intCol = 0; intCol < 9; intCol++){
-				if(button[intRow][intCol].getBackground() == Color.RED){
-					blnPress = true;
+				if(evt.getSource() == button[intRow][intCol]){
+					blnMoveUp = false;
+					blnMoveDown = false;
+					blnMoveRight = false;
+					blnMoveLeft = false;
 				}
 			}
 		}
+	}
+	
+	public void characterDown(character selectedcharacter){
+		selectedcharacter.moveDown();
+		System.out.println(selectedcharacter.intY);
+	}
+	
+	public void characterUp(character selectedcharacter){
+		selectedcharacter.moveUp();
+	}
+	
+	public void characterLeft(character selectedcharacter){
+		selectedcharacter.moveLeft();
+	}
+	
+	public void characterRight(character selectedcharacter){
+		selectedcharacter.moveLeft();
 	}
 	
 	// Constructor
@@ -547,143 +552,143 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				boardpanel.add(button[intRow][intCol]);
 			}
 		}
-		strArray[AntMan.intX][AntMan.intY] = "antman";
-		strArray[IronMan.intX][IronMan.intY] = "ironman";
-		strArray[Hulk.intX][Hulk.intY] = "hulk";
-		strArray[DrStrange.intX][DrStrange.intY] = "drstrange";
-		strArray[CaptainAmerica.intX][CaptainAmerica.intY] = "captainamerica";
-		strArray[BlackPanther.intX][BlackPanther.intY] = "blackpanther";
-		strArray[Spiderman.intX][Spiderman.intY] = "spiderman";
-		strArray[Wanda.intX][Wanda.intY] = "wanda";
-		strArray[StarLord.intX][StarLord.intY] = "starlord";
-		strArray[Hawkeye.intX][Hawkeye.intY] = "hawkeye";
-		strArray[Thor.intX][Thor.intY] = "thor";
-		strArray[Vision.intX][Vision.intY] = "vision";
-		strArray[ShieldAgent1.intX][ShieldAgent1.intY] = "shieldagent1";
-		strArray[BlueNexus.intX][BlueNexus.intY] = "bluenexus";
-		strArray[Loki1.intX][Loki1.intY] = "loki1";
-		strArray[Loki2.intX][Loki2.intY] = "loki2";
-		strArray[ShieldAgent2.intX][ShieldAgent2.intY] = "shieldagent2";
-		strArray[ShieldAgent3.intX][ShieldAgent3.intY] = "shieldagent3";
-		strArray[ShieldAgent4.intX][ShieldAgent4.intY] = "shieldagent4";
-		strArray[ShieldAgent5.intX][ShieldAgent5.intY] = "shieldagent5";
-		strArray[ShieldAgent6.intX][ShieldAgent6.intY] = "shieldagent6";
+		strArray[AntMan.intY][AntMan.intX] = "antman";
+		strArray[IronMan.intY][IronMan.intX] = "ironman";
+		strArray[Hulk.intY][Hulk.intX] = "hulk";
+		strArray[DrStrange.intY][DrStrange.intX] = "drstrange";
+		strArray[CaptainAmerica.intY][CaptainAmerica.intX] = "captainamerica";
+		strArray[BlackPanther.intY][BlackPanther.intX] = "blackpanther";
+		strArray[Spiderman.intY][Spiderman.intX] = "spiderman";
+		strArray[Wanda.intY][Wanda.intX] = "wanda";
+		strArray[StarLord.intY][StarLord.intX] = "starlord";
+		strArray[Hawkeye.intY][Hawkeye.intX] = "hawkeye";
+		strArray[Thor.intY][Thor.intX] = "thor";
+		strArray[Vision.intY][Vision.intX] = "vision";
+		strArray[ShieldAgent1.intY][ShieldAgent1.intX] = "shieldagent1";
+		strArray[BlueNexus.intY][BlueNexus.intX] = "bluenexus";
+		strArray[Loki1.intY][Loki1.intX] = "loki1";
+		strArray[Loki2.intY][Loki2.intX] = "loki2";
+		strArray[ShieldAgent2.intY][ShieldAgent2.intX] = "shieldagent2";
+		strArray[ShieldAgent3.intY][ShieldAgent3.intX] = "shieldagent3";
+		strArray[ShieldAgent4.intY][ShieldAgent4.intX] = "shieldagent4";
+		strArray[ShieldAgent5.intY][ShieldAgent5.intX] = "shieldagent5";
+		strArray[ShieldAgent6.intY][ShieldAgent6.intX] = "shieldagent6";
 		
-		strArray[HydraSoldier4.intX][HydraSoldier4.intY] = "hydrasoldier4";
-		strArray[HydraSoldier5.intX][HydraSoldier5.intY] = "hydrasoldier5";
-		strArray[HydraSoldier6.intX][HydraSoldier6.intY] = "hydrasoldier6";
-		strArray[Thanos.intX][Thanos.intY] = "thanos";
-		strArray[Ultron.intX][Ultron.intY] = "ultron";
-		strArray[Dormammu.intX][Dormammu.intY] = "dormammu";
-		strArray[DrDoom.intX][DrDoom.intY] = "drdoom";
-		strArray[RedSkull.intX][RedSkull.intY] = "redskull";
-		strArray[KillMonger.intX][KillMonger.intY] = "killmonger";
-		strArray[Venom.intX][Venom.intY] = "venom";
-		strArray[DocOck.intX][DocOck.intY] = "docock";
-		strArray[Ronan.intX][Ronan.intY] = "ronan";
-		strArray[Modok.intX][Modok.intY] = "modok";
-		strArray[Yellowjacket.intX][Yellowjacket.intY] = "yellowjacket";
-		strArray[Punisher.intX][Punisher.intY] = "punisher";
-		strArray[Hela1.intX][Hela1.intY] = "hela1";
-		strArray[HydraSoldier1.intX][HydraSoldier1.intY] = "hydrasoldier1";
-		strArray[RedNexus.intX][RedNexus.intY] = "rednexus";
-		strArray[Hela2.intX][Hela2.intY] = "hela2";
-		strArray[HydraSoldier2.intX][HydraSoldier2.intY] = "hydrasoldier2";
-		strArray[HydraSoldier3.intX][HydraSoldier3.intY] = "hydrasoldier3";
+		strArray[HydraSoldier4.intY][HydraSoldier4.intX] = "hydrasoldier4";
+		strArray[HydraSoldier5.intY][HydraSoldier5.intX] = "hydrasoldier5";
+		strArray[HydraSoldier6.intY][HydraSoldier6.intX] = "hydrasoldier6";
+		strArray[Thanos.intY][Thanos.intX] = "thanos";
+		strArray[Ultron.intY][Ultron.intX] = "ultron";
+		strArray[Dormammu.intY][Dormammu.intX] = "dormammu";
+		strArray[DrDoom.intY][DrDoom.intX] = "drdoom";
+		strArray[RedSkull.intY][RedSkull.intX] = "redskull";
+		strArray[KillMonger.intY][KillMonger.intX] = "killmonger";
+		strArray[Venom.intY][Venom.intX] = "venom";
+		strArray[DocOck.intY][DocOck.intX] = "docock";
+		strArray[Ronan.intY][Ronan.intX] = "ronan";
+		strArray[Modok.intY][Modok.intX] = "modok";
+		strArray[Yellowjacket.intY][Yellowjacket.intX] = "yellowjacket";
+		strArray[Punisher.intY][Punisher.intX] = "punisher";
+		strArray[Hela1.intY][Hela1.intX] = "hela1";
+		strArray[HydraSoldier1.intY][HydraSoldier1.intX] = "hydrasoldier1";
+		strArray[RedNexus.intY][RedNexus.intX] = "rednexus";
+		strArray[Hela2.intY][Hela2.intX] = "hela2";
+		strArray[HydraSoldier2.intY][HydraSoldier2.intX] = "hydrasoldier2";
+		strArray[HydraSoldier3.intY][HydraSoldier3.intX] = "hydrasoldier3";
 		
-		if(strArray[AntMan.intX][AntMan.intY].equals("antman")){
-			button[AntMan.intX][AntMan.intY].setIcon(new ImageIcon(boardpanel.antman));
-		}if(strArray[IronMan.intX][IronMan.intY].equals("ironman")){
-			button[IronMan.intX][IronMan.intY].setIcon(new ImageIcon(boardpanel.ironman));
-		}if(strArray[Hulk.intX][Hulk.intY].equals("hulk")){
-			button[Hulk.intX][Hulk.intY].setIcon(new ImageIcon(boardpanel.hulk));
-		}if(strArray[DrStrange.intX][DrStrange.intY].equals("drstrange")){
-			button[DrStrange.intX][DrStrange.intY].setIcon(new ImageIcon(boardpanel.drstrange));
-		}if(strArray[CaptainAmerica.intX][CaptainAmerica.intY].equals("captainamerica")){
-			button[CaptainAmerica.intX][CaptainAmerica.intY].setIcon(new ImageIcon(boardpanel.captainamerica));
-		}if(strArray[BlackPanther.intX][BlackPanther.intY].equals("blackpanther")){
-			button[BlackPanther.intX][BlackPanther.intY].setIcon(new ImageIcon(boardpanel.blackpanther));
-		}if(strArray[Spiderman.intX][Spiderman.intY].equals("spiderman")){
-			button[Spiderman.intX][Spiderman.intY].setIcon(new ImageIcon(boardpanel.spiderman));
-		}if(strArray[Wanda.intX][Wanda.intY].equals("wanda")){
-			button[Wanda.intX][Wanda.intY].setIcon(new ImageIcon(boardpanel.wanda));
-		}if(strArray[StarLord.intX][StarLord.intY].equals("starlord")){
-			button[StarLord.intX][StarLord.intY].setIcon(new ImageIcon(boardpanel.starlord));
-		}if(strArray[Hawkeye.intX][Hawkeye.intY].equals("hawkeye")){
-			button[Hawkeye.intX][Hawkeye.intY].setIcon(new ImageIcon(boardpanel.hawkeye));
-		}if(strArray[Thor.intX][Thor.intY].equals("thor")){
-			button[Thor.intX][Thor.intY].setIcon(new ImageIcon(boardpanel.thor));
-		}if(strArray[Vision.intX][Vision.intY].equals("vision")){
-			button[Vision.intX][Vision.intY].setIcon(new ImageIcon(boardpanel.vision));
+		if(strArray[AntMan.intY][AntMan.intX].equals("antman")){
+			button[AntMan.intY][AntMan.intX].setIcon(new ImageIcon(boardpanel.antman));
+		}if(strArray[IronMan.intY][IronMan.intX].equals("ironman")){
+			button[IronMan.intY][IronMan.intX].setIcon(new ImageIcon(boardpanel.ironman));
+		}if(strArray[Hulk.intY][Hulk.intX].equals("hulk")){
+			button[Hulk.intY][Hulk.intX].setIcon(new ImageIcon(boardpanel.hulk));
+		}if(strArray[DrStrange.intY][DrStrange.intX].equals("drstrange")){
+			button[DrStrange.intY][DrStrange.intX].setIcon(new ImageIcon(boardpanel.drstrange));
+		}if(strArray[CaptainAmerica.intY][CaptainAmerica.intX].equals("captainamerica")){
+			button[CaptainAmerica.intY][CaptainAmerica.intX].setIcon(new ImageIcon(boardpanel.captainamerica));
+		}if(strArray[BlackPanther.intY][BlackPanther.intX].equals("blackpanther")){
+			button[BlackPanther.intY][BlackPanther.intX].setIcon(new ImageIcon(boardpanel.blackpanther));
+		}if(strArray[Spiderman.intY][Spiderman.intX].equals("spiderman")){
+			button[Spiderman.intY][Spiderman.intX].setIcon(new ImageIcon(boardpanel.spiderman));
+		}if(strArray[Wanda.intY][Wanda.intX].equals("wanda")){
+			button[Wanda.intY][Wanda.intX].setIcon(new ImageIcon(boardpanel.wanda));
+		}if(strArray[StarLord.intY][StarLord.intX].equals("starlord")){
+			button[StarLord.intY][StarLord.intX].setIcon(new ImageIcon(boardpanel.starlord));
+		}if(strArray[Hawkeye.intY][Hawkeye.intX].equals("hawkeye")){
+			button[Hawkeye.intY][Hawkeye.intX].setIcon(new ImageIcon(boardpanel.hawkeye));
+		}if(strArray[Thor.intY][Thor.intX].equals("thor")){
+			button[Thor.intY][Thor.intX].setIcon(new ImageIcon(boardpanel.thor));
+		}if(strArray[Vision.intY][Vision.intX].equals("vision")){
+			button[Vision.intY][Vision.intX].setIcon(new ImageIcon(boardpanel.vision));
 			
-		}if(strArray[Loki1.intX][Loki1.intY].equals("loki1")){
-			button[Loki1.intX][Loki1.intY].setIcon(new ImageIcon(boardpanel.loki1));
-		}if(strArray[ShieldAgent1.intX][ShieldAgent1.intY].equals("shieldagent1")){
-			button[ShieldAgent1.intX][ShieldAgent1.intY].setIcon(new ImageIcon(boardpanel.shieldagent1));
-		}if(strArray[BlueNexus.intX][BlueNexus.intY].equals("bluenexus")){
-			button[BlueNexus.intX][BlueNexus.intY].setIcon(new ImageIcon(boardpanel.bluenexus));
-		}if(strArray[Loki1.intX][Loki2.intY].equals("loki2")){
-			button[Loki1.intX][Loki2.intY].setIcon(new ImageIcon(boardpanel.loki2));
+		}if(strArray[Loki1.intY][Loki1.intX].equals("loki1")){
+			button[Loki1.intY][Loki1.intX].setIcon(new ImageIcon(boardpanel.loki1));
+		}if(strArray[ShieldAgent1.intY][ShieldAgent1.intX].equals("shieldagent1")){
+			button[ShieldAgent1.intY][ShieldAgent1.intX].setIcon(new ImageIcon(boardpanel.shieldagent1));
+		}if(strArray[BlueNexus.intY][BlueNexus.intX].equals("bluenexus")){
+			button[BlueNexus.intY][BlueNexus.intX].setIcon(new ImageIcon(boardpanel.bluenexus));
+		}if(strArray[Loki1.intY][Loki2.intX].equals("loki2")){
+			button[Loki1.intY][Loki2.intX].setIcon(new ImageIcon(boardpanel.loki2));
 			
-		}if(strArray[ShieldAgent2.intX][ShieldAgent1.intY].equals("shieldagent2")){
-			button[ShieldAgent2.intX][ShieldAgent1.intY].setIcon(new ImageIcon(boardpanel.shieldagent2));
-		}if(strArray[ShieldAgent3.intX][ShieldAgent3.intY].equals("shieldagent3")){
-			button[ShieldAgent3.intX][ShieldAgent3.intY].setIcon(new ImageIcon(boardpanel.shieldagent3));
-		}if(strArray[ShieldAgent4.intX][ShieldAgent4.intY].equals("shieldagent4")){
-			button[ShieldAgent4.intX][ShieldAgent4.intY].setIcon(new ImageIcon(boardpanel.shieldagent4));
-		}if(strArray[ShieldAgent5.intX][ShieldAgent5.intY].equals("shieldagent5")){
-			button[ShieldAgent5.intX][ShieldAgent5.intY].setIcon(new ImageIcon(boardpanel.shieldagent5));
-		}if(strArray[ShieldAgent6.intX][ShieldAgent6.intY].equals("shieldagent6")){
-			button[ShieldAgent6.intX][ShieldAgent6.intY].setIcon(new ImageIcon(boardpanel.shieldagent6));
+		}if(strArray[ShieldAgent2.intY][ShieldAgent1.intX].equals("shieldagent2")){
+			button[ShieldAgent2.intY][ShieldAgent1.intX].setIcon(new ImageIcon(boardpanel.shieldagent2));
+		}if(strArray[ShieldAgent3.intY][ShieldAgent3.intX].equals("shieldagent3")){
+			button[ShieldAgent3.intY][ShieldAgent3.intX].setIcon(new ImageIcon(boardpanel.shieldagent3));
+		}if(strArray[ShieldAgent4.intY][ShieldAgent4.intX].equals("shieldagent4")){
+			button[ShieldAgent4.intY][ShieldAgent4.intX].setIcon(new ImageIcon(boardpanel.shieldagent4));
+		}if(strArray[ShieldAgent5.intY][ShieldAgent5.intX].equals("shieldagent5")){
+			button[ShieldAgent5.intY][ShieldAgent5.intX].setIcon(new ImageIcon(boardpanel.shieldagent5));
+		}if(strArray[ShieldAgent6.intY][ShieldAgent6.intX].equals("shieldagent6")){
+			button[ShieldAgent6.intY][ShieldAgent6.intX].setIcon(new ImageIcon(boardpanel.shieldagent6));
 		}
 		// villians
-		if(strArray[Modok.intX][Modok.intY].equals("modok")){
-			button[Modok.intX][Modok.intY].setIcon(new ImageIcon(boardpanel.modok));
-		}if(strArray[Yellowjacket.intX][Yellowjacket.intY].equals("yellowjacket")){
-			button[Yellowjacket.intX][Yellowjacket.intY].setIcon(new ImageIcon(boardpanel.yellowjacket));
-		}if(strArray[Punisher.intX][Punisher.intY].equals("punisher")){
-			button[Punisher.intX][Punisher.intY].setIcon(new ImageIcon(boardpanel.punisher));
+		if(strArray[Modok.intY][Modok.intX].equals("modok")){
+			button[Modok.intY][Modok.intX].setIcon(new ImageIcon(boardpanel.modok));
+		}if(strArray[Yellowjacket.intY][Yellowjacket.intX].equals("yellowjacket")){
+			button[Yellowjacket.intY][Yellowjacket.intX].setIcon(new ImageIcon(boardpanel.yellowjacket));
+		}if(strArray[Punisher.intY][Punisher.intX].equals("punisher")){
+			button[Punisher.intY][Punisher.intX].setIcon(new ImageIcon(boardpanel.punisher));
 		
-		}if(strArray[Hela1.intX][Hela1.intY].equals("hela1")){
-			button[Hela1.intX][Hela1.intY].setIcon(new ImageIcon(boardpanel.hela1));
+		}if(strArray[Hela1.intY][Hela1.intX].equals("hela1")){
+			button[Hela1.intY][Hela1.intX].setIcon(new ImageIcon(boardpanel.hela1));
 			
 			
 			
-		}if(strArray[HydraSoldier1.intX][HydraSoldier1.intY].equals("hydrasoldier1")){
-			button[HydraSoldier1.intX][HydraSoldier1.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
-		}if(strArray[RedNexus.intX][RedNexus.intY].equals("rednexus")){
-			button[RedNexus.intX][RedNexus.intY].setIcon(new ImageIcon(boardpanel.rednexus));
-		}if(strArray[Hela2.intX][Hela2.intY].equals("hela2")){
-			button[Hela2.intX][Hela2.intY].setIcon(new ImageIcon(boardpanel.hela2));
-		}if(strArray[HydraSoldier2.intX][HydraSoldier2.intY].equals("hydrasoldier2")){
-			button[HydraSoldier2.intX][HydraSoldier2.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
-		}if(strArray[HydraSoldier3.intX][HydraSoldier3.intY].equals("hydrasoldier3")){
-			button[HydraSoldier3.intX][HydraSoldier3.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier3));
+		}if(strArray[HydraSoldier1.intY][HydraSoldier1.intX].equals("hydrasoldier1")){
+			button[HydraSoldier1.intY][HydraSoldier1.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier1));
+		}if(strArray[RedNexus.intY][RedNexus.intX].equals("rednexus")){
+			button[RedNexus.intY][RedNexus.intX].setIcon(new ImageIcon(boardpanel.rednexus));
+		}if(strArray[Hela2.intY][Hela2.intX].equals("hela2")){
+			button[Hela2.intY][Hela2.intX].setIcon(new ImageIcon(boardpanel.hela2));
+		}if(strArray[HydraSoldier2.intY][HydraSoldier2.intX].equals("hydrasoldier2")){
+			button[HydraSoldier2.intY][HydraSoldier2.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier2));
+		}if(strArray[HydraSoldier3.intY][HydraSoldier3.intX].equals("hydrasoldier3")){
+			button[HydraSoldier3.intY][HydraSoldier3.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier3));
 		
-		}if(strArray[Thanos.intX][Thanos.intY].equals("thanos")){
-			button[Thanos.intX][Thanos.intY].setIcon(new ImageIcon(boardpanel.thanos));
-		}if(strArray[Ultron.intX][Ultron.intY].equals("ultron")){
-			button[Ultron.intX][Ultron.intY].setIcon(new ImageIcon(boardpanel.ultron));
-		}if(strArray[Dormammu.intX][Dormammu.intY].equals("dormammu")){
-			button[Dormammu.intX][Dormammu.intY].setIcon(new ImageIcon(boardpanel.dormammu));
-		}if(strArray[DrDoom.intX][DrDoom.intY].equals("drdoom")){
-			button[DrDoom.intX][DrDoom.intY].setIcon(new ImageIcon(boardpanel.drdoom));
-		}if(strArray[RedSkull.intX][RedSkull.intY].equals("redskull")){
-			button[RedSkull.intX][RedSkull.intY].setIcon(new ImageIcon(boardpanel.redskull));
-		}if(strArray[KillMonger.intX][KillMonger.intY].equals("killmonger")){
-			button[KillMonger.intX][KillMonger.intY].setIcon(new ImageIcon(boardpanel.killmonger));
-		}if(strArray[Venom.intX][Venom.intY].equals("venom")){
-			button[Venom.intX][Venom.intY].setIcon(new ImageIcon(boardpanel.venom));
-		}if(strArray[DocOck.intX][DocOck.intY].equals("docock")){
-			button[DocOck.intX][DocOck.intY].setIcon(new ImageIcon(boardpanel.docock));
-		}if(strArray[Ronan.intX][Ronan.intY].equals("ronan")){
-			button[Ronan.intX][Ronan.intY].setIcon(new ImageIcon(boardpanel.ronan));
-		}if(strArray[HydraSoldier4.intX][HydraSoldier4.intY].equals("hydrasoldier4")){
-			button[HydraSoldier4.intX][HydraSoldier4.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier4));
-		}if(strArray[HydraSoldier5.intX][HydraSoldier5.intY].equals("hydrasoldier5")){
-			button[HydraSoldier5.intX][HydraSoldier5.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier5));
-		}if(strArray[HydraSoldier6.intX][HydraSoldier6.intY].equals("hydrasoldier6")){
-			button[HydraSoldier6.intX][HydraSoldier6.intY].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
+		}if(strArray[Thanos.intY][Thanos.intX].equals("thanos")){
+			button[Thanos.intY][Thanos.intX].setIcon(new ImageIcon(boardpanel.thanos));
+		}if(strArray[Ultron.intY][Ultron.intX].equals("ultron")){
+			button[Ultron.intY][Ultron.intX].setIcon(new ImageIcon(boardpanel.ultron));
+		}if(strArray[Dormammu.intY][Dormammu.intX].equals("dormammu")){
+			button[Dormammu.intY][Dormammu.intX].setIcon(new ImageIcon(boardpanel.dormammu));
+		}if(strArray[DrDoom.intY][DrDoom.intX].equals("drdoom")){
+			button[DrDoom.intY][DrDoom.intX].setIcon(new ImageIcon(boardpanel.drdoom));
+		}if(strArray[RedSkull.intY][RedSkull.intX].equals("redskull")){
+			button[RedSkull.intY][RedSkull.intX].setIcon(new ImageIcon(boardpanel.redskull));
+		}if(strArray[KillMonger.intY][KillMonger.intX].equals("killmonger")){
+			button[KillMonger.intY][KillMonger.intX].setIcon(new ImageIcon(boardpanel.killmonger));
+		}if(strArray[Venom.intY][Venom.intX].equals("venom")){
+			button[Venom.intY][Venom.intX].setIcon(new ImageIcon(boardpanel.venom));
+		}if(strArray[DocOck.intY][DocOck.intX].equals("docock")){
+			button[DocOck.intY][DocOck.intX].setIcon(new ImageIcon(boardpanel.docock));
+		}if(strArray[Ronan.intY][Ronan.intX].equals("ronan")){
+			button[Ronan.intY][Ronan.intX].setIcon(new ImageIcon(boardpanel.ronan));
+		}if(strArray[HydraSoldier4.intY][HydraSoldier4.intX].equals("hydrasoldier4")){
+			button[HydraSoldier4.intY][HydraSoldier4.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier4));
+		}if(strArray[HydraSoldier5.intY][HydraSoldier5.intX].equals("hydrasoldier5")){
+			button[HydraSoldier5.intY][HydraSoldier5.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier5));
+		}if(strArray[HydraSoldier6.intY][HydraSoldier6.intX].equals("hydrasoldier6")){
+			button[HydraSoldier6.intY][HydraSoldier6.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
 		
 		// Custom fonts

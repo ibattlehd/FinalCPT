@@ -12,8 +12,8 @@ public class character{
 	boolean blnDead;
 	boolean blnSpecialPiece;
 	boolean blnSpecialAbility;
-	int intX;
 	int intY;
+	int intX;
 	
 	// Methods
 	public int moveUp(){
@@ -38,13 +38,13 @@ public class character{
 	}
 	
 	// Constructor
-	public character(boolean blnDead, int intPower, boolean blnSpecialPiece, boolean blnSpecialAbility, int intArrayX, int intArrayY){
+	public character(boolean blnDead, int intPower, boolean blnSpecialPiece, boolean blnSpecialAbility, int intRow, int intCol){
 		this.blnDead = blnDead;
 		this.intPower = intPower;
 		this.blnSpecialPiece = blnSpecialPiece;
 		this.blnSpecialAbility = blnSpecialAbility;
-		this.intX = intArrayX;
-		this.intY = intArrayY;
+		this.intY = intRow;
+		this.intX = intCol;
 	}
 
 }

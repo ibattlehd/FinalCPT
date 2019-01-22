@@ -50,6 +50,54 @@ public class BoardPanel extends JPanel{
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
 	
+	// Heroes
+	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
+	character Thor = new character(false, 12, false, true, 0, 3);
+	character IronMan = new character(false, 11, false, false, 1, 3);
+	character Hulk = new character(false, 10, false, false, 1, 4);
+	character DrStrange = new character(false, 9, false, false, 0, 2);
+	character CaptainAmerica = new character(false, 8, false, false, 0, 5);
+	character BlackPanther = new character(false, 7, false, true, 1, 1);
+	character Spiderman = new character(false, 6, false, true, 1, 6);
+	character Wanda = new character(false, 5, false, false, 0, 7);
+	character StarLord = new character(false, 4, false, false, 0, 0);
+	character Hawkeye = new character(false, 3, false, false, 0, 8);
+	character AntMan = new character(false, 2, false, false, 2, 8);
+	character Vision = new character(false, 1, false, false, 0, 1);
+	character Loki1 = new character(false, 14, false, true, 1, 0);
+	character Loki2 = new character(false, 14, false, true, 1, 8);
+	character ShieldAgent1 = new character(false, 13, false, true, 2, 2);
+	character ShieldAgent2 = new character(false, 13, false, true, 2, 3);
+	character ShieldAgent3 = new character(false, 13, false, true, 2, 4);
+	character ShieldAgent4 = new character(false, 13, false, true, 2, 5);
+	character ShieldAgent5 = new character(false, 13, false, true, 2, 6);
+	character ShieldAgent6 = new character(false, 13, false, true, 2, 0);
+	character BlueNexus = new character(false, 0, true, false, 0, 4);
+	
+	// Villians
+	character Thanos = new character(false, 12, false, true, 7, 3);
+	character Ultron = new character(false, 11, false, false, 6, 3);
+	character Dormammu = new character(false, 10, false, false, 6, 4);
+	character DrDoom = new character(false, 9, false, false, 7, 2);
+	character RedSkull = new character(false, 8, false, false, 7, 5);
+	character KillMonger = new character(false, 7, false, true, 6, 1);
+	character Venom = new character(false, 6, false, true, 6, 6);
+	character DocOck = new character(false, 5, false, false, 7, 7);
+	character Ronan = new character(false, 4, false, false, 7, 0);
+	character Modok = new character(false, 3, false, false, 7, 8);
+	character Yellowjacket = new character(false, 2, false, false, 5, 8);
+	character Punisher = new character(false, 1, false, false, 7, 1);
+	character Hela1 = new character(false, 14, false, true, 6, 0);
+	character Hela2 = new character(false, 14, false, true, 6, 8);
+	character HydraSoldier1 = new character(false, 13, false, true, 5, 2);
+	character HydraSoldier2 = new character(false, 13, false, true, 5, 3);
+	character HydraSoldier3 = new character(false, 13, false, true, 5, 4);
+	character HydraSoldier4 = new character(false, 13, false, true, 5, 5);
+	character HydraSoldier5 = new character(false, 13, false, true, 5, 6);
+	character HydraSoldier6 = new character(false, 13, false, true, 5, 0);
+	
+	character RedNexus = new character(false, 0, true, false, 7, 4);
+	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
 	}
