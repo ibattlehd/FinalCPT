@@ -49,10 +49,9 @@ public class BoardPanel extends JPanel{
 	BufferedImage hela2;
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
-	//BufferedImage board;
 	
-	// Heroes
-	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
+	/*
+	BufferedImage board;
 	character Thor = new character(false, 12, false, true, 0, 3);
 	character IronMan = new character(false, 11, false, false, 1, 3);
 	character Hulk = new character(false, 10, false, false, 1, 4);
@@ -98,6 +97,7 @@ public class BoardPanel extends JPanel{
 	character HydraSoldier6 = new character(false, 13, false, true, 5, 0);
 	
 	character RedNexus = new character(false, 0, true, false, 7, 4);
+	*/
 	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
