@@ -324,6 +324,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
+		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				if(evt.getSource() == button[intRow][intCol]){
@@ -334,6 +335,55 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 					resetCheck(evt);
 				}
 			}
+		}
+		*/
+		if(evt.getSource() == button[0][0]){
+			checkPotentialMoveDown(0, 0);
+			checkPotentialMoveLeft(0, 0);
+			checkPotentialMoveRight(0, 0);
+			checkPotentialMoveUp(0, 0);
+		}
+		if(evt.getSource() == button[1][0]){
+			checkPotentialMoveDown(1, 0);
+			checkPotentialMoveLeft(1, 0);
+			checkPotentialMoveRight(1, 0);
+			checkPotentialMoveUp(1, 0);
+		}
+		if(evt.getSource() == button[2][0]){
+			checkPotentialMoveDown(2, 0);
+			checkPotentialMoveLeft(2, 0);
+			checkPotentialMoveRight(2, 0);
+			checkPotentialMoveUp(2, 0);
+		}
+		if(evt.getSource() == button[3][0]){
+			checkPotentialMoveDown(3, 0);
+			checkPotentialMoveLeft(3, 0);
+			checkPotentialMoveRight(3, 0);
+			checkPotentialMoveUp(3, 0);
+		}
+		if(evt.getSource() == button[4][0]){
+			checkPotentialMoveDown(4, 0);
+			checkPotentialMoveLeft(4, 0);
+			checkPotentialMoveRight(4, 0);
+			checkPotentialMoveUp(4, 0);
+		}
+		if(evt.getSource() == button[5][0]){
+			checkPotentialMoveDown(5, 0);
+			checkPotentialMoveLeft(5, 0);
+			checkPotentialMoveRight(5, 0);
+			checkPotentialMoveUp(5, 0);
+		}
+		if(evt.getSource() == button[6][0]){
+			checkPotentialMoveDown(6, 0);
+			checkPotentialMoveLeft(6, 0);
+			checkPotentialMoveRight(6, 0);
+			checkPotentialMoveUp(6, 0);
+		}
+		if(evt.getSource() == button[7][0]){
+			checkPotentialMoveDown(7, 0);
+			checkPotentialMoveLeft(7, 0);
+			checkPotentialMoveRight(7, 0);
+			checkPotentialMoveUp(7, 0);
 		}
 	}
 		
@@ -454,6 +504,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	}
 	
 	public void checkPotentialMoveDown(int intRow, int intCol){
+		blnMoveDown = false;
 		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
 			if(button[intRow+1][intCol].getIcon() == null){
 				button[intRow+1][intCol].setBackground(Color.RED);
@@ -461,9 +512,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		System.out.println("Move down: "+blnMoveDown);
+		System.out.println("");
 	}
 	
 	public void checkPotentialMoveUp(int intRow, int intCol){
+		blnMoveUp = false;
 		if(button[intRow][intCol].getIcon() != null && intRow-1 > 0){
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED);
@@ -471,9 +524,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		System.out.println("Move up: "+blnMoveUp);
+		System.out.println("");
 	}
 	
 	public void checkPotentialMoveLeft(int intRow, int intCol){
+		blnMoveLeft = false;
 		if(button[intRow][intCol].getIcon() != null && intCol-1 > 0){
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED);
@@ -481,9 +536,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		System.out.println("Move left: "+blnMoveLeft);
+		System.out.println("");
 	}
 	
 	public void checkPotentialMoveRight(int intRow, int intCol){
+		blnMoveRight = false;
 		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
 			if(button[intRow][intCol+1].getIcon() == null){
 				button[intRow][intCol+1].setBackground(Color.RED);
@@ -491,8 +548,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 		System.out.println("Move right: "+blnMoveRight);
+		System.out.println("");
 	}
 	
+	/*
 	public void resetCheck(ActionEvent evt){
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
@@ -505,23 +564,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 	}
-	
-	public void characterDown(character selectedcharacter){
-		selectedcharacter.moveDown();
-		System.out.println(selectedcharacter.intY);
-	}
-	
-	public void characterUp(character selectedcharacter){
-		selectedcharacter.moveUp();
-	}
-	
-	public void characterLeft(character selectedcharacter){
-		selectedcharacter.moveLeft();
-	}
-	
-	public void characterRight(character selectedcharacter){
-		selectedcharacter.moveLeft();
-	}
+	*/
 	
 	// Constructor
 	public MarvelGameOfTheGenerals(){
