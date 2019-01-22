@@ -325,7 +325,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				if(evt.getSource() == button[intRow][intCol]){
@@ -336,7 +335,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				}
 			}
 		}
-		*/
+		/*
 		if(evt.getSource() == button[0][0]){
 			checkPotentialMoveDown(0, 0);
 			checkPotentialMoveLeft(0, 0);
@@ -433,6 +432,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			checkPotentialMoveRight(7, 1);
 			checkPotentialMoveUp(7, 1);
 		}
+		*/
 	}
 		
 	@Override
