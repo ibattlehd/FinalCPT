@@ -49,6 +49,7 @@ public class BoardPanel extends JPanel{
 	BufferedImage hela2;
 	BufferedImage rednexus;
 	BufferedImage bluenexus;
+	BufferedImage board;
 	
 	// Heroes
 	// (blnDead, intPower, blnSpecialPiece, blnSpecialAbility, intRow, intCol)
@@ -100,6 +101,65 @@ public class BoardPanel extends JPanel{
 	
 	// Methods
 	public void paintComponent(Graphics g){ // Overriding JPanel's paintComponent method
+		g.drawImage(board, 0, 0, null);
+		
+		// Draw heroes
+		g.drawImage(antman, AntMan.intX*90, AntMan.intY*90, null);
+		g.drawImage(ironman, IronMan.intX*90, IronMan.intY*90, null);
+		g.drawImage(hulk, Hulk.intX*90, Hulk.intY*90, null);
+		g.drawImage(captainamerica, CaptainAmerica.intX*90, CaptainAmerica.intY*90, null);
+		g.drawImage(blackpanther, BlackPanther.intX*90, BlackPanther.intY*90, null);
+		g.drawImage(spiderman, Spiderman.intX*90, Spiderman.intY*90, null);
+		g.drawImage(wanda, Wanda.intX*90, Wanda.intY*90, null);
+		g.drawImage(starlord, StarLord.intX*90, StarLord.intY*90, null);
+		g.drawImage(hawkeye, Hawkeye.intX, Hawkeye.intY, null);
+		g.drawImage(thor, Thor.intX*90, Thor.intY*90, null);
+		g.drawImage(vision, Vision.intX*90, Vision.intY*90, null);
+		g.drawImage(shieldagent1, ShieldAgent1.intX*90, ShieldAgent1.intY*90, null);
+		g.drawImage(bluenexus, BlueNexus.intX*90, BlueNexus.intY*90, null);
+		g.drawImage(loki1, Loki1.intX*90, Loki1.intY*90, null);
+		g.drawImage(loki2, Loki2.intX*90, Loki2.intY*90, null);
+		g.drawImage(wanda, Wanda.intX*90, Wanda.intY*90, null);
+		g.drawImage(starlord, StarLord.intX*90, StarLord.intY*90, null);
+		g.drawImage(shieldagent2, ShieldAgent2.intX*90, ShieldAgent2.intY*90, null);
+		g.drawImage(shieldagent3, ShieldAgent3.intX*90, ShieldAgent3.intY*90, null);
+		g.drawImage(shieldagent4, ShieldAgent4.intX*90, ShieldAgent4.intY*90, null);
+		g.drawImage(shieldagent5, ShieldAgent5.intX*90, ShieldAgent5.intY*90, null);
+		g.drawImage(shieldagent6, ShieldAgent6.intX*90, ShieldAgent6.intY*90, null);
+		
+		/*
+		strArray[ShieldAgent1.intY][ShieldAgent1.intX] = "shieldagent1";
+		strArray[BlueNexus.intY][BlueNexus.intX] = "bluenexus";
+		strArray[Loki1.intY][Loki1.intX] = "loki1";
+		strArray[Loki2.intY][Loki2.intX] = "loki2";
+		strArray[ShieldAgent2.intY][ShieldAgent2.intX] = "shieldagent2";
+		strArray[ShieldAgent3.intY][ShieldAgent3.intX] = "shieldagent3";
+		strArray[ShieldAgent4.intY][ShieldAgent4.intX] = "shieldagent4";
+		strArray[ShieldAgent5.intY][ShieldAgent5.intX] = "shieldagent5";
+		strArray[ShieldAgent6.intY][ShieldAgent6.intX] = "shieldagent6";
+		
+		strArray[HydraSoldier4.intY][HydraSoldier4.intX] = "hydrasoldier4";
+		strArray[HydraSoldier5.intY][HydraSoldier5.intX] = "hydrasoldier5";
+		strArray[HydraSoldier6.intY][HydraSoldier6.intX] = "hydrasoldier6";
+		strArray[Thanos.intY][Thanos.intX] = "thanos";
+		strArray[Ultron.intY][Ultron.intX] = "ultron";
+		strArray[Dormammu.intY][Dormammu.intX] = "dormammu";
+		strArray[DrDoom.intY][DrDoom.intX] = "drdoom";
+		strArray[RedSkull.intY][RedSkull.intX] = "redskull";
+		strArray[KillMonger.intY][KillMonger.intX] = "killmonger";
+		strArray[Venom.intY][Venom.intX] = "venom";
+		strArray[DocOck.intY][DocOck.intX] = "docock";
+		strArray[Ronan.intY][Ronan.intX] = "ronan";
+		strArray[Modok.intY][Modok.intX] = "modok";
+		strArray[Yellowjacket.intY][Yellowjacket.intX] = "yellowjacket";
+		strArray[Punisher.intY][Punisher.intX] = "punisher";
+		strArray[Hela1.intY][Hela1.intX] = "hela1";
+		strArray[HydraSoldier1.intY][HydraSoldier1.intX] = "hydrasoldier1";
+		strArray[RedNexus.intY][RedNexus.intX] = "rednexus";
+		strArray[Hela2.intY][Hela2.intX] = "hela2";
+		strArray[HydraSoldier2.intY][HydraSoldier2.intX] = "hydrasoldier2";
+		strArray[HydraSoldier3.intY][HydraSoldier3.intX] = "hydrasoldier3";
+		*/
 	}
 	
 	// Constructor
@@ -107,6 +167,10 @@ public class BoardPanel extends JPanel{
 		super();
 		// Images
 		try{
+			board = ImageIO.read(new File("../img/board.png"));
+		}catch(IOException e){
+			System.out.println("Unable to load image");
+		}try{
 			antman = ImageIO.read(new File("../characterimg/Resized Images/antman.jpg"));
 		}catch(IOException e){
 			System.out.println("Unable to load image");

@@ -331,6 +331,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
+		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				if(evt.getSource() == button[intRow][intCol]){
@@ -342,6 +343,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				}
 			}
 		}
+		*/
 	}
 		
 	@Override
@@ -460,6 +462,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	}
 	
+	/*
 	public void checkPotentialMoveDown(int intRow, int intCol){
 		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
 			if(button[intRow+1][intCol].getIcon() == null){
@@ -512,6 +515,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			}
 		}
 	}
+	*/
 	
 	public void characterDown(character selectedcharacter){
 		selectedcharacter.moveDown();
@@ -538,8 +542,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		menupanel.setPreferredSize(new Dimension(1280, 720));
 		
 		boardpanel = new BoardPanel();
-		boardpanel.setLayout(new GridLayout(8,9));
-		//boardpanel.setLayout(null);
+		//boardpanel.setLayout(new GridLayout(8,9));
+		boardpanel.setLayout(null);
 		boardpanel.setPreferredSize(new Dimension(810, 720));
 		
 		chatpanel = new ChatPanel();
@@ -553,6 +557,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		// JButtons
 		////////////////////
 		
+		/*
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				button[intRow][intCol] = new JButton();
@@ -702,6 +707,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}if(strArray[HydraSoldier6.intY][HydraSoldier6.intX].equals("hydrasoldier6")){
 			button[HydraSoldier6.intY][HydraSoldier6.intX].setIcon(new ImageIcon(boardpanel.hydrasoldier6));
 		}
+		*/
 		
 		// Custom fonts
 		try {
