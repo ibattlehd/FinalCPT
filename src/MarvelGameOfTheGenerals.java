@@ -43,6 +43,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonEnter2;
 	JButton buttonEnter;
 	// High scores
+	
 	/*
 	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
 	String highscores[][] = scores.readMapArray();
@@ -50,6 +51,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	int intScoresCount = numberscores.ScoresCount();
 	JLabel highscoreslabel[];
 	*/
+	JTextArea highscoresarea;
+	
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -198,8 +201,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ChatScroll.setVisible(true);
 			ChatMessage.setVisible(true);
 			
-			
-			
 			ssm.connect();
 		
 		}
@@ -224,9 +225,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			ssm.sendText("Sent: " + ChatMessage.getText());
 			ChatBox.append("Opponent: " + strData + "\n");
 			ChatMessage.setText("");
-			
-
-			
+					
 		}	
 		if(evt.getSource() == buttonBack){
 			buttonBack.setVisible(false);
@@ -252,6 +251,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonEnter2.setVisible(false);
 		}
 		if(evt.getSource() == buttonScores){
+			buttonPlay.setVisible(false);
+			buttonScores.setVisible(false);
+			buttonHelp.setVisible(false);
+			buttonQuit.setVisible(false);
+			highscoresarea.setVisible(true);
 		}
 		if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
@@ -950,6 +954,18 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		labelIP.setForeground(Color.WHITE); // Make text white
 		labelIP.setVisible(false);
 		menupanel.add(labelIP);
+		
+		
+		// Highscores
+		highscoresarea = new JTextArea();
+		highscoresarea.setSize(438,470); // 438 x 470 pixels
+		highscoresarea.setLocation(420,137); // x and y coordinates (420, 137)
+		menupanel.add(highscoresarea);
+		highscoresarea.setVisible(false);
+		highscoresarea.setForeground(Color.WHITE); // Change text colour to white
+		highscoresarea.setBackground(new Color(20,19,19)); // Change background colour to custom black colour
+		highscoresarea.setEditable(false); // Prevent user from editing the text area
+		highscoresarea.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
 		
 		// Chat Box
 		chatpanel.add(ChatBox);
