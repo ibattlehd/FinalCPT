@@ -170,7 +170,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 			ssm = new SuperSocketMaster(strEnterIP, 1337, this);
 			ssm.connect();
-			System.out.println("Server joined");
+			//System.out.println("Server joined");
 			
 			ChatBox.setVisible(true);
 			ChatScroll.setVisible(true);
@@ -198,7 +198,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 			
 			
-			//ssm = new SuperSocketMaster(labelIP, 1337, this);
+		//sm = new SuperSocketMaster(labelIP, 1337, this);
 			ssm.connect();
 		
 		}
@@ -208,10 +208,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			// Need to fix menupanel and boardpanel issue
 			// Need to fix message to appear on chat box
 			// game data (black pieces for enemy side)
-			System.out.println("Going to send this out over network: "+ChatMessage.getText());
+			//System.out.println("Going to send this out over network: "+ChatMessage.getText());
 			
-			ssm.sendText(ChatMessage.getText());
+			//ssm.sendText(ChatMessage.getText());
 			
+			//ChatMessage.setText("");
+			
+			ssm.sendText("Sent: " + ChatMessage.getText());
+
+			ChatBox.append("Me: " + ChatMessage.getText() + "\n");
+
 			ChatMessage.setText("");
 			
 		}
@@ -219,7 +225,19 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == ssm){
 			String strData;
 			strData = ssm.readText();
-			ChatBox.append(strData + "\n");
+		//hatBox.append(strData + "\n");
+			
+	//String strData = ssm.readText();
+
+			ChatBox.append("Opponent: " +strData + "\n");
+
+			
+
+			//(strData.substring(0,6).equals("Sent: ")){
+
+				//atBox.append("Opponent: " + strData.substring(6,intDataLength) + "\n");
+
+			//
 			
 		}
 		
@@ -940,6 +958,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		chatpanel.add(ChatBox);
 		chatpanel.add(ChatScroll);
 		chatpanel.add(ChatMessage);
+		
+		ChatBox.setVisible(false);
+		ChatBox.setEditable(false);
+		
 		
 		ChatScroll.setSize(300, 500);
 		ChatScroll.setLocation(120,50);
