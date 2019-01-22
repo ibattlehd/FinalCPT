@@ -44,13 +44,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonEnter;
 	// High scores
 	
-	/*
 	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
 	String highscores[][] = scores.readMapArray();
 	HighscoresCount numberscores = new HighscoresCount();
 	int intScoresCount = numberscores.ScoresCount();
-	JLabel highscoreslabel[];
-	*/
 	JTextArea highscoresarea;
 	
 	// Used to setup board
@@ -74,7 +71,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	String strObjectiveDescription = "The Objective of the game is to eliminate the nexus of your opponent";
 	// Pieces Information
 	String strNote = "NOTE: If both characters are of equal power, BOTH are eliminated.";
-	String strPiecesNote = "Consult the github website to learn about the rules of the pieces.";
+	String strPiecesNote = "Consult the GitHub website to learn about the rules of the pieces.";
 	// Movement Rules
 	String strMovementTitle = "MOVEMENT";
 	String strMovementDescription = "1. Heroes always make the first move. Players move alternately"+"\n"+"2. A player is allowed to move only one piece at a time."+"\n"+"3. A move consists of moving a piece to a square, either forward, backward or sideward. A diagonal move or a move of more than one square is illegal";
@@ -254,6 +251,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonScores.setVisible(false);
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
+			buttonMainMenu.setVisible(true);
 			highscoresarea.setVisible(true);
 		}
 		if(evt.getSource() == buttonHelp){  //User selects Help Button
@@ -279,6 +277,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonNext.setVisible(false);
 			buttonPrevious.setVisible(false);
 			buttonEnter.setVisible(false);
+			highscoresarea.setVisible(false);
 		}
 		if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
@@ -1055,6 +1054,10 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		highscoresarea.setBackground(new Color(20,19,19)); // Change background colour to custom black colour
 		highscoresarea.setEditable(false); // Prevent user from editing the text area
 		highscoresarea.setLineWrap(true); // Set to true. The lines will be wrapped if they are too long to fit within the allocated width of the textarea
+		for(int intCount = 0; intCount < intScoresCount; intCount++){
+			highscoresarea.append(highscores[0][intCount]+"\n");
+		}
+		
 		
 		// Chat Box
 		chatpanel.add(ChatBox);

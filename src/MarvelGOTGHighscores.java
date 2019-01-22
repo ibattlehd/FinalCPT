@@ -29,7 +29,6 @@ public class MarvelGOTGHighscores{
 				}
 				for (int intCount=0; intCount<strLines.length; intCount++) {
 					strScores[0][intCount] = strLinesTxt[intCount][0];
-					System.out.println(strScores[0][intCount]);
 				}
 			}catch(IOException e){
 				e.printStackTrace();
