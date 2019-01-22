@@ -551,21 +551,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		System.out.println("");
 	}
 	
-	/*
-	public void resetCheck(ActionEvent evt){
-		for(intRow = 0; intRow < 8; intRow++){
-			for(intCol = 0; intCol < 9; intCol++){
-				if(evt.getSource() == button[intRow][intCol]){
-					blnMoveUp = false;
-					blnMoveDown = false;
-					blnMoveRight = false;
-					blnMoveLeft = false;
-				}
-			}
-		}
-	}
-	*/
-	
 	// Constructor
 	public MarvelGameOfTheGenerals(){
 		
