@@ -43,17 +43,23 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonEnter2;
 	JButton buttonEnter;
 	// High scores
+	/*
 	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
 	String highscores[][] = scores.readMapArray();
 	HighscoresCount numberscores = new HighscoresCount();
 	int intScoresCount = numberscores.ScoresCount();
 	JLabel highscoreslabel[];
+	*/
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
 	int intRow;
 	int intCol;
 	boolean blnPress = false;
+	boolean blnMoveUp = false;
+	boolean blnMoveDown = false;
+	boolean blnMoveRight = false;
+	boolean blnMoveLeft = false;
 	// Chat
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
@@ -334,14 +340,15 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 	@Override
 	public void mouseClicked(MouseEvent evt){ // Called after the user clicks the listened-to component.
-		if(evt.getSource() == button[0][0]){
-			highlightHeroAvailableSpot();
-		}
-		heroCondition();
-		if(evt.getSource() == button[2][7]){
-			if(blnPress){
-				button[2][7].setIcon(new ImageIcon(boardpanel.antman));
-				button[0][0].setIcon(null);
+		for(intRow = 0; intRow < 8; intRow++){
+			for(intCol = 0; intCol < 9; intCol++){
+				if(evt.getSource() == button[intRow][intCol]){
+					checkPotentialMoveDown(intRow, intCol);
+					checkPotentialMoveLeft(intRow, intCol);
+					checkPotentialMoveRight(intRow, intCol);
+					checkPotentialMoveUp(intRow, intCol);
+					resetCheck();
+				}
 			}
 		}
 	}
@@ -440,16 +447,62 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	}
 	
-	public void highlightHeroAvailableSpot(){
-		for(intRow = 0; intRow < 3; intRow++){
+	public void checkPotentialMoveDown(int intRow, int intCol){
+		if(button[intRow][intCol].getIcon() != null){
+			if(button[intRow+1][intCol].getIcon() == null){
+				button[intRow+1][intCol].setBackground(Color.RED);
+				blnMoveDown = true;
+			}
+		}
+		System.out.println("Move down: "+blnMoveDown);
+	}
+	
+	public void checkPotentialMoveUp(int intRow, int intCol){
+		if(button[intRow][intCol].getIcon() != null){
+			if(button[intRow-1][intCol].getIcon() == null){
+				button[intRow-1][intCol].setBackground(Color.RED);
+				blnMoveUp = true;
+			}
+		}
+		System.out.println("Move up: "+blnMoveUp);
+	}
+	
+	public void checkPotentialMoveLeft(int intRow, int intCol){
+		if(button[intRow][intCol].getIcon() != null){
+			if(button[intRow][intCol-1].getIcon() == null){
+				button[intRow][intCol-1].setBackground(Color.RED);
+				blnMoveLeft = true;
+			}
+		}
+		System.out.println("Move left: "+blnMoveLeft);
+	}
+	
+	public void checkPotentialMoveRight(int intRow, int intCol){
+		if(button[intRow][intCol].getIcon() != null){
+			if(button[intRow][intCol+1].getIcon() == null){
+				button[intRow][intCol+1].setBackground(Color.RED);
+				blnMoveRight = true;
+			}
+		}
+		System.out.println("Move right: "+blnMoveRight);
+	}
+	
+	public void resetBoardIndicators(){
+		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
-				if(button[intRow][intCol].getIcon() == null){
-					button[intRow][intCol].setBackground(Color.RED);
-				}
+				button[intRow][intCol].setBackground(Color.BLACK);
 			}
 		}
 	}
 	
+	public void resetCheck(){
+		blnMoveUp = false;
+		blnMoveDown = false;
+		blnMoveRight = false;
+		blnMoveLeft = false;
+	}
+	
+	// method to check if user can press a button
 	public void heroCondition(){
 		for(intRow = 0; intRow < 3; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
