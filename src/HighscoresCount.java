@@ -31,6 +31,7 @@ public class HighscoresCount{
 				for (intCount=0; intCount<strLines.length; intCount++) {
 					strScores[0][intCount] = strLinesTxt[intCount][0];
 				}
+				thefiledata.close();
 			}catch(IOException e){
 				e.printStackTrace();
 			}
