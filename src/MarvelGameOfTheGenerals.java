@@ -197,8 +197,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 			
 			
-			
-		//sm = new SuperSocketMaster(labelIP, 1337, this);
 			ssm.connect();
 		
 		}
@@ -214,9 +212,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 			//ChatMessage.setText("");
 			
+			String strData;
+			strData = ssm.readText();
+			
 			ssm.sendText("Sent: " + ChatMessage.getText());
 
-			ChatBox.append("Me: " + ChatMessage.getText() + "\n");
+			ChatBox.append("Player: " + ChatMessage.getText() + "\n");
 
 			ChatMessage.setText("");
 			
@@ -225,19 +226,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		else if(evt.getSource() == ssm){
 			String strData;
 			strData = ssm.readText();
-		//hatBox.append(strData + "\n");
-			
-	//String strData = ssm.readText();
-
-			ChatBox.append("Opponent: " +strData + "\n");
-
+	
+			ssm.sendText("Sent: " + ChatMessage.getText());
+			ChatBox.append("Opponent: " + strData + "\n");
+			ChatMessage.setText("");
 			
 
-			//(strData.substring(0,6).equals("Sent: ")){
-
-				//atBox.append("Opponent: " + strData.substring(6,intDataLength) + "\n");
-
-			//
 			
 		}
 		
@@ -959,6 +953,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		chatpanel.add(ChatScroll);
 		chatpanel.add(ChatMessage);
 		
+		ChatBox.setSize(300,500);
+		ChatBox.setLocation(120,50);
 		ChatBox.setVisible(false);
 		ChatBox.setEditable(false);
 		
