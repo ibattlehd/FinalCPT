@@ -785,18 +785,18 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		
 		// Custom fonts
 		try {
-			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")).deriveFont(30f);
+			font_1 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("fonts/font-1.ttf")).deriveFont(30f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-1.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("fonts/font-1.ttf")));
 		} catch (IOException | FontFormatException e) {
 			e.printStackTrace();
 			font_1 = new Font("Helvetica", Font.BOLD, 30);
 		}
 		
 		try {
-			font_2 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-2.ttf")).deriveFont(30f);
+			font_2 = Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("fonts/font-2.ttf")).deriveFont(30f);
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("../fonts/font-2.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new FileInputStream("fonts/font-2.ttf")));
 		} catch (IOException | FontFormatException e) {
 			e.printStackTrace();
 			font_2 = new Font("Helvetica", Font.BOLD, 30);
