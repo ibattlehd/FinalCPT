@@ -252,6 +252,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonHelp.setVisible(false);
 			buttonQuit.setVisible(false);
 			highscoresarea.setVisible(true);
+			buttonMainMenu.setVisible(true);
 		}
 		if(evt.getSource() == buttonHelp){  //User selects Help Button
 			intHelpPage = intHelpPage + 1; // Plus 1 to make the 1st page of help menu appear on screen
@@ -276,6 +277,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			buttonNext.setVisible(false);
 			buttonPrevious.setVisible(false);
 			buttonEnter.setVisible(false);
+			highscoresarea.setVisible(false);
 		}
 		if(evt.getSource() == buttonNext){ // User selects next button
 			intHelpPage = intHelpPage + 1; // Goes to next page of text area (RulesOfGame)
