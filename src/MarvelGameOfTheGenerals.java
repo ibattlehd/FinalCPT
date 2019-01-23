@@ -335,104 +335,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 				}
 			}
 		}
-		/*
-		if(evt.getSource() == button[0][0]){
-			checkPotentialMoveDown(0, 0);
-			checkPotentialMoveLeft(0, 0);
-			checkPotentialMoveRight(0, 0);
-			checkPotentialMoveUp(0, 0);
-		}
-		if(evt.getSource() == button[1][0]){
-			checkPotentialMoveDown(1, 0);
-			checkPotentialMoveLeft(1, 0);
-			checkPotentialMoveRight(1, 0);
-			checkPotentialMoveUp(1, 0);
-		}
-		if(evt.getSource() == button[2][0]){
-			checkPotentialMoveDown(2, 0);
-			checkPotentialMoveLeft(2, 0);
-			checkPotentialMoveRight(2, 0);
-			checkPotentialMoveUp(2, 0);
-		}
-		if(evt.getSource() == button[3][0]){
-			checkPotentialMoveDown(3, 0);
-			checkPotentialMoveLeft(3, 0);
-			checkPotentialMoveRight(3, 0);
-			checkPotentialMoveUp(3, 0);
-		}
-		if(evt.getSource() == button[4][0]){
-			checkPotentialMoveDown(4, 0);
-			checkPotentialMoveLeft(4, 0);
-			checkPotentialMoveRight(4, 0);
-			checkPotentialMoveUp(4, 0);
-		}
-		if(evt.getSource() == button[5][0]){
-			checkPotentialMoveDown(5, 0);
-			checkPotentialMoveLeft(5, 0);
-			checkPotentialMoveRight(5, 0);
-			checkPotentialMoveUp(5, 0);
-		}
-		if(evt.getSource() == button[6][0]){
-			checkPotentialMoveDown(6, 0);
-			checkPotentialMoveLeft(6, 0);
-			checkPotentialMoveRight(6, 0);
-			checkPotentialMoveUp(6, 0);
-		}
-		if(evt.getSource() == button[7][0]){
-			checkPotentialMoveDown(7, 0);
-			checkPotentialMoveLeft(7, 0);
-			checkPotentialMoveRight(7, 0);
-			checkPotentialMoveUp(7, 0);
-		}
-		if(evt.getSource() == button[0][1]){
-			checkPotentialMoveDown(0, 1);
-			checkPotentialMoveLeft(0, 1);
-			checkPotentialMoveRight(0, 1);
-			checkPotentialMoveUp(0, 1);
-		}
-		if(evt.getSource() == button[1][1]){
-			checkPotentialMoveDown(1, 1);
-			checkPotentialMoveLeft(1, 1);
-			checkPotentialMoveRight(1, 1);
-			checkPotentialMoveUp(1, 1);
-		}
-		if(evt.getSource() == button[2][1]){
-			checkPotentialMoveDown(2, 1);
-			checkPotentialMoveLeft(2, 1);
-			checkPotentialMoveRight(2, 1);
-			checkPotentialMoveUp(2, 1);
-		}
-		if(evt.getSource() == button[3][1]){
-			checkPotentialMoveDown(3, 1);
-			checkPotentialMoveLeft(3, 1);
-			checkPotentialMoveRight(3, 1);
-			checkPotentialMoveUp(3, 1);
-		}
-		if(evt.getSource() == button[4][1]){
-			checkPotentialMoveDown(4, 1);
-			checkPotentialMoveLeft(4, 1);
-			checkPotentialMoveRight(4, 1);
-			checkPotentialMoveUp(4, 1);
-		}
-		if(evt.getSource() == button[5][1]){
-			checkPotentialMoveDown(5, 1);
-			checkPotentialMoveLeft(5, 1);
-			checkPotentialMoveRight(5, 1);
-			checkPotentialMoveUp(5, 1);
-		}
-		if(evt.getSource() == button[6][1]){
-			checkPotentialMoveDown(6, 1);
-			checkPotentialMoveLeft(6, 1);
-			checkPotentialMoveRight(6, 1);
-			checkPotentialMoveUp(6, 1);
-		}
-		if(evt.getSource() == button[7][1]){
-			checkPotentialMoveDown(7, 1);
-			checkPotentialMoveLeft(7, 1);
-			checkPotentialMoveRight(7, 1);
-			checkPotentialMoveUp(7, 1);
-		}
-		*/
 	}
 		
 	@Override
@@ -631,7 +533,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		////////////////////
 		// JButtons
 		////////////////////
-		
 		
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
@@ -888,16 +789,6 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		EnterIP.addKeyListener(this);
 		EnterIP.setVisible(false);
 		menupanel.add(EnterIP);
-		
-		/*
-		// Text field that will be used to enter name
-		P1 = new JTextField();
-		P1.setSize(300, 50);
-		P1.setLocation(490, 225);
-		P1.setVisible(false);
-		P1.addActionListener(this);
-		menupanel.add(P1);
-		*/
 		
 		////////////////////
 		// Help Menu JButtons
