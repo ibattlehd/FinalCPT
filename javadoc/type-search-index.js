@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"BoardPanel"},{"p":"<Unnamed>","l":"character"},{"p":"<Unnamed>","l":"ChatPanel"},{"p":"<Unnamed>","l":"HighscoresCount"},{"p":"<Unnamed>","l":"MarvelGameOfTheGenerals"},{"p":"<Unnamed>","l":"MarvelGameOfTheGeneralsPanel"},{"p":"<Unnamed>","l":"MarvelGOTGHighscores"},{"p":"<Unnamed>","l":"MenuPanel"}]
