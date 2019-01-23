@@ -327,6 +327,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		for(intRow = 0; intRow < 8; intRow++){
 			for(intCol = 0; intCol < 9; intCol++){
 				if(evt.getSource() == button[intRow][intCol]){
+					resetBoard();
 					checkPotentialMoveDown(intRow, intCol);
 					checkPotentialMoveLeft(intRow, intCol);
 					checkPotentialMoveRight(intRow, intCol);
@@ -550,6 +551,16 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
 	}
 	
+	public void resetBoard(){
+		for(int intR = 0; intR < 8; intR++){
+			for(int intC = 0; intC < 9; intC++){
+				if(button[intR][intC].getIcon() == null && button[intR][intC].getBackground() == Color.RED){
+					button[intR][intC].setBackground(Color.BLACK);
+				}
+			}
+		}
+	}
+	
 	public void checkPotentialMoveDown(int intRow, int intCol){
 		checkPotentialMoveCounter++;
 		blnMoveDown = false;
@@ -565,7 +576,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	public void checkPotentialMoveUp(int intRow, int intCol){
 		blnMoveUp = false;
-		if(button[intRow][intCol].getIcon() != null && intRow-1 > 0){
+		if(button[intRow][intCol].getIcon() != null && intRow-1 >= 0){
 			if(button[intRow-1][intCol].getIcon() == null){
 				button[intRow-1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveUp = true;
@@ -577,7 +588,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	
 	public void checkPotentialMoveLeft(int intRow, int intCol){
 		blnMoveLeft = false;
-		if(button[intRow][intCol].getIcon() != null && intCol-1 > 0){
+		if(button[intRow][intCol].getIcon() != null && intCol-1 >= 0){
 			if(button[intRow][intCol-1].getIcon() == null){
 				button[intRow][intCol-1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveLeft = true;
