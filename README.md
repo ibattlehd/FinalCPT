@@ -47,7 +47,7 @@ Blue Nexus**|Special|(x1)| Win Condition - Game ends when eliminate. (Immovable)
 |Hydra Soldiers***|Special| (x6)         |Can only eliminate Loki           |
 |Red Nexus**   |Special| (x1)          |Win condition - game ends when captured.  Immovable.           |
 
-:heavy_exclamation_mark:NOTE: If both characters are both equal power, BOTH are eliminated. 
+If both characters are both equal power, BOTH are eliminated. 
 
 ### Movement
 1. Heroes always make the first move. Players move alternately. 
