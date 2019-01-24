@@ -674,8 +674,8 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}if(strArray[Loki1.intY][Loki2.intX].equals("loki2")){
 			button[Loki1.intY][Loki2.intX].setIcon(new ImageIcon(boardpanel.loki2));
 			
-		}if(strArray[ShieldAgent2.intY][ShieldAgent1.intX].equals("shieldagent2")){
-			button[ShieldAgent2.intY][ShieldAgent1.intX].setIcon(new ImageIcon(boardpanel.shieldagent2));
+		}if(strArray[ShieldAgent2.intY][ShieldAgent2.intX].equals("shieldagent2")){
+			button[ShieldAgent2.intY][ShieldAgent2.intX].setIcon(new ImageIcon(boardpanel.shieldagent2));
 		}if(strArray[ShieldAgent3.intY][ShieldAgent3.intX].equals("shieldagent3")){
 			button[ShieldAgent3.intY][ShieldAgent3.intX].setIcon(new ImageIcon(boardpanel.shieldagent3));
 		}if(strArray[ShieldAgent4.intY][ShieldAgent4.intX].equals("shieldagent4")){
