@@ -324,14 +324,14 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		if(evt.getSource() == buttonQuit){
 				System.exit(0);
 		}
-		for(intRow = 0; intRow < 8; intRow++){
-			for(intCol = 0; intCol < 9; intCol++){
-				if(evt.getSource() == button[intRow][intCol]){
+		for(int intR = 0; intR < 8; intR++){
+			for(int intC = 0; intC < 9; intC++){
+				if(evt.getSource() == button[intR][intC]){
 					resetBoard();
-					checkPotentialMoveDown(intRow, intCol);
-					checkPotentialMoveLeft(intRow, intCol);
-					checkPotentialMoveRight(intRow, intCol);
-					checkPotentialMoveUp(intRow, intCol);
+					checkPotentialMoveDown(intR, intC);
+					checkPotentialMoveLeft(intR, intC);
+					checkPotentialMoveRight(intR, intC);
+					checkPotentialMoveUp(intR, intC);
 				}
 			}
 		}
@@ -463,12 +463,12 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		}
 	}
 	
-	public void checkPotentialMoveDown(int intRow, int intCol){
+	public void checkPotentialMoveDown(int intR, int intC){
 		checkPotentialMoveCounter++;
 		blnMoveDown = false;
-		if(button[intRow][intCol].getIcon() != null && intRow+1 < 8){
-			if(button[intRow+1][intCol].getIcon() == null){
-				button[intRow+1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
+		if(button[intR][intC].getIcon() != null && intR+1 < 8){
+			if(button[intR+1][intC].getIcon() == null){
+				button[intR+1][intC].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveDown = true;
 			}
 		}
@@ -476,11 +476,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		System.out.println("");
 	}
 	
-	public void checkPotentialMoveUp(int intRow, int intCol){
+	public void checkPotentialMoveUp(int intR, int intC){
 		blnMoveUp = false;
-		if(button[intRow][intCol].getIcon() != null && intRow-1 >= 0){
-			if(button[intRow-1][intCol].getIcon() == null){
-				button[intRow-1][intCol].setBackground(Color.RED); // indicate that character can move to this spot
+		if(button[intR][intC].getIcon() != null && intR-1 >= 0){
+			if(button[intR-1][intC].getIcon() == null){
+				button[intR-1][intC].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveUp = true;
 			}
 		}
@@ -488,11 +488,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		System.out.println("");
 	}
 	
-	public void checkPotentialMoveLeft(int intRow, int intCol){
+	public void checkPotentialMoveLeft(int intR, int intC){
 		blnMoveLeft = false;
-		if(button[intRow][intCol].getIcon() != null && intCol-1 >= 0){
-			if(button[intRow][intCol-1].getIcon() == null){
-				button[intRow][intCol-1].setBackground(Color.RED); // indicate that character can move to this spot
+		if(button[intR][intC].getIcon() != null && intC-1 >= 0){
+			if(button[intR][intC-1].getIcon() == null){
+				button[intR][intC-1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveLeft = true;
 			}
 		}
@@ -500,11 +500,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		System.out.println("");
 	}
 	
-	public void checkPotentialMoveRight(int intRow, int intCol){
+	public void checkPotentialMoveRight(int intR, int intC){
 		blnMoveRight = false;
-		if(button[intRow][intCol].getIcon() != null && intCol+1 < 9){
-			if(button[intRow][intCol+1].getIcon() == null){
-				button[intRow][intCol+1].setBackground(Color.RED); // indicate that character can move to this spot
+		if(button[intR][intC].getIcon() != null && intC+1 < 9){
+			if(button[intR][intC+1].getIcon() == null){
+				button[intR][intC+1].setBackground(Color.RED); // indicate that character can move to this spot
 				blnMoveRight = true;
 			}
 		}
