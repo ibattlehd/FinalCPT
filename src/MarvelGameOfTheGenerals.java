@@ -43,13 +43,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	JButton buttonEnter2;
 	JButton buttonEnter;
 	// High scores
-	
 	MarvelGOTGHighscores scores = new MarvelGOTGHighscores();
 	String highscores[][] = scores.readMapArray();
 	HighscoresCount numberscores = new HighscoresCount();
 	int intScoresCount = numberscores.ScoresCount();
 	JTextArea highscoresarea;
-	
 	// Used to setup board
 	JButton button[][] = new JButton[8][9];
 	String strArray[][] = new String[8][9];
@@ -60,6 +58,7 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 	boolean blnMoveRight = false;
 	boolean blnMoveLeft = false;
 	static int checkPotentialMoveCounter = 0; // This means that the checkPotentialMove methods have not been called yet
+	static boolean blnSelectedButtonToMove = false; // This means that user has not yet selected a button on the board to move to
 	// Chat (Networking)
 	JTextArea ChatBox = new JTextArea();
 	JScrollPane ChatScroll = new JScrollPane(ChatBox); 
@@ -327,7 +326,11 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 		for(int intR = 0; intR < 8; intR++){
 			for(int intC = 0; intC < 9; intC++){
 				if(evt.getSource() == button[intR][intC]){
-					resetBoard();
+					checkMoveSelection(evt);
+					resetBooleanSelectedButtonToMove(evt);
+					if(blnSelectedButtonToMove == false){
+						resetBoard();
+					}
 					checkPotentialMoveDown(intR, intC);
 					checkPotentialMoveLeft(intR, intC);
 					checkPotentialMoveRight(intR, intC);
@@ -451,6 +454,55 @@ public class MarvelGameOfTheGenerals implements ActionListener, KeyListener, Mou
 			
 	@Override
 	public void mouseReleased(MouseEvent evt){ // Called after the user releases a mouse button after a mouse press over the listened-to component.
+	}
+	
+	public void resetBooleanSelectedButtonToMove(ActionEvent evt){
+		for(int intR = 0; intR < 8; intR++){
+			for(int intC = 0; intC < 9; intC++){
+				if(evt.getSource() == button[intR][intC]){
+					blnSelectedButtonToMove = false;
+				}
+			}
+		}
+	}
+	
+	public void moveCharacter(ActionEvent evt){
+		for(int intR = 0; intR < 8; intR++){
+			for(int intC = 0; intC < 9; intC++){
+				if(evt.getSource() == button[intR][intC] && button[intR][intC].getIcon() == null && button[intR][intC].getBackground() == Color.RED){
+					/* get previous button clicked
+					 * set that button's imageicon to null
+					 * set button[intR][intC] to the specific imageicon that the previous clicked button had
+					 */
+					 System.out.println("Move character at row: "+intR+" and column: "+intC);
+					 System.out.println("");
+					 button[intR][intC].setIcon(new ImageIcon(boardpanel.spiderman));
+					 
+					 /*
+					 for(int row = 0; row < 8; row++){
+						 for(int col = 0; col < 9; col++){
+							 if(button[row][col].getIcon() == boardpanel.spiderman){
+								 button[row][col].setIcon(null);
+								 System.out.println("Erasing previous spiderman location");
+							 }
+						 }
+					 }
+					 */
+					 
+				}
+			}
+		}
+	}
+	
+	public void checkMoveSelection(ActionEvent evt){
+		for(int intR = 0; intR < 8; intR++){
+			for(int intC = 0; intC < 9; intC++){
+				if(evt.getSource() == button[intR][intC] && button[intR][intC].getIcon() == null && button[intR][intC].getBackground() == Color.RED){
+					blnSelectedButtonToMove = true;
+					moveCharacter(evt);
+				}
+			}
+		}
 	}
 	
 	public void resetBoard(){
